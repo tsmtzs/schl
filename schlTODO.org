@@ -1,0 +1,44 @@
+# ######################################################################
+# A TODO list for the
+#	package schl v0.1
+# 
+# Tassos Tsesmetzis -- July 2019
+# ######################################################################
+
+
+* TODO Make package TeX agnostic
+  Currently, schl depends on /fontspec/ (for the command /\letterspace/). 
+  This means that it runs on XeLaTeX and LuaTeX (?).
+* TODO Merge macros /\lowerdots/ and /\blankspace/ into one.
+  Define a new macro (name /\blankspace/?) with two arguments. 
+  First argument is optional -- the deviation from base line.
+  Second argument is mandatory -- the length of the space.
+  It must accept an option for the /style/ of the blank space
+  (line, dotted, empty)
+* TODO Define Greek math operators with better font control
+  Is the font used in  /\sin, \cos, \tan, \cot, \gcd/ 
+  and /\lcm/ good enough?
+* TODO Better formating of the table in /\examdetailsii/
+* TODO Delete macro /\signer/?
+  Insert names in /\signatures/ without the need of /\signer/ macro,
+  as argument #2.
+* TODO Make a macro for matching questions.
+  It should accept items A, B, C, ... (indefinite number)
+  and items 1, 2, 3, 4, ...
+  Print each type of items in a seperate column.
+  Prepend the value of a counter before each item in column A (optional?)
+  Prepend the value of a counter before each item in column 2 (optional?)
+
+| *Column A* | *Column 2* |
+|------------+------------|
+|            | item 1     |
+|------------+------------|
+| item A     | item 2     |
+|------------+------------|
+| item B     | item 3     |
+|------------+------------|
+| item C     | item 4     |
+|------------+------------|
+|            | item 5     |
+|------------+------------|
+	

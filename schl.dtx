@@ -1,0 +1,710 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2019 by Tasos Tsesmetzis
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3 of this license or any later
+% version.  The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of
+% LaTeX version 2005/12/01 or later.
+%
+% \fi
+
+% \iffalse
+%<package>\ProvidesPackage{schl}
+%<package>[2019/06/15 v0.1 Custom package]
+%
+%
+%<package>\DeclareOption{greek}{
+%<package>  \input{languages/schl-greek}
+%<package>}
+%
+%  \iffalse meta-comment
+%%  Execute default options.
+%  \fi
+%<package>\ExecuteOptions{greek}
+%  
+%<package>\ProcessOptions\relax
+%%
+% \iffalse meta-comment
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% REQUIRED PACKAGES
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%<package>\RequirePackage{fontspec}
+%<package>\RequirePackage{enumitem}
+%<package>\RequirePackage{mdframed}
+%<package>\RequirePackage{amsmath}
+%
+% \iffalse meta-comment
+%%
+%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LOCALIZATION
+%% To localize the package schl, define the following macros
+%% with each term in your language.
+%% \grade@term             : Used by \examdetails and \examdetailsii.
+%% \subject@term           : Used by \examdetails and \examdetailsii.
+%% \testwriter@term        : Used by \examdetails.
+%% \testsupervisor@term    : Used by \examdetails.
+%% \date@term              : Used by \examdetails, \examdetailsii and \datefield.
+%% \schoolyear@term        : Used by \examdetailsii.
+%% \schoolyearabbr@term    : Used by \examdetails. An abbreviation for the word 'schoolyear'.
+%% \examperiod@term        : Used by \examdetails.
+%% \lastname@term          : Used by \examdetailsii.
+%% \name@term              : Used by \examdetailsii.
+%% \time@term              : Used by \examdetailsii.
+%% \examnoabbr@term        : Used by \examdetailsii. An abbreviation for the exam number of a student.
+%% \fullname@term          : Used by \fullname.
+%% \deadline@term          : Used by \deadline.
+%% \theoryheader@term      : Used by \theorypart. It is the word 'THEORY'.
+%% \exerciseheader@term    : Used by \exercisepart. It is the word 'EXERCISES'.
+%% \worksheet@term         : Used by \worksheettile.
+%% \termtest@term          : Used by \examtitle. It is the word that corresponds to a
+%%                           summary test during the year.
+%% \exams@term             : Used by \finalexamheader. The word 'EXAMS'.
+%% \period@term            : Used by \finalexamheader. The word 'PERIOD'.
+%% \headmaster@term        : Used by \signatures.
+%% \answerabbr@term        : Used by \answer. An abbreviation for the word 'answer'.
+%% \exercise@term          : Used by the environment 'exercise'.
+%% \question@term          : Used by the environment 'question'.
+%% \task@term              : Used by the environment 'task'.
+%% \solution@term          : Used by \solution.
+%% \hint@term              : Used by \hint.
+%% \points@term            : Used by \points. You might need to use an 'if' to distinguise
+%%                           the cases for one or many points.
+%%
+%% Other internal macros that are used are the following
+%% \schl@wish             : A wish for good luck, usually printed in tests. Used by \wish.
+%% \schl@headmaster       : The name of the headmaster. It is set with \headmaster.
+%% \schl@teacher          : Teacher's name. It is set with \teacher.
+%% \schl@subject          : The subject of the test, worksheet etc. (algebra, ...). It is set with \subject.
+%%                          Used by \schoollogo, \examdetails and \examdetailsii
+%% \schl@grade            : The grade. It is set with \grade. Used by \schoollogo, \examdetails 
+%%                          and \examdetailsii
+%% \schl@schldate         : The date that the produced document will be given to students.
+%%                          Defined with \schldate and used by \examdetails and \examdetailsii.
+%% \schl@examtime         : The time of the exam. It is set with \examtime and used by \examdetailsii.
+%% \schl@schoolyear       : School year is set with \schoolyear and used by \examdetails and \examdetailsii.
+%% \schl@authorityi, \schl@authorityii, \schl@authorityiii
+%%                        : These three macros define a hierarhy of authorities with 
+%%                          \schl@authorityi > \schl@authorityii > \schl@authorityiii.
+%%                          e.x. \schl@authorityi might be the Ministry of Education, etc
+%%                          They are set with \authorityi, \authorityii and \authorityiii
+%%                          and are used in \authoritylogo.
+%% \schl@school           : The name of the school.Is set with \school. It is used by \schoollogo
+%%                          \authoritylogo.
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%
+% \iffalse meta-comment
+%%
+%%
+%% Default line thickness for macro \blankspace.
+% \fi
+%<package>\def\schl@rulethickness{0.3pt}
+% \iffalse meta-comment
+%% Set \schl@rulethickness
+% \fi
+%<package>\def\rulethickness#1{%
+%<package>  \def\schl@rulethickness{#1}
+%<package> }
+%
+%   \iffalse meta-comment
+%%
+%% Macro \signatures is used to write the names of the teacher(s) and the headmaster. 
+%% A handwritten signature is written in the right of those names.
+%% \signatures uses a \parbox with length \signatureslength.
+%% Each new name is written in a new line. The length between lines is
+%% \signaturelineskip.
+% \fi
+%<package>\newlength{\signatureslength}
+%<package>\setlength{\signatureslength}{13em}
+%<package>\newlength{\signaturelineskip}
+%<package>\setlength{\signaturelineskip}{7ex}
+%
+% \iffalse meta-comment
+%%
+%% Macro \examdetailsii uses a 'tabular' environment. The space between rows is
+% \fi
+%<package>\renewcommand{\arraystretch}{1.5}
+%
+% \iffalse meta-comment
+%%
+%% 'groperators' is used to typeset math operators in Greek.
+%% Based on p. 110 of
+%% Digital Typography using Latex
+%% by A. Syropoulos, A. Tsolomitis, and N. Sofroniou
+% \fi
+%<package> \DeclareSymbolFont{groperators}{\encodingdefault}{\familydefault}{m}{n}
+% 
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{xgreek}
+\setmainfont[Mapping=tex-text]{Linux Biolinum O}
+\usepackage{schl}
+\renewcommand{\abstractname}{Abstract}
+\date{July, 2019}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+\DocInput{schl.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+%   \changes{v0.1}{2019/06/22}{Initial version}
+%
+%   \GetFileInfo{schl.sty}
+%
+% \DoNotIndex{\#,\$,\%,\&,\@,\\,\{,\},\^,\_,\~,\ }
+% \DoNotIndex{\@ne}
+% \DoNotIndex{\advance,\begingroup,\catcode,\closein}
+% \DoNotIndex{\closeout,\day,\def,\edef,\else,\empty,\endgroup}
+%
+% \title{The \textsf{schl} package\thanks{This document
+%   corresponds to \textsf{schl}~\fileversion,
+%   dated~\filedate.}}
+% \author{Tassos Tsesmetzis\\ \texttt{ttsesmetzis@gmail.com}}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   \textsf{schl} is a \XeLaTeX\, package that provides commands and environments suitable for
+% document types that appear
+%   in a classroom enviromnent. It's development is based on the Greek
+%   school system, but it may be usefull in other contexts as well.
+% \end{abstract}
+%
+% \section{Introduction}
+% Worksheets and tests are common document types in a classroom. |schl| package comes with
+% macros that facilitate the creation of these documents. It has list environments for
+% questions, exercises and tasks. Other environments of the package can be used for tickable or
+% multiple choice answers. There are also commands for typesetting solutions, hints
+% and answers to exercises.
+%
+% Furthermore, you can set the name of the teacher,  subject, grade, headmaster, school, date, school year
+% and use these to print school's logo or information about an exam. |schl| has commands
+% to typeset headers for each document type, a macro for typing the points of an exercise and two
+% commands for blank space. There is also a macro for typesetting a wish for good luck!
+%
+% |schl| is based on the Greek school practice. It redefines in Greek the common math macros
+% |\sin, \cos, \tan, \cot| and |\gcd|. Also, it provides the math operator |\lcm| for the least
+% common multiple of integers. Another characteristic of Greek school mathematics, is that |\lim|
+% operator appears in display mode. |schl| offers a macro for this.
+%
+% By default, |schl| prints all macros in Greek but this can be changed to any other language.
+% This can be done by redifining package's internal macros.
+%
+% |schl| loads the packages |fontspec, enumitem, mdframed| and |amsmath|. It is written for \XeLaTeX, but
+% can be used by any system that supports |fontspec|.
+% \section{Macros}
+% \subsection{Mathematics}
+% \DescribeMacro{\sin}\DescribeMacro{\cos}\DescribeMacro{\tan}\DescribeMacro{\cot}
+% These macros redefine in Greek the corresponding trigonometric operators
+% |\sin, \cos, \tan| and |\cot|.
+%
+% \iffalse meta-comment
+%%
+%%
+%% Redefine sine, cosine, tangent and contangent operators in Greek.
+% \fi
+%    \begin{macrocode}
+\renewcommand{\sin}{\mathop{%
+    \mathgroup\symgroperators \eta\mu}\nolimits}
+\renewcommand{\cos}{\mathop{%
+    \mathgroup\symgroperators \sigma\upsilon\nu}\nolimits}
+\renewcommand{\tan}{\mathop{%
+    \mathgroup\symgroperators \varepsilon\phi}\nolimits}
+\renewcommand{\cot}{\mathop{%
+    \mathgroup\symgroperators \sigma\phi}\nolimits}
+%    \end{macrocode}
+% |groperators| is the font used to typeset the functions.
+%
+% \DescribeMacro{\gcd}\DescribeMacro{\lcm} |\gcd| and |\lcm| provide the arithmetic operators for \textsf{greatest common devisor} and
+% \textsf{least common multiple} in Greek. |\gcd| is redefined as
+% \iffalse meta-comment
+%%
+%% Greatest common devisor and least common multiple operators in Greek.
+% \fi
+%    \begin{macrocode}
+  \renewcommand{\gcd}{\mathop{%
+    \mathgroup\symgroperators ΜΚΔ}\nolimits}
+%    \end{macrocode}
+% On the other hand, for |\lcm| we have
+%     \begin{macrocode}
+\DeclareMathOperator{\lcm}{ΕΚΠ}
+%    \end{macrocode}
+%
+% \DescribeMacro{\limdisplay} Command |\limdisplay| \marg{text} prints \meta{text} under |\lim|
+% \iffalse meta-comment
+%%
+%% Write $x\to x_0$ under \lim
+% \fi
+%    \begin{macrocode}
+\newcommand{\limdisplay}[1]{\displaystyle\lim_{#1}}
+%    \end{macrocode}
+% 
+% \subsection{Blank space}
+% \DescribeMacro{\lowerdots}\DescribeMacro{\blankspace} Usually, we  need to designate blank space in a document. |schl| package has two commands for this. The first one |\lowerdots| \oarg{length}\marg{number}, prints \meta{number} dots. Optional argument \meta{length} sets the deviation from base line. It's  default value is |-0.3ex|.
+% \iffalse meta-comment
+%% This command creates dots that represent a blank space.
+%% The first argument accepts a length. The deviation from the baseline.
+%% Second argument is the number of dots that are printed.
+%% From egreg's answer on tex.stackexchange.org
+%% https://tex.stackexchange.com/questions/300207/repeat-characters-n-times
+%% accessed June 06, 2019
+% \fi
+%    \begin{macrocode}
+ \newcommand\lowerdots[2][-0.3ex]{%
+   \begingroup
+   \lccode`m=`.\relax
+   \raisebox{#1}{\lowercase\expandafter{\romannumeral\number\number#2 000}}%
+   \endgroup
+ }
+%    \end{macrocode}
+%
+% |\blankspace| \oarg{length}\marg{linelength} prints a line with length \meta{linelength}. The optional argument is the deviation from the base line and it's default value is |-0.3ex|. |\schl@rulethickness| is the default thickness for all |\blankspace| lines.
+% \iffalse meta-comment
+%%
+%% A line that represents blank space.
+%% First argument: deviation from base line.
+%% Second argument: line width.
+% \fi
+%    \begin{macrocode}
+\newcommand\blankspace[2][-0.3ex]{%
+  \raisebox{#1}{\rule{#2}{\schl@rulethickness}}
+ }
+%    \end{macrocode}
+%
+% \subsection{Lists}
+% |schl| package defines five types of lists. These are |question|, |exercise|, |schltask|, |multichoice| and |tickchoice|. The last one comes also with a stared version |tickchoice*|. All of them depend on the package |enumitem|.
+%
+% \DescribeEnv{question}\DescribeEnv{exercise}\DescribeEnv{schltask}  These environments are  |enumerate|-like lists. List's |\item| is of the form \meta{type} \meta{counter}, where |type| is |\question@term| for |question|, |\exercise@term| for |exercise| and |\task@term| for |schltask|. \meta{counter} is the internal counter of the environment. 
+% \iffalse meta-comment
+%%
+%% A list for questions
+% \fi
+%    \begin{macrocode}
+\newlist{question}{enumerate}{1}
+\setlist*[question]{%
+  align=left,
+  label=\normalsize\bf \question@term\, \arabic*.,
+  wide,
+  leftmargin=0pt,
+  labelindent=0pt
+}
+%    \end{macrocode}
+%
+% \iffalse meta-comment
+%%
+%% A list for exercises.
+% \fi
+%    \begin{macrocode}
+\newlist{exercise}{enumerate}{1}
+\setlist*[exercise]{%
+  align=left,
+  label=\normalsize\bf \exercise@term\, \arabic*,
+  wide,
+  leftmargin=0pt,
+  labelindent=0pt
+}
+%    \end{macrocode}
+%
+% \iffalse meta-comment
+%%
+%% A list for tasks.
+% \fi
+%    \begin{macrocode}
+\newlist{schltask}{enumerate}{1}
+\setlist*[schltask]{%
+  align=left,
+  label=\normalsize\letterspace\bf \task@term\, \Alph*,
+  wide,
+  leftmargin=0pt,
+  labelindent=0pt
+}
+%    \end{macrocode}
+%
+%\DescribeMacro{\letterspace} The macro |\letterspace| is used to set the horizontal space of adjacent characters in a word. It is based on the |\addfontfeature| macro from the package |fontspec|.
+%  \iffalse meta-comment
+%%
+%%  Space of capital word letters
+%% \addfontfeature is from fontspec package.
+%  \fi
+%    \begin{macrocode}
+  \def\letterspace{\addfontfeature{LetterSpace=10.0}}
+%    \end{macrocode}
+%
+% \DescribeEnv{multichoice} The |multichoice| environment is used to typeset multiple choice answers.
+% \iffalse meta-comment
+%%
+%% Insert multiple choice anwers.
+%% Leave a blank line before and after \begin{multichoice} ... \end{multichoice}
+%% for proper rendering.
+% \fi
+%    \begin{macrocode}
+\newlist{multichoice}{enumerate*}{1}
+\setlist*[multichoice]{
+  labelindent=\parindent,
+  label=\Alph*.,
+  itemjoin=\hspace{\fill},
+  before=\hspace{\fill},
+  after=\hspace{\fill}
+}
+%    \end{macrocode}
+%
+% \DescribeEnv{tickchoice}\DescribeEnv{tickchoice*} The environments |tickchoice| and |tickchoice*| are variants of the |itemize| list. For both cases, each item is preceded by a square. |tickchoice| stacks items vertically,
+% \iffalse meta-comment
+%%
+%% Leave a blank line before and after \begin{tickchoice} ... \end{tickchoice}
+%% for proper rendering
+% \fi
+%    \begin{macrocode}
+\newlist{tickchoice}{itemize}{1}
+\setlist[tickchoice]{labelindent=\parindent,label={\large$\square$}}
+%    \end{macrocode}
+% while |tickchoice*| stacks them horizontally.
+%    \begin{macrocode}
+\newlist{tickchoice*}{itemize*}{1}
+\setlist*[tickchoice*]{
+  labelindent=\parindent,
+  label={\large$\square$},
+  itemjoin=\hspace{\fill},
+  before=\hspace{\fill},
+  after=\hspace{\fill}
+}
+%    \end{macrocode}
+%
+% \subsection{Answers, solutions and hints}
+% \DescribeMacro{\answer} Macro |\answer|\marg{text} prints |(\answerabbr@term \meta{text})| at the right end of the current line.
+% \iffalse meta-comment
+%%
+%% Write the answer of an exercise.
+% \fi
+%    \begin{macrocode}
+\newcommand\answer[1]{%
+  \hfill\footnotesize (\answerabbr@term: #1)
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\solution} Macro |\solution|\marg{text} is used to typeset the solution of an exercise. 
+% \iffalse meta-comment
+%%
+%% With this command you write the solution of an exercise.
+% \fi
+%    \begin{macrocode}
+\newcommand\solution[1]{%
+  \par\noindent\phantom{.}\hfill\textbf{\solution@term}\hfill\phantom{.}\par%
+  \noindent #1
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\hint} |schl| provides the macro |\hint|\marg{text} for typesetting exercise hints.
+% \iffalse meta-comment
+%%
+%% A macro for exercise hints.
+% \fi
+%    \begin{macrocode}
+\newcommand\hint[1]{%
+  \par\scriptsize\noindent\textbf{\hint@term:} #1%
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\deadline} A feature of homework assignments is a deadline date. |\deadline|\marg{date} prints |\deadline@term| followed by argument \meta{date}.
+% \iffalse meta-comment
+%%
+%% Print the deadline of an assignment
+% \fi
+%    \begin{macrocode}
+\newcommand\deadline[1]{%
+  \noindent{\normalsize\bf \deadline@term: #1}
+}
+%    \end{macrocode}
+%
+% \subsection{Titles and headers}
+% \DescribeMacro{\heading} Common document types  in a school environment are the worksheet, various tests and final written exams. The macro |\heading|\marg{text} gives a generic header for all these documents.
+% \iffalse meta-comment
+%%
+%% Large centered text in bold face.
+% \fi
+%    \begin{macrocode}
+\newcommand\heading[1]{%
+  \begin{center}
+    {\bf\large #1}
+  \end{center}
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\worksheettitle} Macro |\worksheettitle|\marg{text} sets the title of a worksheet. It appends \meta{text} to |\worksheet@term|.
+% \iffalse meta-comment
+%%
+%% The title of a worksheet.
+%% Argument is a text to be appended in \worksheet@term
+% \fi
+%    \begin{macrocode}
+\newcommand\worksheettitle[1]{%
+  \heading{\worksheet@term\, #1}
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\examtitle} |\examtitle|\oarg{text}\marg{text} is used to set the title of tests. the optional argument has the default value |\termtest@term|. 
+% \iffalse
+%%
+%% Exam, term test title.
+% \fi
+%    \begin{macrocode}
+\newcommand\examtitle[2][\termtest@term]{%
+  \heading{#1 #2}
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\finalexamheader} Titles for end year exams have a standardized form in Greek schools. |\exams@term| is followed by information about the exam, then comes |\period@term| with the exam period after it. |\finalexamheader|\marg{info}\marg{period} is used for these cases.
+% \iffalse meta-comment
+%%
+%% Default headers for final exams.
+% \fi
+%    \begin{macrocode}
+\newcommand\finalexamheader[2]{%
+  \heading{\letterspace #1 \exams@term\\[0.5ex] \period@term\, #2}
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\schl@framedbox} |\schl@framedbox|\marg{text} prints \meta{text} in a centered frame box. It is
+% used by |\theorypart| and |\exercisepart|.
+% \iffalse meta-comment
+%%
+%% A generic header for centered framed text.
+% \fi
+%    \begin{macrocode}
+\newcommand\schl@framedbox[1]{%
+  \begin{center}
+    \fbox{\large{\bf\letterspace #1} }%
+  \end{center}
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\theorypart}\DescribeMacro{\exercisepart} Sometimes theory and exercise sections constitute
+% a written test. Macros |\theorypart| and |\exercisepart| print headers for those parts.
+%    \begin{macrocode}
+\newcommand\theorypart{%
+  \schl@framedbox{\theoryheader@term\!}
+}
+%    \end{macrocode}
+% and
+%    \begin{macrocode}
+\newcommand\exercisepart{%
+  \schl@framedbox{\exerciseheader@term\!}
+}
+%    \end{macrocode}
+% 
+% \subsection{School information}
+% \DescribeMacro{\school}\DescribeMacro{\headmaster}\DescribeMacro{\teacher}\DescribeMacro{\subject}\DescribeMacro{\grade}\DescribeMacro{\schoolyear}\DescribeMacro{\schldate} The macros |\school|\marg{text}, |\headmaster|\marg{name}, |\teacher|\marg{name}, |\subject|\marg{text}, |\grade|\marg{text}, |\schoolyear|\marg{year} and |\schldate|\marg{date} define and set the value of internal macros.
+% \iffalse meta-comment
+%%
+%% Set subject, grade, date, school year etc.
+% \fi
+%    \begin{macrocode}
+\newcommand\school[1]{\def\schl@school{#1}}
+\newcommand\headmaster[1]{\def\schl@headmaster{#1}}
+\newcommand\teacher[1]{\def\schl@teacher{#1}}
+\newcommand\subject[1]{\def\schl@subject{#1}}
+\newcommand\grade[1]{\def\schl@grade{#1}}
+\newcommand\schoolyear[1]{\def\schl@schoolyear{#1}}
+\newcommand\schldate[1]{\def\schl@schldate{#1}}
+%    \end{macrocode}
+%
+% \DescribeMacro{\authorityi}\DescribeMacro{\authorityii}\DescribeMacro{\authorityiii} In a similar vein, |\authorityi|\marg{text}, |\authorityii|\marg{text} and |\authorityiii|\marg{text} define the internal macros |\schl@authorityi|, |\schl@authorityii| and |\schl@authorityiii|. 
+%    \begin{macrocode}
+\newcommand\authorityi[1]{\def\schl@authorityi{#1}}
+\newcommand\authorityii[1]{\def\schl@authorityii{#1}}
+\newcommand\authorityiii[1]{\def\schl@authorityiii{#1}}
+%    \end{macrocode}
+%
+% \subsection{Other macros for tests}
+% \DescribeMacro{\points} |\points|\marg{number} is used to designate the points of an exercise. \marg{number} is the number of points for the current exercise.
+% \iffalse meta-comment
+%%
+%% Print the points of an exescise.
+% \fi
+%    \begin{macrocode}
+\newcommand{\points}[1]{%
+\phantom{.}\hfill(\textbf{\footnotesize \points@term{#1}\, #1})
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\textfield} |\textfield|\marg{text}\marg{number} prints \meta{text} followed by \meta{number} dots. 
+% \iffalse meta-comment
+%%
+%% A generic field for filling in information.
+%% First arg: A number. The number of dots for \lowerdots,
+%% Second arg: The title for the field.
+% \fi
+%    \begin{macrocode}
+\newcommand\textfield[2]{%
+  \noindent{\normalsize\bf #2:} \lowerdots{#1}
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\fullname} Macro |\textfield| is used by |\fullname|\marg{number}. It prints |\fullname@term| with \meta{number} dots after it.
+% \iffalse meta-comment
+%%
+%% A field for writing the full name.
+% \fi
+%    \begin{macrocode}
+\newcommand\fullname[1][60]{%
+  \textfield{#1}{\fullname@term}
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\datefield} Similarly, |\datefield|\marg{number} prints |\date@term| followed my \meta{number} dots.
+% \iffalse meta-comment
+%%
+%% A field for writing the date.
+% \fi
+%    \begin{macrocode}
+\newcommand\datefield[1][30]{%
+  \textfield{#1}{\date@term}
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\schoollogo} |\schoollogo| prints |\schl@school, \schl@grade, \schl@subject| and |\schl@teacher|.
+% \iffalse meta-comment
+%%
+%% School logo
+% \fi
+%    \begin{macrocode}
+\def\schoollogo{%
+  \noindent\parbox[t]{25ex}{%
+    \bf%
+    {\letterspace%
+    \schl@school\\%
+    \schl@grade}\\%
+    \schl@subject\\%
+    \schl@teacher
+  }
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\authoritylogo} |\authoritylogo|\marg{path} prints |\sch@authorityi, \sch@authorityii, \sch@authorityiii| and |\schl@school|. Argument \meta{path} is a path to a picture.
+% \iffalse meta-comment
+%%
+%% Logo for exams.
+%% Argument is path to a picture.
+% \fi
+%    \begin{macrocode}
+\newcommand\authoritylogo[1]{%
+  \noindent\parbox[t]{40ex}{%
+    \centering%
+
+    \vspace{1ex}
+    
+    \includegraphics{#1}
+
+    \vspace{\lineskip}
+
+    {\bf\letterspace\schl@authorityi}
+
+    \vspace{8\lineskip}
+    
+    {\scriptsize\letterspace\schl@authorityii}
+
+    \vspace{2\lineskip}
+    
+    {\footnotesize\letterspace\schl@authorityiii}
+
+    \vspace{8\lineskip}
+
+    {\small\letterspace\schl@school}
+  }
+}
+%    \end{macrocode}
+% \DescribeMacro{\examdetails}\DescribeMacro{\examdetailsii} Written exam documents contain information about the period of the exam,  subject, grade, writer of the test, supervisors of the exam and date. |schl| package has the macros |\examdetails|\marg{text} and |\examdetailsii| for printing this information. Argument \meta{text} of |\examdetails| is the exam period.
+% \iffalse meta-comment
+%%
+%% Print details of the exam.
+%% First arg is the line width for the frame
+%% Second arg is the period of the exams
+% \fi
+%    \begin{macrocode}
+\newcommand\examdetails[2][3pt]{%
+  \parbox[t]{20em}{
+    \begin{mdframed}[linewidth=#1]
+      \normalsize%
+      {%
+        \bf\letterspace%
+        \schoolyearabbr@term:\hspace{3pt}\schl@schoolyear\\[1ex]
+        \examperiod@term #2}\\[1.0ex]
+      \textbf{\grade@term:}\hspace{3pt}\schl@grade\\[1.0ex]
+        \textbf{\subject@term:}\hspace{3pt}\schl@subject \\[1.0ex]
+        \textbf{\testwriter@term:}\hspace{3pt}\schl@teacher\\[1.0ex]
+        \textbf{\testsupervisor@term:}\\[1.0ex]
+        \textbf{\date@term:}\hspace{3pt}\schl@schldate
+    \end{mdframed}
+  }
+}
+%    \end{macrocode}
+% and
+%    \begin{macrocode}
+\newcommand\examdetailsii{%
+  \parbox[t]{330pt}{%
+    \begin{center}\underline{\bf\letterspace\schoolyear@term\, \schl@schoolyear}\end{center}
+    \begin{tabular}{|c|p{60pt}|p{40pt}|p{60pt}|}
+      \hline
+      {\bf\letterspace\lastname@term:} & \multicolumn{3}{|c|}{} \\
+      \hline
+      {\bf\letterspace\name@term:} & \multicolumn{3}{|c|}{} \\
+      \hline
+      {\bf\letterspace\examnoabbr@term:} & & {\bf\letterspace\MakeUppercase{\grade@term}:}
+                                         & \schl@grade \\
+      \hline
+      {\bf\letterspace\MakeUppercase{\subject@term}:} & \multicolumn{3}{|c|}{\schl@subject} \\
+      \hline
+      {\bf\letterspace\MakeUppercase{\date@term}:} & \schl@schldate
+                                   & {\bf\letterspace\time@term:} & \schl@examtime\\
+      \hline
+    \end{tabular}
+  }
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\signatures} Some types of written tests end with the names of the headmaster and the teacher(s) followed by handwritten signatures. Macro |\signer|\marg{name} accepts the name of a signer. |\signatures|\oarg{role}\marg{signer(s)} prints the name(s) of the \meta{signer(s)} under a line with the \meta{role} of the signer(s). |\signatureslength| is the length of the |\signatures| block.
+%    \begin{macrocode}
+\newcommand\signer[1]{\par #1}
+\newcommand\signatures[2][\headmaster@term]{%
+  \parbox[t]{\signatureslength}{%
+    \setlength \baselineskip{\signaturelineskip}
+    \begin{center}
+      #1 #2
+    \end{center}
+  }
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\wish} |\wish| prints |\schl@wish|, a default wish for tests.
+% \iffalse meta-comment
+%%
+%% A wish
+% \fi
+%    \begin{macrocode}
+\newcommand\wish{%
+  \begin{center}
+      {\LARGE\bf \schl@wish}
+  \end{center}
+}
+%    \end{macrocode}
+%
+% \PrintChanges
+% \StopEventually{\PrintIndex}
+% \Finale
+\endinput

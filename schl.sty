@@ -1,0 +1,411 @@
+%%
+%% This is file `schl.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% schl.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2019 by Tassos Tsesmetzis
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3 of this license or any later
+%% version.  The latest version of this license is in:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+%% 
+
+\ProvidesPackage{schl}
+[2019/06/15 v0.1 Custom package]
+\DeclareOption{greek}{
+  \input{languages/schl-greek}
+}
+%%  Execute default options.
+\ExecuteOptions{greek}
+\ProcessOptions\relax
+%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% REQUIRED PACKAGES
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{fontspec}
+\RequirePackage{enumitem}
+\RequirePackage{mdframed}
+\RequirePackage{amsmath}
+%%
+%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LOCALIZATION
+%% To localize the package schl, define the following macros
+%% with each term in your language.
+%% \grade@term             : Used by \examdetails and \examdetailsii.
+%% \subject@term           : Used by \examdetails and \examdetailsii.
+%% \testwriter@term        : Used by \examdetails.
+%% \testsupervisor@term    : Used by \examdetails.
+%% \date@term              : Used by \examdetails, \examdetailsii and \datefield.
+%% \schoolyear@term        : Used by \examdetailsii.
+%% \schoolyearabbr@term    : Used by \examdetails. An abbreviation for the word 'schoolyear'.
+%% \examperiod@term        : Used by \examdetails.
+%% \lastname@term          : Used by \examdetailsii.
+%% \name@term              : Used by \examdetailsii.
+%% \time@term              : Used by \examdetailsii.
+%% \examnoabbr@term        : Used by \examdetailsii. An abbreviation for the exam number of a student.
+%% \fullname@term          : Used by \fullname.
+%% \deadline@term          : Used by \deadline.
+%% \theoryheader@term      : Used by \theorypart. It is the word 'THEORY'.
+%% \exerciseheader@term    : Used by \exercisepart. It is the word 'EXERCISES'.
+%% \worksheet@term         : Used by \worksheettile.
+%% \termtest@term          : Used by \examtitle. It is the word that corresponds to a
+%%                           summary test during the year.
+%% \exams@term             : Used by \finalexamheader. The word 'EXAMS'.
+%% \period@term            : Used by \finalexamheader. The word 'PERIOD'.
+%% \headmaster@term        : Used by \signatures.
+%% \answerabbr@term        : Used by \answer. An abbreviation for the word 'answer'.
+%% \exercise@term          : Used by the environment 'exercise'.
+%% \question@term          : Used by the environment 'question'.
+%% \task@term              : Used by the environment 'task'.
+%% \solution@term          : Used by \solution.
+%% \hint@term              : Used by \hint.
+%% \points@term            : Used by \points. You might need to use an 'if' to distinguise
+%%                           the cases for one or many points.
+%%
+%% Other internal macros that are used are the following
+%% \schl@wish             : A wish for good luck, usually printed in tests. Used by \wish.
+%% \schl@headmaster       : The name of the headmaster. It is set with \headmaster.
+%% \schl@teacher          : Teacher's name. It is set with \teacher.
+%% \schl@subject          : The subject of the test, worksheet etc. (algebra, ...). It is set with \subject.
+%%                          Used by \schoollogo, \examdetails and \examdetailsii
+%% \schl@grade            : The grade. It is set with \grade. Used by \schoollogo, \examdetails
+%%                          and \examdetailsii
+%% \schl@schldate         : The date that the produced document will be given to students.
+%%                          Defined with \schldate and used by \examdetails and \examdetailsii.
+%% \schl@examtime         : The time of the exam. It is set with \examtime and used by \examdetailsii.
+%% \schl@schoolyear       : School year is set with \schoolyear and used by \examdetails and \examdetailsii.
+%% \schl@authorityi, \schl@authorityii, \schl@authorityiii
+%%                        : These three macros define a hierarhy of authorities with
+%%                          \schl@authorityi > \schl@authorityii > \schl@authorityiii.
+%%                          e.x. \schl@authorityi might be the Ministry of Education, etc
+%%                          They are set with \authorityi, \authorityii and \authorityiii
+%%                          and are used in \authoritylogo.
+%% \schl@school           : The name of the school.Is set with \school. It is used by \schoollogo
+%%                          \authoritylogo.
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%
+%% Default line thickness for macro \blankspace.
+\def\schl@rulethickness{0.3pt}
+%% Set \schl@rulethickness
+\def\rulethickness#1{%
+  \def\schl@rulethickness{#1}
+ }
+%%
+%% Macro \signatures is used to write the names of the teacher(s) and the headmaster.
+%% A handwritten signature is written in the right of those names.
+%% \signatures uses a \parbox with length \signatureslength.
+%% Each new name is written in a new line. The length between lines is
+%% \signaturelineskip.
+\newlength{\signatureslength}
+\setlength{\signatureslength}{13em}
+\newlength{\signaturelineskip}
+\setlength{\signaturelineskip}{7ex}
+%%
+%% Macro \examdetailsii uses a 'tabular' environment. The space between rows is
+\renewcommand{\arraystretch}{1.5}
+%%
+%% 'groperators' is used to typeset math operators in Greek.
+%% Based on p. 110 of
+%% Digital Typography using Latex
+%% by A. Syropoulos, A. Tsolomitis, and N. Sofroniou
+ \DeclareSymbolFont{groperators}{\encodingdefault}{\familydefault}{m}{n}
+%%
+%%
+%% Redefine sine, cosine, tangent and contangent operators in Greek.
+\renewcommand{\sin}{\mathop{%
+    \mathgroup\symgroperators \eta\mu}\nolimits}
+\renewcommand{\cos}{\mathop{%
+    \mathgroup\symgroperators \sigma\upsilon\nu}\nolimits}
+\renewcommand{\tan}{\mathop{%
+    \mathgroup\symgroperators \varepsilon\phi}\nolimits}
+\renewcommand{\cot}{\mathop{%
+    \mathgroup\symgroperators \sigma\phi}\nolimits}
+%%
+%% Greatest common devisor and least common multiple operators in Greek.
+  \renewcommand{\gcd}{\mathop{%
+    \mathgroup\symgroperators ΜΚΔ}\nolimits}
+\DeclareMathOperator{\lcm}{ΕΚΠ}
+%%
+%% Write $x\to x_0$ under \lim
+\newcommand{\limdisplay}[1]{\displaystyle\lim_{#1}}
+%% This command creates dots that represent a blank space.
+%% The first argument accepts a length. The deviation from the baseline.
+%% Second argument is the number of dots that are printed.
+%% From egreg's answer on tex.stackexchange.org
+%% https://tex.stackexchange.com/questions/300207/repeat-characters-n-times
+%% accessed June 06, 2019
+ \newcommand\lowerdots[2][-0.3ex]{%
+   \begingroup
+   \lccode`m=`.\relax
+   \raisebox{#1}{\lowercase\expandafter{\romannumeral\number\number#2 000}}%
+   \endgroup
+ }
+%%
+%% A line that represents blank space.
+%% First argument: deviation from base line.
+%% Second argument: line width.
+\newcommand\blankspace[2][-0.3ex]{%
+  \raisebox{#1}{\rule{#2}{\schl@rulethickness}}
+ }
+%%
+%% A list for questions
+\newlist{question}{enumerate}{1}
+\setlist*[question]{%
+  align=left,
+  label=\normalsize\bf \question@term\, \arabic*.,
+  wide,
+  leftmargin=0pt,
+  labelindent=0pt
+}
+%%
+%% A list for exercises.
+\newlist{exercise}{enumerate}{1}
+\setlist*[exercise]{%
+  align=left,
+  label=\normalsize\bf \exercise@term\, \arabic*,
+  wide,
+  leftmargin=0pt,
+  labelindent=0pt
+}
+%%
+%% A list for tasks.
+\newlist{schltask}{enumerate}{1}
+\setlist*[schltask]{%
+  align=left,
+  label=\normalsize\letterspace\bf \task@term\, \Alph*,
+  wide,
+  leftmargin=0pt,
+  labelindent=0pt
+}
+%%
+%%  Space of capital word letters
+%% \addfontfeature is from fontspec package.
+  \def\letterspace{\addfontfeature{LetterSpace=10.0}}
+%%
+%% Insert multiple choice anwers.
+%% Leave a blank line before and after \begin{multichoice} ... \end{multichoice}
+%% for proper rendering.
+\newlist{multichoice}{enumerate*}{1}
+\setlist*[multichoice]{
+  labelindent=\parindent,
+  label=\Alph*.,
+  itemjoin=\hspace{\fill},
+  before=\hspace{\fill},
+  after=\hspace{\fill}
+}
+%%
+%% Leave a blank line before and after \begin{tickchoice} ... \end{tickchoice}
+%% for proper rendering
+\newlist{tickchoice}{itemize}{1}
+\setlist[tickchoice]{labelindent=\parindent,label={\large$\square$}}
+\newlist{tickchoice*}{itemize*}{1}
+\setlist*[tickchoice*]{
+  labelindent=\parindent,
+  label={\large$\square$},
+  itemjoin=\hspace{\fill},
+  before=\hspace{\fill},
+  after=\hspace{\fill}
+}
+%%
+%% Write the answer of an exercise.
+\newcommand\answer[1]{%
+  \hfill\footnotesize (\answerabbr@term: #1)
+}
+%%
+%% With this command you write the solution of an exercise.
+\newcommand\solution[1]{%
+  \par\noindent\phantom{.}\hfill\textbf{\solution@term}\hfill\phantom{.}\par%
+  \noindent #1
+}
+%%
+%% A macro for exercise hints.
+\newcommand\hint[1]{%
+  \par\scriptsize\noindent\textbf{\hint@term:} #1%
+}
+%%
+%% Print the deadline of an assignment
+\newcommand\deadline[1]{%
+  \noindent{\normalsize\bf \deadline@term: #1}
+}
+%%
+%% Large centered text in bold face.
+\newcommand\heading[1]{%
+  \begin{center}
+    {\bf\large #1}
+  \end{center}
+}
+%%
+%% The title of a worksheet.
+%% Argument is a text to be appended in \worksheet@term
+\newcommand\worksheettitle[1]{%
+  \heading{\worksheet@term\, #1}
+}
+%%
+%% Exam, term test title.
+\newcommand\examtitle[2][\termtest@term]{%
+  \heading{#1 #2}
+}
+%%
+%% Default headers for final exams.
+\newcommand\finalexamheader[2]{%
+  \heading{\letterspace #1 \exams@term\\[0.5ex] \period@term\, #2}
+}
+%%
+%% A generic header for centered framed text.
+\newcommand\schl@framedbox[1]{%
+  \begin{center}
+    \fbox{\large{\bf\letterspace #1} }%
+  \end{center}
+}
+\newcommand\theorypart{%
+  \schl@framedbox{\theoryheader@term\!}
+}
+\newcommand\exercisepart{%
+  \schl@framedbox{\exerciseheader@term\!}
+}
+%%
+%% Set subject, grade, date, school year etc.
+\newcommand\school[1]{\def\schl@school{#1}}
+\newcommand\headmaster[1]{\def\schl@headmaster{#1}}
+\newcommand\teacher[1]{\def\schl@teacher{#1}}
+\newcommand\subject[1]{\def\schl@subject{#1}}
+\newcommand\grade[1]{\def\schl@grade{#1}}
+\newcommand\schoolyear[1]{\def\schl@schoolyear{#1}}
+\newcommand\schldate[1]{\def\schl@schldate{#1}}
+\newcommand\authorityi[1]{\def\schl@authorityi{#1}}
+\newcommand\authorityii[1]{\def\schl@authorityii{#1}}
+\newcommand\authorityiii[1]{\def\schl@authorityiii{#1}}
+%%
+%% Print the points of an exescise.
+\newcommand{\points}[1]{%
+\phantom{.}\hfill(\textbf{\footnotesize \points@term{#1}\, #1})
+}
+%%
+%% A generic field for filling in information.
+%% First arg: A number. The number of dots for \lowerdots,
+%% Second arg: The title for the field.
+\newcommand\textfield[2]{%
+  \noindent{\normalsize\bf #2:} \lowerdots{#1}
+}
+%%
+%% A field for writing the full name.
+\newcommand\fullname[1][60]{%
+  \textfield{#1}{\fullname@term}
+}
+%%
+%% A field for writing the date.
+\newcommand\datefield[1][30]{%
+  \textfield{#1}{\date@term}
+}
+%%
+%% School logo
+\def\schoollogo{%
+  \noindent\parbox[t]{25ex}{%
+    \bf%
+    {\letterspace%
+    \schl@school\\%
+    \schl@grade}\\%
+    \schl@subject\\%
+    \schl@teacher
+  }
+}
+%%
+%% Logo for exams.
+%% Argument is path to a picture.
+\newcommand\authoritylogo[1]{%
+  \noindent\parbox[t]{40ex}{%
+    \centering%
+
+    \vspace{1ex}
+
+    \includegraphics{#1}
+
+    \vspace{\lineskip}
+
+    {\bf\letterspace\schl@authorityi}
+
+    \vspace{8\lineskip}
+
+    {\scriptsize\letterspace\schl@authorityii}
+
+    \vspace{2\lineskip}
+
+    {\footnotesize\letterspace\schl@authorityiii}
+
+    \vspace{8\lineskip}
+
+    {\small\letterspace\schl@school}
+  }
+}
+%%
+%% Print details of the exam.
+%% First arg is the line width for the frame
+%% Second arg is the period of the exams
+\newcommand\examdetails[2][3pt]{%
+  \parbox[t]{20em}{
+    \begin{mdframed}[linewidth=#1]
+      \normalsize%
+      {%
+        \bf\letterspace%
+        \schoolyearabbr@term:\hspace{3pt}\schl@schoolyear\\[1ex]
+        \examperiod@term #2}\\[1.0ex]
+      \textbf{\grade@term:}\hspace{3pt}\schl@grade\\[1.0ex]
+        \textbf{\subject@term:}\hspace{3pt}\schl@subject \\[1.0ex]
+        \textbf{\testwriter@term:}\hspace{3pt}\schl@teacher\\[1.0ex]
+        \textbf{\testsupervisor@term:}\\[1.0ex]
+        \textbf{\date@term:}\hspace{3pt}\schl@schldate
+    \end{mdframed}
+  }
+}
+\newcommand\examdetailsii{%
+  \parbox[t]{330pt}{%
+    \begin{center}\underline{\bf\letterspace\schoolyear@term\, \schl@schoolyear}\end{center}
+    \begin{tabular}{|c|p{60pt}|p{40pt}|p{60pt}|}
+      \hline
+      {\bf\letterspace\lastname@term:} & \multicolumn{3}{|c|}{} \\
+      \hline
+      {\bf\letterspace\name@term:} & \multicolumn{3}{|c|}{} \\
+      \hline
+      {\bf\letterspace\examnoabbr@term:} & & {\bf\letterspace\MakeUppercase{\grade@term}:}
+                                         & \schl@grade \\
+      \hline
+      {\bf\letterspace\MakeUppercase{\subject@term}:} & \multicolumn{3}{|c|}{\schl@subject} \\
+      \hline
+      {\bf\letterspace\MakeUppercase{\date@term}:} & \schl@schldate
+                                   & {\bf\letterspace\time@term:} & \schl@examtime\\
+      \hline
+    \end{tabular}
+  }
+}
+\newcommand\signer[1]{\par #1}
+\newcommand\signatures[2][\headmaster@term]{%
+  \parbox[t]{\signatureslength}{%
+    \setlength \baselineskip{\signaturelineskip}
+    \begin{center}
+      #1 #2
+    \end{center}
+  }
+}
+%%
+%% A wish
+\newcommand\wish{%
+  \begin{center}
+      {\LARGE\bf \schl@wish}
+  \end{center}
+}
+\endinput
+%%
+%% End of file `schl.sty'.
