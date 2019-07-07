@@ -65,3 +65,5 @@
 \def\task@term{ΘΕΜΑ}
 \def\solution@term{Λύση}
 \def\hint@term{Υπόδειξη}
+
+\endinput

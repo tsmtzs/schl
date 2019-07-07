@@ -21,10 +21,11 @@
 %% LaTeX version 2005/12/01 or later.
 %% 
 
+\NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{schl}
 [2019/06/15 v0.1 Custom package]
 \DeclareOption{greek}{
-  \input{languages/schl-greek}
+  \input{languages/schl-greek.def}
 }
 %%  Execute default options.
 \ExecuteOptions{greek}

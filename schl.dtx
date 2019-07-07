@@ -15,12 +15,14 @@
 % \fi
 
 % \iffalse
+%<package>\NeedsTeXFormat{LaTeX2e}
 %<package>\ProvidesPackage{schl}
 %<package>[2019/06/15 v0.1 Custom package]
 %
+%<schl-greek>\ProvidesFile{languages/schl-greek.def}
 %
 %<package>\DeclareOption{greek}{
-%<package>  \input{languages/schl-greek}
+%<package>  \input{languages/schl-greek.def}
 %<package>}
 %
 %  \iffalse meta-comment
