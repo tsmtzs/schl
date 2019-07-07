@@ -1,0 +1,67 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PACKAGE schl
+%% TERMS IN GREEK
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesFile{schl-greek.def}[2019/07/07 v0.1 Terms in Greek for the schl package]
+
+\def\points@term#1{%
+  \ifnum 1=#1
+  μονάδα
+  \else
+  μονάδες
+  \fi
+}
+
+% default wish
+\def\schl@wish{\letterspace ΚΑΛΗ ΕΠΙΤΥΧΙΑ}
+
+% \schl@authorityi > \schl@authorityii > \schl@authorityii
+\def\schl@authorityi{ΕΛΛΗΝΙΚΗ ΔΗΜΟΚΡΑΤΙΑ}
+\def\schl@authorityii{ΥΠΟΥΡΓΕΙΟ ΠΑΙΔΕΙΑΣ, ΕΡΕΥΝΑΣ \& ΘΡΗΣΚΕΥΜΑΤΩΝ}
+\def\schl@authorityiii{ΠΕΡΙΦ/ΚΗ Δ/ΝΣΗ Α’/ΘΜΙΑΣ \& Β’/ΘΜΙΑΣ ΕΚΠ/ΣΗΣ
+  ΑΝΑΤΟΛΙΚΗΣ ΜΑΚΕΔΟΝΙΑΣ ΚΑΙ ΘΡΑΚΗΣ}
+\def\schl@school{3 Γυμνάσιο Κέρκυρας}
+\def\schl@grade{Α' Γυμνασίου}
+\def\schl@subject{Άλγεβρα}
+\def\schl@teacher{Πυθαγόρας}
+\def\schl@schoolyear{2018-19}
+\def\schl@schldate{3/5/2019}
+\def\schl@examtime{8:20}
+
+\def\grade@term{Τάξη}
+\def\subject@term{Μάθημα}
+\def\testwriter@term{Εισηγητής}
+\def\testsupervisor@term{Επιτηρητής}
+\def\date@term{Ημερομηνία}
+
+\def\schoolyear@term{ΣΧΟΛΙΚΟ ΕΤΟΣ}
+\def\schoolyearabbr@term{ΣΧΟΛ\@.\, ΈΤΟΣ}
+\def\examperiod@term{ΕΞΕΤΑΣΤΙΚΗ ΠΕΡΙΟΔΟΣ}
+\def\lastname@term{ΕΠΙΘΕΤΟ}
+\def\name@term{ΟΝΟΜΑ}
+\def\examnoabbr@term{Α\@.Μ\@.Μ\.}
+\def\time@term{ΩΡΑ}
+
+\def\fullname@term{Ονοματεπώνυμο}
+
+\def\deadline@term{Παράδοση}
+
+\def\theoryheader@term{ΘΕΩΡΙΑ}
+\def\exerciseheader@term{ΑΣΚΗΣΕΙΣ}
+
+\def\worksheet@term{Φύλλο εργασίας}
+
+\def\termtest@term{Διαγώνισμα}
+
+\def\exams@term{ΕΞΕΤΑΣΕΙΣ}
+\def\period@term{ΠΕΡΙΟΔΟΥ}
+
+\def\headmaster@term{Ο Διευθυντής}
+
+\def\answerabbr@term{Απ.}
+
+\def\exercise@term{Άσκηση}
+\def\question@term{Ερώτηση}
+\def\task@term{ΘΕΜΑ}
+\def\solution@term{Λύση}
+\def\hint@term{Υπόδειξη}

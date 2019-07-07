@@ -1,0 +1,164 @@
+\documentclass[12pt,a4page]{article}
+% \usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{xgreek}
+
+\setmainfont[Mapping=tex-text]{Linux Biolinum O}
+
+\usepackage[width=0.9\paperwidth,height=0.9\paperheight,centering]{geometry}
+\usepackage{color}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{enumerate}
+% \pagestyle{empty}
+
+% load package from the same directory
+\usepackage{schl}
+
+\begin{document}
+
+\begin{enumerate}
+\item Μαθηματικές συναρτήσεις
+  $$\tan_1^3 f(x)\quad \cot x \quad \sin \varphi \quad \cos t$$
+  $$\gcd (1,2)\quad \lcm(3,4)$$
+\item Κενός χώρος για συμπλήρωση\\
+  Τα μαθηματικά είναι \lowerdots{3}. Ο Banach υπήρξε \lowerdots{20} από την Πολωνία. Μεταβλητό ύψος \lowerdots[0.5ex]{10}!\\ Και μέσα σε μαθηματικές εκφράσεις $\cos\frac\pi4 = \lowerdots{4}$.
+\item Το $x\to x_0$ κάτω από το όριο.  $\limdisplay{x\to x_0}f(x)$
+\item Το περιβάλλον \texttt{exercise} χρησιμοποιείται για τις εκφωνήσεις των ασκήσεων.
+  \begin{exercise}
+  \item  Να γράψετε όλους τους πρώτους αριθμούς που είναι μικρότεροι του $100$.
+  \item Έχουμε κόκκινες και πράσινες χάντρες για να φτιάξουμε ένα βραχιόλι. Αν χρησιμοποιήσουμε όλες τις κόκκινες και βάλουμε τον ίδιο αριθμό από πράσινες, τότε, θα περισσέψει μια πράσινη χάντρα. Αν χρησιμοποιήσουμε όλες τις πράσινες και βάλουμε μισές κόκκινες από τον αριθμό των πράσινων, τότε, θα περισσέψουν δύο κόκκινες χάντρες. Πόσες κόκκινες και πόσες πράσινες χάντρες έχουμε;
+  \item Δείξτε ότι το άθροισμα των γωνιών ενός τριγώνου είναι $180^\circ$.
+  \end{exercise}
+\item Το περιβάλλον \texttt{schltask} χρησιμοποιείται για τις ασκήσεις των διαγωνισμάτων. 
+  \begin{schltask}
+  \item Λύστε την εξίσωση $x^2 - 3x + 2 = 0$.
+  \item Αποδείξτε το Πυθαγόρειο θεώρημα.
+  \item Δείξτε ότι οι διάμεσοι ενός τριγώνου συντρέχουν.
+  \end{schltask}
+\item Η εντολή \verb/\answer/ εμφανίζει την απάντηση.
+  \begin{exercise}
+  \item Υπολογίστε το άθροισμα 1 + 1.\\\phantom{.}\answer{2}
+  \end{exercise}
+\item Με το περιβάλλον \texttt{solution}, εισάγουμε τη λύση μιας άσκησης.
+  \begin{exercise}
+  \item Δείξτε ότι το πλήθος των πρώτων είναι άπειρο.
+    \solution{%
+      Υποθέτουμε ότι υπάρχει πεπερασμένο πλήθος πρώτων αριθμών $p_1,\ldots,p_\nu$. Θεωρούμε τον ακέραιο \ldots}
+  \end{exercise}
+  \begin{schltask}
+  \item Να δείξετε ότι η ευθεία $y = x$ διέρχεται από την αρχή των αξόνων.
+    \solution{%
+      Αρκεί να δείξουμε ότι οι συντεταγμένες του σημείου $O(0\,,\,0)$ επαληθεύουν την εξίσωση της ευθείας.}
+  \end{schltask}
+\item Μονάδες για ασκήσεις.
+  \begin{schltask}
+  \item \points{25}\\
+    Διατυπώστε και αποδείξτε το θεώρημα του Bolzano.
+  \item  Θεωρούμε τη συνάρτηση $f:\mathbb{R}\rightarrow\mathbb{R}$ με τύπο $f(x) = \frac1{x-1}$.
+    \begin{enumerate}
+    \item Βρείτε το πεδίο ορισμού της $f$.\points{10}
+    \item Υπολoγίστε το $f(3)$.\points{1}
+    \end{enumerate}
+  \end{schltask}
+  \item Με το περιβάλλον \texttt{question} εισάγουμε ερωτήσεις.
+    \begin{question}
+    \item Υπάρχει μικρότερος πραγματικός αριθμός;
+    \end{question}
+\item Το περιβάλλον \texttt{hint} χρησιμοποιείται για την εισαγωγή υποδείξεων.
+  \begin{exercise}
+  \item Δείξτε ότι ανάμεσα σε οποιουσδήποτε δύο ρητούς αριθμούς, υπάρχει ρητός.
+  \hint{%
+    Θεωρούμε τους ρητούς $\rho_1 < \rho_2$. Ορίζουμε τον πραγματικό $\frac{\rho_1 + \rho_2}2$. Στη συνέχεια δείχνουμε ότι ο $x$ είναι \ldots}
+\item Δείξτε ότι $(\alpha + \beta)^2 = \alpha^2 + 2 \alpha \beta + \beta^2$.
+  \hint{%
+    Έχουμε $(\alpha + \beta)^2 = (\alpha + \beta) \cdot (\alpha + \beta) = \ldots$}
+  \end{exercise}
+\item Με το περιβάλλον \texttt{multichoice} εισάγουμε πολλαπλές απαντήσεις.
+  % leave a blank line
+  
+  \begin{multichoice}
+  \item AhkAJh
+  \item nhsjhd
+  \end{multichoice}
+  % leave a blank line
+
+  Ακόμη ένα παράδειγμα
+  % leave a blank line
+
+  \begin{multichoice}
+  \item AhkAJh
+  \item nhsjhd
+  \item oasdp
+  \end{multichoice}
+
+  Ή
+
+  \begin{multichoice}[before=\hspace{3em},itemjoin=\hspace{3em},label=\bf\arabic*{})]
+  \item  nasid nsaid ansincc inwuiesb ncizhs
+  \item nbin p nloxn ioj znkxi mzoxmc z\\\hspace*{13em}
+  \item jkajs jdiajskj iojc 9wj c9ja snin so
+  \end{multichoice}
+\item Το περιβάλλον \texttt{tickchoice} χρησιμοποιείται για πολλαπλές επιλογές. Σε κάθε μια από αυτές προηγείται ένα τετραγωνάκι για επιλογή. Οριζόντια:
+
+  \begin{tickchoice*}
+  \item συνάρτηση
+  \item σχέση
+  \item σύνολο
+  \end{tickchoice*}
+
+  και κάθετα
+  
+  \begin{tickchoice}
+  \item συνάρτηση
+  \item σχέση
+  \item σύνολο
+  \end{tickchoice}
+\item Ευχές για καλή επιτυχία.
+  \wish
+  Θέτοντας νέο κείμενο. Η εντολή \verb/\letterspace/ καθορίζει την απόσταση ανάμεσα στα γράμματα.
+  \makeatletter
+  \def\schl@wish{\letterspace ΚΑΛΗ ΤΥΧΗ}
+  \makeatother
+  \wish
+\item Εισαγωγή ονόματος\hspace{2em} \fullname\\
+  \datefield \\
+  Και χωρίς τις τελείες \hspace{3em} \fullname[0]\\ \datefield[0]
+\item Παράδοση εργασίας κ.τ.λ. \hspace{3em} \deadline{2/2/2058}\\
+\item Θέματα θεωρίας σ' ένα διαγώνισμα \theorypart
+  Θέματα ασκήσεων σ' ένα διαγώνισμα \exercisepart
+\item Θέτοντας τον τίτλο ενός φύλλου εργασίας
+  \worksheettitle{}
+  ή
+  \worksheettitle{στην παράγραφo \S A.2.3}
+\item Πεδίο για υπογραφές εισηγητών/διευθυντή\\
+  \signatures{\signer{Georg Cantor}}
+  \hfill
+  \signatures[Οι Εισηγητές]{%
+    \signer{Αλφαβήτας Γαμαδέλτας}
+    \signer{Εψιλονζήτας Ηταθήτας}
+  }
+\item Επικεφαλίδα για διαγωνίσματα, τεστ κ.τ.λ.
+  \examtitle{}
+  \examtitle{Α' τετραμήνου}
+  \examtitle[Τεστ]{στο κεφάλαιο 1}
+\item Επικεφαλίδα τελικών εξετάσεων
+  \finalexamheader{ΓΡΑΠΤΕΣ ΕΠΑΝΑΛΗΠΤΙΚΕΣ}{ΜΑΪΟΥ -- ΙΟΥΝΙΟΥ}
+\item Λογότυπο για τις εξετάσεις
+  \authoritylogo{../schl-teacher-guide/pictures/ethnosimo.jpg}
+\item Λογότυπο σχολείου\\ \schoollogo
+\item Πληροφορίες για την εξέταση\\
+  \authoritylogo{../schl-teacher-guide/pictures/ethnosimo.jpg}\hfill\examdetails{ΙΟΥΝΙΟΥ}
+
+  και
+
+  \authoritylogo{../schl-teacher-guide/pictures/ethnosimo.jpg}\hfill\examdetailsii{}
+\item Η εντολη \verb*/\blankspace/ εμφανίζει ένα ευθύγραμμο τμήμα. \\
+  Η εαρινή ισημερία πραγματοποιείται στις \blankspace{10em}.\\
+  Ήταν μια βροχερή μέρα. Από το πρωί \blankspace[-1ex]{3em}\\
+  \blankspace{0.8\textwidth}\\
+\end{enumerate}
+\end{document}
