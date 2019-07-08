@@ -182,7 +182,7 @@
 % \maketitle
 %
 % \begin{abstract}
-%   \textsf{schl} is a \XeLaTeX\, package that provides commands and environments suitable for
+%   \textsf{schl} is a \XeLaTeX\  package that provides commands and environments suitable for
 % document types that appear
 %   in a classroom enviromnent. It's development is based on the Greek
 %   school system, but it may be usefull in other contexts as well.
@@ -301,7 +301,7 @@
 \newlist{question}{enumerate}{1}
 \setlist*[question]{%
   align=left,
-  label=\normalsize\bf \question@term\, \arabic*.,
+  label=\normalsize\bf \question@term\  \arabic*.,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -316,7 +316,7 @@
 \newlist{exercise}{enumerate}{1}
 \setlist*[exercise]{%
   align=left,
-  label=\normalsize\bf \exercise@term\, \arabic*,
+  label=\normalsize\bf \exercise@term\  \arabic*.,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -331,7 +331,7 @@
 \newlist{schltask}{enumerate}{1}
 \setlist*[schltask]{%
   align=left,
-  label=\normalsize\letterspace\bf \task@term\, \Alph*,
+  label=\normalsize\bf\letterspace\task@term\  \Alph*,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -430,7 +430,7 @@
 % \fi
 %    \begin{macrocode}
 \newcommand\deadline[1]{%
-  \noindent{\normalsize\bf \deadline@term: #1}
+  \noindent{{\bf\normalsize\deadline@term}: #1}
 }
 %    \end{macrocode}
 %
@@ -456,7 +456,7 @@
 % \fi
 %    \begin{macrocode}
 \newcommand\worksheettitle[1]{%
-  \heading{\worksheet@term\, #1}
+  \heading{\worksheet@term\  #1}
 }
 %    \end{macrocode}
 %
@@ -478,7 +478,7 @@
 % \fi
 %    \begin{macrocode}
 \newcommand\finalexamheader[2]{%
-  \heading{\letterspace #1 \exams@term\\[0.5ex] \period@term\, #2}
+  \heading{\letterspace #1 \exams@term\\[0.5ex] \period@term\  #2}
 }
 %    \end{macrocode}
 %
@@ -541,7 +541,7 @@
 % \fi
 %    \begin{macrocode}
 \newcommand{\points}[1]{%
-\phantom{.}\hfill(\textbf{\footnotesize \points@term{#1}\, #1})
+\phantom{.}\hfill(\textbf{\footnotesize \points@term{#1}\  #1})
 }
 %    \end{macrocode}
 %
@@ -580,18 +580,17 @@
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\schoollogo} |\schoollogo| prints |\schl@school, \schl@grade, \schl@subject| and |\schl@teacher|.
+% \DescribeMacro{\schoollogo} |\schoollogo|\marg{width} prints |\schl@school, \schl@grade, \schl@subject| and |\schl@teacher|. \meta{width} is the length of the |\parbox|.
 % \iffalse meta-comment
 %%
 %% School logo
+%% Arg 1 is the length of the parbox.
 % \fi
 %    \begin{macrocode}
-\def\schoollogo{%
-  \noindent\parbox[t]{25ex}{%
-    \bf%
-    {\letterspace%
+\def\schoollogo#1{%
+  \parbox[t]{#1}{%
     \schl@school\\%
-    \schl@grade}\\%
+    \schl@grade\\%
     \schl@subject\\%
     \schl@teacher
   }
@@ -660,7 +659,7 @@
 %    \begin{macrocode}
 \newcommand\examdetailsii{%
   \parbox[t]{330pt}{%
-    \begin{center}\underline{\bf\letterspace\schoolyear@term\, \schl@schoolyear}\end{center}
+    \begin{center}\underline{\bf\letterspace\schoolyear@term\  \schl@schoolyear}\end{center}
     \begin{tabular}{|c|p{60pt}|p{40pt}|p{60pt}|}
       \hline
       {\bf\letterspace\lastname@term:} & \multicolumn{3}{|c|}{} \\
