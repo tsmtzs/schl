@@ -35,7 +35,7 @@
 %% REQUIRED PACKAGES
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{fontspec}
-\RequirePackage{enumitem}
+\RequirePackage[shortlabels]{enumitem}
 \RequirePackage{mdframed}
 \RequirePackage{amsmath}
 %%
@@ -223,7 +223,7 @@
 %%
 %% Write the answer of an exercise.
 \newcommand\answer[1]{%
-  \hfill\footnotesize (\answerabbr@term: #1)
+  \hfill{\footnotesize (\answerabbr@term: #1)}
 }
 %%
 %% With this command you write the solution of an exercise.
@@ -234,7 +234,7 @@
 %%
 %% A macro for exercise hints.
 \newcommand\hint[1]{%
-  \par\scriptsize\noindent\textbf{\hint@term:} #1%
+  \par{\scriptsize\noindent\textbf{\hint@term:} #1}%
 }
 %%
 %% Print the deadline of an assignment
@@ -299,16 +299,16 @@
 %% First arg: A number. The number of dots for \lowerdots,
 %% Second arg: The title for the field.
 \newcommand\textfield[2]{%
-  \noindent{\normalsize\bf #2:} \lowerdots{#1}
+  \noindent{\normalsize #2:} \lowerdots{#1}
 }
 %%
 %% A field for writing the full name.
-\newcommand\fullname[1][60]{%
+\newcommand\fullname[1][0]{%
   \textfield{#1}{\fullname@term}
 }
 %%
 %% A field for writing the date.
-\newcommand\datefield[1][30]{%
+\newcommand\datefield[1][0]{%
   \textfield{#1}{\date@term}
 }
 %%

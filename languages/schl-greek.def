@@ -13,20 +13,19 @@
 }
 
 % default wish
-\def\schl@wish{\letterspace ΚΑΛΗ ΕΠΙΤΥΧΙΑ}
+\def\schl@wish{\letterspace[10.0]ΚΑΛΗ ΕΠΙΤΥΧΙΑ}
 
 % \schl@authorityi > \schl@authorityii > \schl@authorityii
 \def\schl@authorityi{ΕΛΛΗΝΙΚΗ ΔΗΜΟΚΡΑΤΙΑ}
 \def\schl@authorityii{ΥΠΟΥΡΓΕΙΟ ΠΑΙΔΕΙΑΣ, ΕΡΕΥΝΑΣ \& ΘΡΗΣΚΕΥΜΑΤΩΝ}
-\def\schl@authorityiii{ΠΕΡΙΦ/ΚΗ Δ/ΝΣΗ Α’/ΘΜΙΑΣ \& Β’/ΘΜΙΑΣ ΕΚΠ/ΣΗΣ
-  ΑΝΑΤΟΛΙΚΗΣ ΜΑΚΕΔΟΝΙΑΣ ΚΑΙ ΘΡΑΚΗΣ}
-\def\schl@school{3 Γυμνάσιο Κέρκυρας}
-\def\schl@grade{Α' Γυμνασίου}
-\def\schl@subject{Άλγεβρα}
-\def\schl@teacher{Πυθαγόρας}
-\def\schl@schoolyear{2018-19}
-\def\schl@schldate{3/5/2019}
-\def\schl@examtime{8:20}
+\def\schl@authorityiii{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\authorityiii|***}
+\def\schl@school{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\school|***}
+\def\schl@grade{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\grade|***}
+\def\schl@subject{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\subject|***}
+\def\schl@teacher{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\teacher|***}
+\def\schl@schoolyear{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\schoolyear|***}
+\def\schl@schldate{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\schldate|***}
+\def\schl@examtime{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\examtime|***}
 
 \def\grade@term{Τάξη}
 \def\subject@term{Μάθημα}

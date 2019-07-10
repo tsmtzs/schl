@@ -120,12 +120,12 @@
   \wish
   Θέτοντας νέο κείμενο. Η εντολή \verb/\letterspace/ καθορίζει την απόσταση ανάμεσα στα γράμματα.
   \makeatletter
-  \def\schl@wish{\letterspace ΚΑΛΗ ΤΥΧΗ}
+  \def\schl@wish{\letterspace{10} ΚΑΛΗ ΤΥΧΗ}
   \makeatother
   \wish
 \item Εισαγωγή ονόματος\hspace{2em} \fullname\\
   \datefield \\
-  Και χωρίς τις τελείες \hspace{3em} \fullname[0]\\ \datefield[0]
+  Και με τελείες \hspace{3em} \fullname[10]\\ \datefield[10]
 \item Παράδοση εργασίας κ.τ.λ. \hspace{3em} \deadline{2/2/2058}\\
 \item Θέματα θεωρίας σ' ένα διαγώνισμα \theorypart
   Θέματα ασκήσεων σ' ένα διαγώνισμα \exercisepart
@@ -148,13 +148,13 @@
   \finalexamheader{ΓΡΑΠΤΕΣ ΕΠΑΝΑΛΗΠΤΙΚΕΣ}{ΜΑΪΟΥ -- ΙΟΥΝΙΟΥ}
 \item Λογότυπο για τις εξετάσεις
   \authoritylogo{../schl-teacher-guide/pictures/ethnosimo.jpg}
-\item Λογότυπο σχολείου\\ \schoollogo
+\item Λογότυπο σχολείου\\ \schoollogo{100pt}
 \item Πληροφορίες για την εξέταση\\
   \authoritylogo{../schl-teacher-guide/pictures/ethnosimo.jpg}\hfill\examdetails{ΙΟΥΝΙΟΥ}
 
   και
 
-  \authoritylogo{../schl-teacher-guide/pictures/ethnosimo.jpg}\hfill\examdetailsii{}
+  \authoritylogo{../schl-teacher-guide/pictures/ethnosimo.jpg}\hfill
 \item Η εντολη \verb*/\blankspace/ εμφανίζει ένα ευθύγραμμο τμήμα. \\
   Η εαρινή ισημερία πραγματοποιείται στις \blankspace{10em}.\\
   Ήταν μια βροχερή μέρα. Από το πρωί \blankspace[-1ex]{3em}\\
