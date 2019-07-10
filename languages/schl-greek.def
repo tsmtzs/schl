@@ -13,19 +13,19 @@
 }
 
 % default wish
-\def\schl@wish{\letterspace[10.0]ΚΑΛΗ ΕΠΙΤΥΧΙΑ}
+\def\schl@wish{\letterspace{\defaultletterspace}ΚΑΛΗ ΕΠΙΤΥΧΙΑ}
 
 % \schl@authorityi > \schl@authorityii > \schl@authorityii
 \def\schl@authorityi{ΕΛΛΗΝΙΚΗ ΔΗΜΟΚΡΑΤΙΑ}
 \def\schl@authorityii{ΥΠΟΥΡΓΕΙΟ ΠΑΙΔΕΙΑΣ, ΕΡΕΥΝΑΣ \& ΘΡΗΣΚΕΥΜΑΤΩΝ}
-\def\schl@authorityiii{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\authorityiii|***}
-\def\schl@school{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\school|***}
-\def\schl@grade{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\grade|***}
-\def\schl@subject{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\subject|***}
-\def\schl@teacher{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\teacher|***}
-\def\schl@schoolyear{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\schoolyear|***}
-\def\schl@schldate{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\schldate|***}
-\def\schl@examtime{***ΟΡΙΣΕ ΜΕ ΤΗΝ ΕΝΤΟΛΗ |\\examtime|***}
+\def\schl@authorityiii{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
+\def\schl@school{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
+\def\schl@grade{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
+\def\schl@subject{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
+\def\schl@teacher{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
+\def\schl@schoolyear{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
+\def\schl@schldate{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
+\def\schl@examtime{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
 
 \def\grade@term{Τάξη}
 \def\subject@term{Μάθημα}

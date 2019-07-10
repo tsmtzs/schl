@@ -124,6 +124,9 @@
 %% by A. Syropoulos, A. Tsolomitis, and N. Sofroniou
  \DeclareSymbolFont{groperators}{\encodingdefault}{\familydefault}{m}{n}
 %%
+%% \defaultletterspace is the default letter space percentage for macro \letterspace
+\def\defaultletterspace{10.0}
+%%
 %%
 %% Redefine sine, cosine, tangent and contangent operators in Greek.
 \renewcommand{\sin}{\mathop{%
@@ -186,7 +189,7 @@
 \newlist{schltask}{enumerate}{1}
 \setlist*[schltask]{%
   align=left,
-  label=\normalsize\bf\letterspace\task@term\  \Alph*,
+  label=\normalsize\bf\letterspace{\defaultletterspace}\task@term\  \Alph*,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -194,7 +197,7 @@
 %%
 %%  Space of capital word letters
 %% \addfontfeature is from fontspec package.
-  \def\letterspace{\addfontfeature{LetterSpace=10.0}}
+\def\letterspace#1{\addfontfeature{LetterSpace=#1}}
 %%
 %% Insert multiple choice anwers.
 %% Leave a blank line before and after \begin{multichoice} ... \end{multichoice}
@@ -262,13 +265,13 @@
 %%
 %% Default headers for final exams.
 \newcommand\finalexamheader[2]{%
-  \heading{\letterspace #1 \exams@term\\[0.5ex] \period@term\  #2}
+  \heading{\letterspace{\defaultletterspace} #1 \exams@term\\[0.5ex] \period@term\  #2}
 }
 %%
 %% A generic header for centered framed text.
 \newcommand\schl@framedbox[1]{%
   \begin{center}
-    \fbox{\large{\bf\letterspace #1} }%
+    \fbox{\large{\bf\letterspace{\defaultletterspace} #1} }%
   \end{center}
 }
 \newcommand\theorypart{%
@@ -335,19 +338,19 @@
 
     \vspace{\lineskip}
 
-    {\bf\letterspace\schl@authorityi}
+    {\bf\letterspace{\defaultletterspace}\schl@authorityi}
 
     \vspace{8\lineskip}
 
-    {\scriptsize\letterspace\schl@authorityii}
+    {\scriptsize\letterspace{\defaultletterspace}\schl@authorityii}
 
     \vspace{2\lineskip}
 
-    {\footnotesize\letterspace\schl@authorityiii}
+    {\footnotesize\letterspace{\defaultletterspace}\schl@authorityiii}
 
     \vspace{8\lineskip}
 
-    {\small\letterspace\schl@school}
+    {\small\letterspace{\defaultletterspace}\schl@school}
   }
 }
 %%
@@ -359,7 +362,7 @@
     \begin{mdframed}[linewidth=#1]
       \normalsize%
       {%
-        \bf\letterspace%
+        \bf\letterspace{\defaultletterspace}%
         \schoolyearabbr@term:\hspace{3pt}\schl@schoolyear\\[1ex]
         \examperiod@term #2}\\[1.0ex]
       \textbf{\grade@term:}\hspace{3pt}\schl@grade\\[1.0ex]
@@ -372,20 +375,20 @@
 }
 \newcommand\examdetailsii{%
   \parbox[t]{330pt}{%
-    \begin{center}\underline{\bf\letterspace\schoolyear@term\  \schl@schoolyear}\end{center}
+    \begin{center}\underline{\bf\letterspace{\defaultletterspace}\schoolyear@term\  \schl@schoolyear}\end{center}
     \begin{tabular}{|c|p{60pt}|p{40pt}|p{60pt}|}
       \hline
-      {\bf\letterspace\lastname@term:} & \multicolumn{3}{|c|}{} \\
+      {\bf\letterspace{\defaultletterspace}\lastname@term:} & \multicolumn{3}{|c|}{} \\
       \hline
-      {\bf\letterspace\name@term:} & \multicolumn{3}{|c|}{} \\
+      {\bf\letterspace{\defaultletterspace}\name@term:} & \multicolumn{3}{|c|}{} \\
       \hline
-      {\bf\letterspace\examnoabbr@term:} & & {\bf\letterspace\MakeUppercase{\grade@term}:}
+      {\bf\letterspace{\defaultletterspace}\examnoabbr@term:} & & {\bf\letterspace{\defaultletterspace}\MakeUppercase{\grade@term}:}
                                          & \schl@grade \\
       \hline
-      {\bf\letterspace\MakeUppercase{\subject@term}:} & \multicolumn{3}{|c|}{\schl@subject} \\
+      {\bf\letterspace{\defaultletterspace}\MakeUppercase{\subject@term}:} & \multicolumn{3}{|c|}{\schl@subject} \\
       \hline
-      {\bf\letterspace\MakeUppercase{\date@term}:} & \schl@schldate
-                                   & {\bf\letterspace\time@term:} & \schl@examtime\\
+      {\bf\letterspace{\defaultletterspace}\MakeUppercase{\date@term}:} & \schl@schldate
+                                   & {\bf\letterspace{\defaultletterspace}\time@term:} & \schl@examtime\\
       \hline
     \end{tabular}
   }
