@@ -46,7 +46,7 @@
 * *Generate schl.sty and schl.pdf*
 
    #+begin_src bash
-   rm schl.ins && xelatex schl.ins && xelatex schl.dtx && xelatex schl.dtx;
+   rm schl.sty && xelatex schl.ins && xelatex schl.dtx && xelatex schl.dtx;
    cp schl.sty ~/texmf/tex/xelatex/schl;
    cp languages/schl-greek.def ~/texmf/tex/xelatex/schl/languages;
   #+end_src
