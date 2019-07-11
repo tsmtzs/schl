@@ -41,6 +41,8 @@
 %<package>\RequirePackage[shortlabels]{enumitem}
 %<package>\RequirePackage{mdframed}
 %<package>\RequirePackage{amsmath}
+%<package>\RequirePackage{calc}
+%<package>\RequirePackage{etoolbox}
 %
 % \iffalse meta-comment
 %%
@@ -79,6 +81,8 @@
 %% \hint@term              : Used by \hint.
 %% \points@term            : Used by \points. You might need to use an 'if' to distinguise
 %%                           the cases for one or many points.
+%% \trueabbr@term          : Used by \truefalselabel. The first letter of True.
+%% \falseabbr@term         : Used by \truefalselabel. The first letter of False.
 %%
 %% Other internal macros that are used are the following
 %% \schl@wish             : A wish for good luck, usually printed in tests. Used by \wish.
@@ -129,6 +133,35 @@
 %<package>\newlength{\signaturelineskip}
 %<package>\setlength{\signaturelineskip}{7ex}
 %
+% \iffalse meta-comment
+%% The following length is used inside truefalse environment.
+%% It specifies the length of a \parbox. The letters T (true) and F
+%% are the text of this \parbox.
+% \fi
+%<package>\newlength{\truefalselength}
+%<package>\setlength{\truefalselength}{50pt}
+%
+%
+% \iffalse meta-comment
+%%
+%% Macro \truefalselabel prints T - F inside a \parbox.
+%% \parbox's argument height is given the value 0pt.
+%% This is done so that the top of the letters T - F allign
+%% with the line of the true-false question.
+%% This behaviour is heavily dependend on the font used and font size (\large here).
+%%
+%% \trueabbr@term and \falseabbr@term are the first letters of the words True, False.
+% \fi
+%<package>\def\truefalselabel{\parbox[t][0pt][c]{\truefalselength}{\large \trueabbr@term\hfill\falseabbr@term}}
+%
+% \iffalse meta-comment
+%%
+%% Define a new true-false toggle named \first. This is used inside the environment truefalse.
+%% It is used to discriminate the first item from the rest items.
+% \fi
+%<package>\newtoggle{first}
+
+% 
 % \iffalse meta-comment
 %%
 %% Macro \examdetailsii uses a 'tabular' environment. The space between rows is
@@ -391,6 +424,40 @@
   itemjoin=\hspace{\fill},
   before=\hspace{\fill},
   after=\hspace{\fill}
+}
+%    \end{macrocode}
+% \DescribeEnv{truefalse} |truefalse| is a variant of the |enumerate| environment. Each |\item| is divided in two parts. The
+% first part is the text that follows the |\item| macro. The second part is a |\parbox| that prints |\trueabbr@term| and
+% |\falseabbr@term|.
+% \iffalse meta-comment
+%% An environment to typeset true-false questions. Is is defined with the enumitem package.
+%% Each question is followed by the letters \trueabbr@term and \falseabbr@term.
+%% It uses the calc package
+%% 
+%% Adapted from cfr's answer on
+%% https://tex.stackexchange.com/questions/164613/adding-code-at-the-end-of-each-list-item
+%% accessed 11/07/2019
+% \fi
+%    \begin{macrocode}
+\newlist{truefalse}{enumerate}{1}
+\setlist[truefalse]{label={\bf \arabic*.},%
+  before*={%
+    \let\defaultitem\item%      Save the standard definition of \item in a macro.
+    \toggletrue{first}%                 Set the first toggle with initial value true.
+    \def\item{%                 
+      \iftoggle{first}{%
+        \togglefalse{first}%              Set the first toggle to take the value false.
+        \defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
+        }{%
+        \end{minipage}\hfill\truefalselabel\defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
+        }
+      }% new, temporary defition of \item
+    },
+    after*={%   This takes care of adding the fill for the final item on
+      %         the list and just makes sure that \item is reset to its standard definition
+    \end{minipage}\hfill\truefalselabel% fill for final item in list
+    \let\item\defaultitem% restore standard definition of \item
+  }%
 }
 %    \end{macrocode}
 %

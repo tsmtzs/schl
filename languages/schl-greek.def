@@ -32,6 +32,8 @@
 \def\testwriter@term{Εισηγητής}
 \def\testsupervisor@term{Επιτηρητής}
 \def\date@term{Ημερομηνία}
+\def\trueabbr@term{Σ}
+\def\falseabbr@term{Λ}
 
 \def\schoolyear@term{ΣΧΟΛΙΚΟ ΕΤΟΣ}
 \def\schoolyearabbr@term{ΣΧΟΛ\@.\, ΈΤΟΣ}

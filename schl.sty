@@ -38,6 +38,8 @@
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage{mdframed}
 \RequirePackage{amsmath}
+\RequirePackage{calc}
+\RequirePackage{etoolbox}
 %%
 %%
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -74,6 +76,8 @@
 %% \hint@term              : Used by \hint.
 %% \points@term            : Used by \points. You might need to use an 'if' to distinguise
 %%                           the cases for one or many points.
+%% \trueabbr@term          : Used by \truefalselabel. The first letter of True.
+%% \falseabbr@term         : Used by \truefalselabel. The first letter of False.
 %%
 %% Other internal macros that are used are the following
 %% \schl@wish             : A wish for good luck, usually printed in tests. Used by \wish.
@@ -114,6 +118,25 @@
 \setlength{\signatureslength}{13em}
 \newlength{\signaturelineskip}
 \setlength{\signaturelineskip}{7ex}
+%% The following length is used inside truefalse environment.
+%% It specifies the length of a \parbox. The letters T (true) and F
+%% are the text of this \parbox.
+\newlength{\truefalselength}
+\setlength{\truefalselength}{50pt}
+%%
+%% Macro \truefalselabel prints T - F inside a \parbox.
+%% \parbox's argument height is given the value 0pt.
+%% This is done so that the top of the letters T - F allign
+%% with the line of the true-false question.
+%% This behaviour is heavily dependend on the font used and font size (\large here).
+%%
+%% \trueabbr@term and \falseabbr@term are the first letters of the words True, False.
+\def\truefalselabel{\parbox[t][0pt][c]{\truefalselength}{\large \trueabbr@term\hfill\falseabbr@term}}
+%%
+%% Define a new true-false toggle named \first. This is used inside the environment truefalse.
+%% It is used to discriminate the first item from the rest items.
+\newtoggle{first}
+
 %%
 %% Macro \examdetailsii uses a 'tabular' environment. The space between rows is
 \renewcommand{\arraystretch}{1.5}
@@ -222,6 +245,33 @@
   itemjoin=\hspace{\fill},
   before=\hspace{\fill},
   after=\hspace{\fill}
+}
+%% An environment to typeset true-false questions. Is is defined with the enumitem package.
+%% Each question is followed by the letters \trueabbr@term and \falseabbr@term.
+%% It uses the calc package
+%%
+%% Adapted from cfr's answer on
+%% https://tex.stackexchange.com/questions/164613/adding-code-at-the-end-of-each-list-item
+%% accessed 11/07/2019
+\newlist{truefalse}{enumerate}{1}
+\setlist[truefalse]{label={\bf \arabic*.},%
+  before*={%
+    \let\defaultitem\item%      Save the standard definition of \item in a macro.
+    \toggletrue{first}%                 Set the first toggle with initial value true.
+    \def\item{%
+      \iftoggle{first}{%
+        \togglefalse{first}%              Set the first toggle to take the value false.
+        \defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
+        }{%
+        \end{minipage}\hfill\truefalselabel\defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
+        }
+      }% new, temporary defition of \item
+    },
+    after*={%   This takes care of adding the fill for the final item on
+      %         the list and just makes sure that \item is reset to its standard definition
+    \end{minipage}\hfill\truefalselabel% fill for final item in list
+    \let\item\defaultitem% restore standard definition of \item
+  }%
 }
 %%
 %% Write the answer of an exercise.
