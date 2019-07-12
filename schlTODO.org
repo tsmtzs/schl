@@ -22,7 +22,7 @@
 ** TODO Delete macro /\signer/?
    Insert names in /\signatures/ without the need of /\signer/ macro,
    as part of argument #2.
-** TODO Make a macro for True-False questions
+** DONE Make a macro for True-False questions
    This macro should be an enumerate-like environment.
    The user will write one question per \item.
    The command will produce a table like structure with two columns.
@@ -72,7 +72,8 @@
     }%
     }
 
-** TODO Make a macro for matching questions.
+** DONE Make a macro for matching questions.
+
    It should accept items A, B, C, ... (indefinite number)
    and items 1, 2, 3, 4, ...
    Print each type of items in a seperate column.
@@ -126,6 +127,7 @@
 
     \end{document}
 
+
 * *Generate schl.sty and schl.pdf*
 
   #+begin_src bash
@@ -134,34 +136,14 @@
    cp languages/schl-greek.def ~/texmf/tex/xelatex/schl/languages/;
   #+end_src
 
-%<package>\RequirePackage{calc}
 
-%<package>\newlength{\truefalselength}
-%<package>\setlength{\truefalselength}{50pt}
 
-%<package>\def\truefalselabel{\parbox[t][0pt][c]{\truefalselength}{\large \trueabbr@term\hfill\falseabbr@term}}
 
-%<package>\newif\iffirst
 
-%    \begin{macrocode}
-\newlist{truefalse}{enumerate}{1}
-\setlist[truefalse]{label={\bf \arabic*.},%
-  before*={%
-    \let\defaultitem\item%      Save the standard definition of \item in a macro.
-    \firsttrue%                 Set the \iffirst structure with initial value true.
-    \def\item{%                 
-      \iffirst%
-      \firstfalse%              Set the \iffirst structure to take false value.
-      \defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
-        \else%
-      \end{minipage}\hfill\truefalselabel\defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
-        \fi
-      }% new, temporary defition of \item
-    },
-    after*={%   This takes care of adding the fill for the final item on
-      %         the list and just makes sure that \item is reset to its standard definition
-    \end{minipage}\hfill\truefalselabel% fill for final item in list
-    \let\item\defaultitem% restore standard definition of \item
-  }%
-}
-%    \end{macrocode}
+
+
+
+
+
+
+

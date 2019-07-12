@@ -118,6 +118,16 @@
 \setlength{\signatureslength}{13em}
 \newlength{\signaturelineskip}
 \setlength{\signaturelineskip}{7ex}
+%%
+%% Lengths \leftmatchwidth and \rightmatchwidth are used in macro \matchingque.
+%% Both specify the lenth of a \parbox. \leftmatchwidth is the length of the left
+%% column of the matching question, and \rightmatchwidth, is the length of the
+%% right. The default length is 150pt.
+\newlength{\leftmatchwidth}
+\newlength{\rightmatchwidth}
+\setlength{\leftmatchwidth}{150pt}
+\setlength{\rightmatchwidth}{150pt}
+%%
 %% The following length is used inside truefalse environment.
 %% It specifies the length of a \parbox. The letters T (true) and F
 %% are the text of this \parbox.
@@ -273,6 +283,32 @@
     \let\item\defaultitem% restore standard definition of \item
   }%
 }
+\newcommand\matchingque[3][300pt]{%
+  \begin{center}
+    \parbox[c]{#1}{
+      \parbox[c]{\leftmatchwidth}{%
+        \begin{leftmatching}
+          \@for\tmp:=#2%
+          \do{%
+          \item \tmp
+          }
+        \end{leftmatching}
+      }\hfill%
+      \parbox[c]{\rightmatchwidth}{%
+        \begin{rightmatching}
+          \@for\tmp:=#3%
+          \do{%
+          \item \tmp
+          }
+        \end{rightmatching}
+      }
+    }
+  \end{center}
+}
+\newlist{leftmatching}{enumerate}{1}
+\newlist{rightmatching}{enumerate}{1}
+\setlist*[leftmatching]{label=\bf\Alph*.}
+\setlist*[rightmatching]{label=\bf\arabic*.}
 %%
 %% Write the answer of an exercise.
 \newcommand\answer[1]{%

@@ -134,6 +134,19 @@
 %<package>\setlength{\signaturelineskip}{7ex}
 %
 % \iffalse meta-comment
+%%
+%% Lengths \leftmatchwidth and \rightmatchwidth are used in macro \matchingque.
+%% Both specify the lenth of a \parbox. \leftmatchwidth is the length of the left
+%% column of the matching question, and \rightmatchwidth, is the length of the
+%% right. The default length is 150pt.
+% \fi
+%<package>\newlength{\leftmatchwidth}
+%<package>\newlength{\rightmatchwidth}
+%<package>\setlength{\leftmatchwidth}{150pt}
+%<package>\setlength{\rightmatchwidth}{150pt}
+% 
+% \iffalse meta-comment
+%%
 %% The following length is used inside truefalse environment.
 %% It specifies the length of a \parbox. The letters T (true) and F
 %% are the text of this \parbox.
@@ -328,7 +341,7 @@
 %    \end{macrocode}
 %
 % \subsection{Lists}
-% |schl| package defines five types of lists. These are |question|, |exercise|, |schltask|, |multichoice| and |tickchoice|. The last one comes also with a stared version |tickchoice*|. All of them depend on the package |enumitem|.
+% |schl| package defines six types of lists. These are |question|, |exercise|, |schltask|, |multichoice|, |tickchoice| and |truefalse|. |tickchoice|  comes also with a stared version |tickchoice*|. All of them depend on the package |enumitem|.
 %
 % \DescribeEnv{question}\DescribeEnv{exercise}\DescribeEnv{schltask}  These environments are  |enumerate|-like lists. List's |\item| is of the form \meta{type} \meta{counter}, where |type| is |\question@term| for |question|, |\exercise@term| for |exercise| and |\task@term| for |schltask|. \meta{counter} is the internal counter of the environment. 
 % \iffalse meta-comment
@@ -461,6 +474,43 @@
 }
 %    \end{macrocode}
 %
+% \DescribeMacro{matchingque} The macro |\matchingque|\marg{CSV}\marg{CSV} is used to typeset matching questions. \meta{CSV}
+% are comma separated values. The \meta{CSV}s of the first argument are the parts of the matching questions that will 
+% be print in the left column. Similarly, the \meta{CSV} of the second argument are going to be printed on the right
+% column of the matching questions.
+%    \begin{macrocode}
+\newcommand\matchingque[3][300pt]{%
+  \begin{center}
+    \parbox[c]{#1}{
+      \parbox[c]{\leftmatchwidth}{%
+        \begin{leftmatching}
+          \@for\tmp:=#2%
+          \do{%
+          \item \tmp
+          }
+        \end{leftmatching}
+      }\hfill%
+      \parbox[c]{\rightmatchwidth}{%
+        \begin{rightmatching}
+          \@for\tmp:=#3%
+          \do{%
+          \item \tmp
+          }
+        \end{rightmatching}
+      }
+    }
+  \end{center}
+}
+%    \end{macrocode}
+%
+% \DescribeEnv{leftmatching}\DescribeMacro{rightmatching} Environments |leftmatching| and |rightmatching| are used to
+% typeset each column in |\matchingque|.
+%    \begin{macrocode}
+\newlist{leftmatching}{enumerate}{1}
+\newlist{rightmatching}{enumerate}{1}
+\setlist*[leftmatching]{label=\bf\Alph*.}
+\setlist*[rightmatching]{label=\bf\arabic*.}
+%    \end{macrocode}
 % \subsection{Answers, solutions and hints}
 % \DescribeMacro{\answer} Macro |\answer|\marg{text} prints |(\answerabbr@term \meta{text})| at the right end of the current line.
 % \iffalse meta-comment
