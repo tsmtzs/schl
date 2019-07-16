@@ -135,15 +135,3 @@
    cp schl.sty ~/texmf/tex/xelatex/schl/;
    cp languages/schl-greek.def ~/texmf/tex/xelatex/schl/languages/;
   #+end_src
-
-
-
-
-
-
-
-
-
-
-
-

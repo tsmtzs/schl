@@ -212,7 +212,7 @@
 \newlist{exercise}{enumerate}{1}
 \setlist*[exercise]{%
   align=left,
-  label=\normalsize\bf \exercise@term\  \arabic*.,
+  label=\normalsize\bf\exercise@term\  \arabic*.,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -273,7 +273,8 @@
         \togglefalse{first}%              Set the first toggle to take the value false.
         \defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
         }{%
-        \end{minipage}\hfill\truefalselabel\defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
+        \end{minipage}\hfill\truefalselabel\defaultitem%
+        \begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
         }
       }% new, temporary defition of \item
     },
@@ -384,21 +385,14 @@
 \phantom{.}\hfill(\textbf{\footnotesize \points@term{#1}\  #1})
 }
 %%
-%% A generic field for filling in information.
-%% First arg: A number. The number of dots for \lowerdots,
-%% Second arg: The title for the field.
-\newcommand\textfield[2]{%
-  \noindent{\normalsize #2:} \lowerdots{#1}
-}
-%%
 %% A field for writing the full name.
-\newcommand\fullname[1][0]{%
-  \textfield{#1}{\fullname@term}
+\newcommand\fullname[1]{%
+  \noindent{\normalsize\fullname@term :} #1
 }
 %%
 %% A field for writing the date.
 \newcommand\datefield[1][0]{%
-  \textfield{#1}{\date@term}
+  \noindent{\normalsize\date@term :}
 }
 %%
 %% School logo
@@ -461,20 +455,25 @@
 }
 \newcommand\examdetailsii{%
   \parbox[t]{330pt}{%
-    \begin{center}\underline{\bf\letterspace{\defaultletterspace}\schoolyear@term\  \schl@schoolyear}\end{center}
+    \begin{center}%
+      \underline{\bf\letterspace{\defaultletterspace}\schoolyear@term\  \schl@schoolyear}%
+    \end{center}
     \begin{tabular}{|c|p{60pt}|p{40pt}|p{60pt}|}
       \hline
       {\bf\letterspace{\defaultletterspace}\lastname@term:} & \multicolumn{3}{|c|}{} \\
       \hline
       {\bf\letterspace{\defaultletterspace}\name@term:} & \multicolumn{3}{|c|}{} \\
       \hline
-      {\bf\letterspace{\defaultletterspace}\examnoabbr@term:} & & {\bf\letterspace{\defaultletterspace}\MakeUppercase{\grade@term}:}
-                                         & \schl@grade \\
+      {\bf\letterspace{\defaultletterspace}\examnoabbr@term:} & %
+                      & {\bf\letterspace{\defaultletterspace}\MakeUppercase{\grade@term}:}
+                      & \schl@grade \\
       \hline
-      {\bf\letterspace{\defaultletterspace}\MakeUppercase{\subject@term}:} & \multicolumn{3}{|c|}{\schl@subject} \\
+      {\bf\letterspace{\defaultletterspace}\MakeUppercase{\subject@term}:} %
+                      & \multicolumn{3}{|c|}{\schl@subject} \\
       \hline
       {\bf\letterspace{\defaultletterspace}\MakeUppercase{\date@term}:} & \schl@schldate
-                                   & {\bf\letterspace{\defaultletterspace}\time@term:} & \schl@examtime\\
+                      & {\bf\letterspace{\defaultletterspace}\time@term:} %
+                      & \schl@examtime\\
       \hline
     \end{tabular}
   }
