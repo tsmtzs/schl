@@ -36,7 +36,7 @@
 \def\falseabbr@term{Λ}
 
 \def\schoolyear@term{ΣΧΟΛΙΚΟ ΕΤΟΣ}
-\def\schoolyearabbr@term{ΣΧΟΛ\@.\, ΈΤΟΣ}
+\def\schoolyearabbr@term{ΣΧΟΛ\@.\, ΕΤΟΣ}
 \def\examperiod@term{ΕΞΕΤΑΣΤΙΚΗ ΠΕΡΙΟΔΟΣ}
 \def\lastname@term{ΕΠΙΘΕΤΟ}
 \def\name@term{ΟΝΟΜΑ}

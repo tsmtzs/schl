@@ -490,10 +490,10 @@
 \indexentry{end=\verb!*+\end+}{246}
 \indexentry{newcommand=\verb!*+\newcommand+}{249}
 \indexentry{wish=\verb!*+\wish+}{249}
+\indexentry{schl@wish=\verb!*+\schl@wish+}{249}
 \indexentry{begin=\verb!*+\begin+}{250}
 \indexentry{LARGE=\verb!*+\LARGE+}{251}
 \indexentry{bf=\verb!*+\bf+}{251}
-\indexentry{schl@wish=\verb!*+\schl@wish+}{251}
 \indexentry{end=\verb!*+\end+}{252}
 \indexentry{signatures=\verb!*+\signatures+|usage}{9}
 \indexentry{wish=\verb!*+\wish+|usage}{9}
