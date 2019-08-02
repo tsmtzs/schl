@@ -432,10 +432,10 @@
 }
 %%
 %% Print details of the exam.
-%% First arg is the line width for the frame
-%% Second arg is the period of the exams
+%% First argument is the line width for the frame.
+%% Second argument is the length of the \parbox.
 \newcommand\examdetails[2][3pt]{%
-  \parbox[t]{20em}{
+  \parbox[t]{#2}{
     \begin{mdframed}[linewidth=#1]
       \normalsize%
       {%
