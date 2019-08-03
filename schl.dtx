@@ -635,7 +635,7 @@
 %    \end{macrocode}
 % 
 % \subsection{School information}
-% \DescribeMacro{\school}\DescribeMacro{\headmaster}\DescribeMacro{\teacher}\DescribeMacro{\subject}\DescribeMacro{\grade}\DescribeMacro{\schoolyear}\DescribeMacro{\schldate} The macros |\school|\marg{text}, |\headmaster|\marg{name}, |\teacher|\marg{name}, |\subject|\marg{text}, |\grade|\marg{text}, |\schoolyear|\marg{year} and |\schldate|\marg{date} define and set the value of internal macros.
+% \DescribeMacro{\school}\DescribeMacro{\headmaster}\DescribeMacro{\teacher}\DescribeMacro{\subject}\DescribeMacro{\grade}\DescribeMacro{\schoolyear}\DescribeMacro{\schldate}\DescribeMacro{\examtime} The macros |\school|\marg{text}, |\headmaster|\marg{name}, |\teacher|\marg{name}, |\subject|\marg{text}, |\grade|\marg{text}, |\schoolyear|\marg{year}, |\schldate|\marg{date} and |\examtime|\marg{time} define and set the value of internal macros.
 % \iffalse meta-comment
 %%
 %% Set subject, grade, date, school year etc.
@@ -648,6 +648,7 @@
 \newcommand\grade[1]{\def\schl@grade{#1}}
 \newcommand\schoolyear[1]{\def\schl@schoolyear{#1}}
 \newcommand\schldate[1]{\def\schl@schldate{#1}}
+\newcommand\examtime[1]{\def\schl@examtime{#1}}
 %    \end{macrocode}
 %
 % \DescribeMacro{\authorityi}\DescribeMacro{\authorityii}\DescribeMacro{\authorityiii} In a similar vein, |\authorityi|\marg{text}, |\authorityii|\marg{text} and |\authorityiii|\marg{text} define the internal macros |\schl@authorityi|, |\schl@authorityii| and |\schl@authorityiii|. 
