@@ -659,14 +659,14 @@
 %    \end{macrocode}
 %
 % \subsection{Other macros for tests}
-% \DescribeMacro{\points} |\points|\marg{number} is used to designate the points of an exercise. \marg{number} is the number of points for the current exercise.
+% \DescribeMacro{\points} |\points|\oarg{macro}\marg{number} is used to designate the points of an exercise. \marg{number} is the number of points for the current exercise, while \oarg{macro} can be used to control the space just before the points.
 % \iffalse meta-comment
 %%
 %% Print the points of an exescise.
 % \fi
 %    \begin{macrocode}
-\newcommand{\points}[1]{%
-\phantom{.}\hfill(\textbf{\footnotesize \points@term{#1}\  #1})
+\newcommand{\points}[2][\hfill]{%
+#1(\textbf{\footnotesize \points@term{#2}\  #2})
 }
 %    \end{macrocode}
 %

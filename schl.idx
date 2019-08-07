@@ -319,8 +319,7 @@
 \indexentry{schl@authorityiii=\verb!*+\schl@authorityiii+}{160}
 \indexentry{newcommand=\verb!*+\newcommand+}{161}
 \indexentry{points=\verb!*+\points+}{161}
-\indexentry{phantom=\verb!*+\phantom+}{162}
-\indexentry{hfill=\verb!*+\hfill+}{162}
+\indexentry{hfill=\verb!*+\hfill+}{161}
 \indexentry{textbf=\verb!*+\textbf+}{162}
 \indexentry{footnotesize=\verb!*+\footnotesize+}{162}
 \indexentry{points@term=\verb!*+\points@term+}{162}
@@ -341,8 +340,6 @@
 \indexentry{schl@grade=\verb!*+\schl@grade+}{173}
 \indexentry{schl@subject=\verb!*+\schl@subject+}{174}
 \indexentry{schl@teacher=\verb!*+\schl@teacher+}{175}
-\indexentry{newcommand=\verb!*+\newcommand+}{178}
-\indexentry{authoritylogo=\verb!*+\authoritylogo+}{178}
 \indexentry{school=\verb!*+\school+|usage}{7}
 \indexentry{headmaster=\verb!*+\headmaster+|usage}{7}
 \indexentry{teacher=\verb!*+\teacher+|usage}{7}
@@ -358,7 +355,8 @@
 \indexentry{fullname=\verb!*+\fullname+|usage}{7}
 \indexentry{datefield=\verb!*+\datefield+|usage}{7}
 \indexentry{schoollogo=\verb!*+\schoollogo+|usage}{7}
-\indexentry{authoritylogo=\verb!*+\authoritylogo+|usage}{7}
+\indexentry{newcommand=\verb!*+\newcommand+}{178}
+\indexentry{authoritylogo=\verb!*+\authoritylogo+}{178}
 \indexentry{noindent=\verb!*+\noindent+}{179}
 \indexentry{parbox=\verb!*+\parbox+}{179}
 \indexentry{centering=\verb!*+\centering+}{180}
@@ -429,9 +427,10 @@
 \indexentry{schoolyear@term=\verb!*+\schoolyear@term+}{219}
 \indexentry{! =\verb!*+!\! +}{219}
 \indexentry{schl@schoolyear=\verb!*+\schl@schoolyear+}{219}
-\indexentry{end=\verb!*+\end+}{220}
+\indexentry{authoritylogo=\verb!*+\authoritylogo+|usage}{8}
 \indexentry{examdetails=\verb!*+\examdetails+|usage}{8}
 \indexentry{examdetailsii=\verb!*+\examdetailsii+|usage}{8}
+\indexentry{end=\verb!*+\end+}{220}
 \indexentry{begin=\verb!*+\begin+}{221}
 \indexentry{hline=\verb!*+\hline+}{222}
 \indexentry{bf=\verb!*+\bf+}{223}

@@ -382,8 +382,8 @@
 \newcommand\authorityiii[1]{\def\schl@authorityiii{#1}}
 %%
 %% Print the points of an exescise.
-\newcommand{\points}[1]{%
-\phantom{.}\hfill(\textbf{\footnotesize \points@term{#1}\  #1})
+\newcommand{\points}[2][\hfill]{%
+#1(\textbf{\footnotesize \points@term{#2}\  #2})
 }
 %%
 %% A field for writing the full name.
