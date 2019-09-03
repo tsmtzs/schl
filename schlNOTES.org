@@ -134,4 +134,17 @@
    rm schl.sty && xelatex schl.ins && xelatex schl.dtx && xelatex schl.dtx;
    cp schl.sty ~/texmf/tex/xelatex/schl/;
    cp languages/schl-greek.def ~/texmf/tex/xelatex/schl/languages/;
+   cp languages/schl-template.def ~/texmf/tex/xelatex/schl/languages/;
   #+end_src
+
+
+
+
+
+
+
+
+
+
+
+

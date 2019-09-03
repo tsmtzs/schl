@@ -4,6 +4,38 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ProvidesFile{schl-greek.def}[2019/07/07 v0.1 Terms in Greek for the schl package]
 
+% \iffalse meta-comment
+%%
+%% 'groperators' is used to typeset math operators in Greek.
+%% Based on p. 110 of
+%% Digital Typography using Latex
+%% by A. Syropoulos, A. Tsolomitis, and N. Sofroniou
+% \fi
+\DeclareSymbolFont{groperators}{\encodingdefault}{\familydefault}{m}{n}
+% \iffalse meta-comment
+%%
+%% Redefine sine, cosine, tangent and contangent operators in Greek.
+% \fi
+\renewcommand{\sin}{\mathop{%
+    \mathgroup\symgroperators \eta\mu}\nolimits}
+\renewcommand{\cos}{\mathop{%
+    \mathgroup\symgroperators \sigma\upsilon\nu}\nolimits}
+\renewcommand{\tan}{\mathop{%
+    \mathgroup\symgroperators \varepsilon\phi}\nolimits}
+\renewcommand{\cot}{\mathop{%
+    \mathgroup\symgroperators \sigma\phi}\nolimits}
+
+% \iffalse meta-comment
+%%
+%% Greatest common devisor and least common multiple operators in Greek.
+% \fi
+  \renewcommand{\gcd}{\mathop{%
+    \mathgroup\symgroperators ΜΚΔ}\nolimits}
+%    \end{macrocode}
+% On the other hand, for |\lcm| we have
+%     \begin{macrocode}
+\DeclareMathOperator{\lcm}{ΕΚΠ}
+
 \def\points@term#1{%
   \ifnum 1=#1
   μονάδα

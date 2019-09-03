@@ -24,13 +24,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{schl}
 [2019/06/15 v0.1 Custom package]
-\DeclareOption{greek}{
-  \input{languages/schl-greek.def}
-}
-%%  Execute default options.
-\ExecuteOptions{greek}
-\ProcessOptions\relax
-%%
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% REQUIRED PACKAGES
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,6 +33,20 @@
 \RequirePackage{amsmath}
 \RequirePackage{calc}
 \RequirePackage{etoolbox}
+%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PACKAGE OPTIONS
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOption{default}{
+  \input{languages/schl-template.def}
+}
+\DeclareOption{greek}{
+  \input{languages/schl-greek.def}
+}
+%%  Execute default options.
+\ExecuteOptions{default}
+\ProcessOptions\relax
+%%
 %%
 %%
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,35 +153,12 @@
 %% Define a new true-false toggle named \first. This is used inside the environment truefalse.
 %% It is used to discriminate the first item from the rest items.
 \newtoggle{first}
-
 %%
 %% Macro \examdetailsii uses a 'tabular' environment. The space between rows is
 \renewcommand{\arraystretch}{1.5}
 %%
-%% 'groperators' is used to typeset math operators in Greek.
-%% Based on p. 110 of
-%% Digital Typography using Latex
-%% by A. Syropoulos, A. Tsolomitis, and N. Sofroniou
- \DeclareSymbolFont{groperators}{\encodingdefault}{\familydefault}{m}{n}
-%%
 %% \defaultletterspace is the default letter space percentage for macro \letterspace
 \def\defaultletterspace{10.0}
-%%
-%%
-%% Redefine sine, cosine, tangent and contangent operators in Greek.
-\renewcommand{\sin}{\mathop{%
-    \mathgroup\symgroperators \eta\mu}\nolimits}
-\renewcommand{\cos}{\mathop{%
-    \mathgroup\symgroperators \sigma\upsilon\nu}\nolimits}
-\renewcommand{\tan}{\mathop{%
-    \mathgroup\symgroperators \varepsilon\phi}\nolimits}
-\renewcommand{\cot}{\mathop{%
-    \mathgroup\symgroperators \sigma\phi}\nolimits}
-%%
-%% Greatest common devisor and least common multiple operators in Greek.
-  \renewcommand{\gcd}{\mathop{%
-    \mathgroup\symgroperators ΜΚΔ}\nolimits}
-\DeclareMathOperator{\lcm}{ΕΚΠ}
 %%
 %% Write $x\to x_0$ under \lim
 \newcommand{\limdisplay}[1]{\displaystyle\lim_{#1}}

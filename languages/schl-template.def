@@ -1,0 +1,65 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PACKAGE schl
+%% UNDEFINED TERMS
+%% This template file can be used for localizing the various terms of the schl package.
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesFile{schl-template.def}[2019/09/03 v0.1 Term macros of the schl package]
+
+\def\points@term#1{undefined}
+
+% default wish
+\def\schl@wish{undefined}
+
+% \schl@authorityi > \schl@authorityii > \schl@authorityii
+\def\schl@authorityi{undefined}
+\def\schl@authorityii{undefined}
+\def\schl@authorityiii{undefined}
+\def\schl@school{undefined}
+\def\schl@grade{undefined}
+\def\schl@subject{undefined}
+\def\schl@teacher{undefined}
+\def\schl@schoolyear{undefined}
+\def\schl@schldate{undefined}
+\def\schl@examtime{undefined}
+
+\def\grade@term{undefined}
+\def\subject@term{undefined}
+\def\testwriter@term{undefined}
+\def\testsupervisor@term{undefined}
+\def\date@term{undefined}
+\def\trueabbr@term{undefined}
+\def\falseabbr@term{undefined}
+
+\def\schoolyear@term{undefined}
+\def\schoolyearabbr@term{undefined}
+\def\examperiod@term{undefined}
+\def\lastname@term{undefined}
+\def\name@term{undefined}
+\def\examnoabbr@term{undefined}
+\def\time@term{undefined}
+
+\def\fullname@term{undefined}
+
+\def\deadline@term{undefined}
+
+\def\theoryheader@term{undefined}
+\def\exerciseheader@term{undefined}
+
+\def\worksheet@term{undefined}
+
+\def\termtest@term{undefined}
+
+\def\exams@term{undefined}
+\def\period@term{undefined}
+
+\def\headmaster@term{undefined}
+
+\def\answerabbr@term{undefined}
+
+\def\exercise@term{undefined}
+\def\question@term{undefined}
+\def\task@term{undefined}
+\def\solution@term{undefined}
+\def\hint@term{undefined}
+
+\endinput

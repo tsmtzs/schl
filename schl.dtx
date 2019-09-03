@@ -19,19 +19,6 @@
 %<package>\ProvidesPackage{schl}
 %<package>[2019/06/15 v0.1 Custom package]
 %
-%<schl-greek>\ProvidesFile{languages/schl-greek.def}
-%
-%<package>\DeclareOption{greek}{
-%<package>  \input{languages/schl-greek.def}
-%<package>}
-%
-%  \iffalse meta-comment
-%%  Execute default options.
-%  \fi
-%<package>\ExecuteOptions{greek}
-%  
-%<package>\ProcessOptions\relax
-%%
 % \iffalse meta-comment
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% REQUIRED PACKAGES
@@ -44,6 +31,31 @@
 %<package>\RequirePackage{calc}
 %<package>\RequirePackage{etoolbox}
 %
+% \iffalse meta-comment
+%% 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PACKAGE OPTIONS
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fi
+%<schl-template>\ProvidesFile{languages/schl-template.def}
+%
+%<package>\DeclareOption{default}{
+%<package>  \input{languages/schl-template.def}
+%<package>}
+%
+%<schl-greek>\ProvidesFile{languages/schl-greek.def}
+%
+%<package>\DeclareOption{greek}{
+%<package>  \input{languages/schl-greek.def}
+%<package>}
+%
+%  \iffalse meta-comment
+%%  Execute default options.
+%  \fi
+%<package>\ExecuteOptions{default}
+%  
+%<package>\ProcessOptions\relax
+%%
 % \iffalse meta-comment
 %%
 %%
@@ -173,7 +185,6 @@
 %% It is used to discriminate the first item from the rest items.
 % \fi
 %<package>\newtoggle{first}
-
 % 
 % \iffalse meta-comment
 %%
@@ -181,14 +192,6 @@
 % \fi
 %<package>\renewcommand{\arraystretch}{1.5}
 %
-% \iffalse meta-comment
-%%
-%% 'groperators' is used to typeset math operators in Greek.
-%% Based on p. 110 of
-%% Digital Typography using Latex
-%% by A. Syropoulos, A. Tsolomitis, and N. Sofroniou
-% \fi
-%<package> \DeclareSymbolFont{groperators}{\encodingdefault}{\familydefault}{m}{n}
 %
 % \iffalse meta-comment
 %%
@@ -267,37 +270,8 @@
 % These macros redefine in Greek the corresponding trigonometric operators
 % |\sin, \cos, \tan| and |\cot|.
 %
-% \iffalse meta-comment
-%%
-%%
-%% Redefine sine, cosine, tangent and contangent operators in Greek.
-% \fi
-%    \begin{macrocode}
-\renewcommand{\sin}{\mathop{%
-    \mathgroup\symgroperators \eta\mu}\nolimits}
-\renewcommand{\cos}{\mathop{%
-    \mathgroup\symgroperators \sigma\upsilon\nu}\nolimits}
-\renewcommand{\tan}{\mathop{%
-    \mathgroup\symgroperators \varepsilon\phi}\nolimits}
-\renewcommand{\cot}{\mathop{%
-    \mathgroup\symgroperators \sigma\phi}\nolimits}
-%    \end{macrocode}
-% |groperators| is the font used to typeset the functions.
-%
 % \DescribeMacro{\gcd}\DescribeMacro{\lcm} |\gcd| and |\lcm| provide the arithmetic operators for \textsf{greatest common devisor} and
-% \textsf{least common multiple} in Greek. |\gcd| is redefined as
-% \iffalse meta-comment
-%%
-%% Greatest common devisor and least common multiple operators in Greek.
-% \fi
-%    \begin{macrocode}
-  \renewcommand{\gcd}{\mathop{%
-    \mathgroup\symgroperators ΜΚΔ}\nolimits}
-%    \end{macrocode}
-% On the other hand, for |\lcm| we have
-%     \begin{macrocode}
-\DeclareMathOperator{\lcm}{ΕΚΠ}
-%    \end{macrocode}
+% \textsf{least common multiple} in Greek.
 %
 % \DescribeMacro{\limdisplay} Command |\limdisplay| \marg{text} prints \meta{text} under |\lim|
 % \iffalse meta-comment
