@@ -48,8 +48,8 @@
 \def\schl@wish{\letterspace{\defaultletterspace}ΚΑΛΗ ΕΠΙΤΥΧΙΑ}
 
 % \schl@authorityi > \schl@authorityii > \schl@authorityii
-\def\schl@authorityi{ΕΛΛΗΝΙΚΗ ΔΗΜΟΚΡΑΤΙΑ}
-\def\schl@authorityii{ΥΠΟΥΡΓΕΙΟ ΠΑΙΔΕΙΑΣ, ΕΡΕΥΝΑΣ \& ΘΡΗΣΚΕΥΜΑΤΩΝ}
+\def\schl@authorityi{\letterspace{\defaultletterspace}ΕΛΛΗΝΙΚΗ ΔΗΜΟΚΡΑΤΙΑ}
+\def\schl@authorityii{\letterspace{\defaultletterspace}ΥΠΟΥΡΓΕΙΟ ΠΑΙΔΕΙΑΣ, ΕΡΕΥΝΑΣ \& ΘΡΗΣΚΕΥΜΑΤΩΝ}
 \def\schl@authorityiii{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
 \def\schl@school{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
 \def\schl@grade{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}

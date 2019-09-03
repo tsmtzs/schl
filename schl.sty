@@ -393,22 +393,21 @@
 %%
 %% Logo for exams.
 %% Argument is path to a picture.
-\newcommand\authoritylogo[1]{%
-  \noindent\parbox[t]{40ex}{%
+\newcommand\authoritylogo[1][1.5]{%
+  \noindent\parbox[t][\height]{0.4\textwidth}{%
     \centering%
-    \includegraphics{#1}
 
-    \vspace{\lineskip}
+    \vspace{#1\baselineskip}
 
-    {\bf\letterspace{\defaultletterspace}\schl@authorityi}
+    {\schl@authorityi}
 
     \vspace{3\lineskip}
 
-    {\footnotesize\letterspace{\defaultletterspace}\schl@authorityii}
+    {\footnotesize\schl@authorityii}
 
     \vspace{2\lineskip}
 
-    {\footnotesize\letterspace{\defaultletterspace}\schl@authorityiii}
+    {\footnotesize\schl@authorityiii}
 
     \vspace{3\lineskip}
 
