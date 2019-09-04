@@ -1,0 +1,215 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       Examples for the xelatex package schl
+%                               Tassos Tsesmetzis
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,a4page]{article}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{xgreek}
+
+\setmainfont[Mapping=tex-text]{Linux Biolinum O}
+
+% Package geometry. Set text area dimensions.
+\usepackage[width=0.9\paperwidth,height=0.9\paperheight,centering]{geometry}
+% Package amsfonts. We need it for the macro \mathbb.
+\usepackage{amsfonts}
+% Package enumerate. 
+\usepackage{enumerate}
+% Package bm.
+\usepackage{bm}
+% Package tikz
+\usepackage{tikz}
+\usetikzlibrary{calc}
+% Load package schl.
+\usepackage[greek]{schl}
+
+% Don't print page number
+\pagestyle{empty}
+
+% Set \school.
+\school{Γυμνάσιο Ξάνθης}
+% Set name of the teacher.
+\teacher{Όνομα εκπαιδευτικού}
+% Set subject.
+\subject{Μαθηματικά}
+% Set grade.
+\grade{Γ' Γυμνασίου}
+% Set \authorityii.
+\authorityiii{%
+  ΠΕΡΙΦ/ΚΗ Δ/ΝΣΗ  Α'/ΘΜΙΑΣ ΚΑΙ\\
+  Β'/ΘΜΙΑΣ ΕΚΠ/ΣΗΣ ΞΑΝΘΗΣ\\
+  Δ/ΝΣΗ Β'/ΘΜΙΑΣ ΕΚΠΑΙΔΕΥΣΗΣ\\
+  ΞΑΝΘΗΣ
+}
+% Set school year.
+\schoolyear{2018--19}
+% Set test date.
+\schldate{12/05/2019}
+
+% Default number of dots for \lowerdots.
+\def\defaultDots{10}
+
+% Print text in multichoice environment in \small size.
+\setlist*[multichoice]{before=\hspace*{0.3\linewidth}\small,label=\bf\alph*),itemjoin=\hspace{10em}}
+
+\begin{document}
+% Print \authoritylogo.
+\authoritylogo
+\hfill%
+\examdetails[2pt]{20.5em}
+
+\vspace{2ex}
+
+% Set the header.
+\finalexamheader{ΓΡΑΠΤΕΣ ΑΠΟΛΥΤΗΡΙΕΣ}{ΜΑΪΟΥ -- ΙΟΥΝΙΟΥ}
+
+\vspace*{1.5ex}
+
+\setlength \baselineskip{14.5pt}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Theory section of the test.
+\theorypart
+\begin{schltask}[label=\normalsize\bf\letterspace{\defaultletterspace}ΘΕΩΡΙΑ\ \arabic*,itemsep=2ex,leftmargin=-5pt]
+\item \leavevmode\\[-1.5\baselineskip]%
+  \begin{enumerate}[label=\bf\Alph*.,itemsep=4ex]
+  \item Δίνεται το μονώνυμο $-6 x^4 y $.
+    \begin{enumerate}[label=\bf\arabic*\hspace{1pt}),itemsep=2ex]
+    \item Να γράψετε το συντελεστή και  το κύριο μέρος του μονωνύμου.
+    \item Ποιος είναι ο βαθμός του μονωνύμου ως προς $x$;  Ποιος ο βαθμός του ως προς $y$;
+    \item Ποιος είναι ο βαθμός του μονωνύμου ως προς $x$ και $y$;
+    \end{enumerate}
+
+  \item Να χαρακτηρίσετε κάθε μία από τις παρακάτω προτάσεις ως \textit{σωστή} ή \textit{λάθος}.
+    \begin{enumerate}[label=\bf\arabic*\hspace{1pt}),itemsep=2ex]
+    \item Το πολυώνυμο $P(x) = -2x + 3 x^2 + 1$ είναι πρώτου βαθμού.
+    \item Ο αριθμός $5$ είναι ένα σταθερό πολυώνυμο μηδενικού βαθμού.
+    \end{enumerate}
+
+  \item  Να συμπληρώσετε τα κενά με την κατάλληλη αλγεβρική παράσταση ώστε να προκύψουν γνωστές ταυτότητες.
+    \begin{enumerate}[label=\bf\arabic*\hspace{1pt}),itemsep=2ex]
+    \item $( \alpha + \beta )^2 = \lowerdots{\defaultDots}$
+    \item $( \alpha - \beta )^2 = \lowerdots{\defaultDots}$
+    \item $( \alpha + \beta )^3 = \lowerdots{\defaultDots}$
+    \item $( \alpha - \beta )^3 = \lowerdots{\defaultDots}$
+    \item $( \alpha - \beta )( \alpha + \beta ) = \lowerdots{\defaultDots}$
+    \end{enumerate}
+  \end{enumerate}
+
+  \newpage
+\item \leavevmode\\[-1.5\baselineskip]
+  \begin{enumerate}[label=\bf\Alph*.,itemsep=4ex]
+  \item Να συμπληρώσετε τα κενά:
+    \begin{enumerate}[label=\bf\arabic*\hspace{1pt}),itemsep=2ex]
+    \item $\sin 0^\circ = \lowerdots{\defaultDots}$\\
+    \item $\cos 90^\circ = \lowerdots{\defaultDots}$\\
+    \item ${\sin}^2\omega + {\cos}^2\omega =  \lowerdots{\defaultDots}$
+    \end{enumerate}
+
+  \item Να επιλέξετε τη σωστή απάντηση σε κάθε μία από τις παρακάτω προτάσεις:
+    \begin{enumerate}[label=\bf\arabic*\hspace{1pt}),itemsep=4ex]
+    \item $\sin( {180}^\circ - \omega ) = \lowerdots{\defaultDots}$\\
+      \begin{multichoice}
+      \item $\sin\omega$
+      \item $-\sin\omega$
+      \end{multichoice}
+    \item $\cos( {180}^\circ - \omega ) = \lowerdots{\defaultDots}$\\
+      \begin{multichoice}
+      \item $\cos\omega$
+      \item $-\cos\omega$
+      \end{multichoice}
+    \item $\tan( {180}^\circ - \omega ) = \lowerdots{\defaultDots}$\\
+      \begin{multichoice}
+      \item $\tan\omega$
+      \item $-\tan\omega$
+      \end{multichoice}
+    \item $\tan\omega = \lowerdots{\defaultDots}$\\
+      {\large
+        \begin{multichoice}
+        \item $\frac{\sin\omega}{\cos\omega}$
+        \item $\frac{\cos\omega}{\sin\omega}$
+        \end{multichoice}
+      }
+    \end{enumerate}
+
+  \item Σε ορθοκανονικό σύστημα $xOy$ παίρνουμε το σημείο $M(x_0 \,,\, y_0)$ όπως φαίνεται στο παρακάτω σχήμα. Αν $\rho = OM = \sqrt{x_0^2 + y_0^2}$ και $\omega = x\hat{O}M$, τότε, να χαρακτηρίσετε κάθε μία από τις πιο κάτω προτάσεις ως \textit{σωστή} ή \textit{λάθος}: \\
+    \parbox[b]{10em}{%
+    \begin{enumerate}[label=\bf\arabic*\hspace{1pt}),itemsep=2ex]
+    \item $\sin\omega = \frac{y_0}{\rho}$
+    \item $\cos\omega = \frac{x_0}{\rho}$
+    \item $\tan\omega = \frac{y_0}{x_0}$
+    \end{enumerate}
+  }%
+  \hspace{8em}
+    \begin{tikzpicture}
+      [%
+      axes/.style={->, >=stealth, thick},
+      help/.style={dashed, thin}
+      ]
+      \draw [axes] (-1,0) -- (2,0) node [above] {\small$\bm{x}$};
+      \draw [axes] (0,-1) -- (0,2) node [right] {\small$\bm{y}$};
+      %
+      \coordinate [label=below left:\footnotesize$O$] (O) at (0,0);
+      \coordinate (A) at (1,0);
+      \coordinate (B) at (50:2.5);
+      \coordinate [label=right:\footnotesize$M$] (M) at ($0.7*(B)$);
+      \coordinate [label=below:\footnotesize$x_0$] (D) at ($(O)!(M)!(A)$);
+      \coordinate (E) at (0,2);
+      \coordinate [label=left:\footnotesize$y_0$] (F) at ($(O)!(M)!(E)$);
+      %
+      \draw [thin] (O) -- (B);
+      \draw [help] (M) -- (D);
+      \draw [help] (M) -- (F);
+      %
+      \fill [black] (O) -- (0.3,0) arc [start angle=0, end angle=50, radius=0.3] -- cycle;
+      %
+      \node [above] at ($0.4*(M)$) {\footnotesize$\rho$};
+      \node at (25:0.5) {\footnotesize$\omega$};
+    \end{tikzpicture}
+  \end{enumerate}
+\end{schltask}
+
+\vspace{8ex}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Exercise section of the test.
+\exercisepart
+\begin{schltask}[label=\normalsize\bf\letterspace{\defaultletterspace}ΑΣΚΗΣΗ\ \arabic*,itemsep=2ex]
+\item \leavevmode\\
+  Δίνεται η εξίσωση $x^2 -  x = 6$.\\[-1.2\baselineskip]
+  \begin{enumerate}[label=\bf\alph*),leftmargin=20pt]
+  \item Να φέρετε την εξίσωση στη μορφή $\alpha x^2 + \beta x + \gamma = 0 $ και να γράψετε τους συντελεστές $\alpha,\,\beta,\,\gamma$.
+  \item Υπολογίστε τη διακρίνουσα $\Delta$.
+  \item Να λύσετε την παραπάνω εξίσωση.
+  \end{enumerate}
+\item \leavevmode\\
+  Έχουμε κόκκινες και πράσινες χάντρες για να φτιάξουμε ένα βραχιόλι. Αν χρησιμοποιήσουμε όλες τις κόκκινες και βάλουμε τον ίδιο αριθμό από πράσινες, τότε, θα περισσέψει μια πράσινη χάντρα. Αν χρησιμοποιήσουμε όλες τις πράσινες και βάλουμε μισές κόκκινες από τον αριθμό των πράσινων, τότε, θα περισσέψουν δύο κόκκινες χάντρες. Πόσες κόκκινες και πόσες πράσινες χάντρες έχουμε;
+\item \leavevmode\\
+  Σε ισοσκελές τρίγωνο $AB\Gamma$ ($AB = A\Gamma$) φέρουμε κάθετες $BK,\, \Gamma\Lambda$ προς τις πλευρές  $A\Gamma,\, AB$, αντίστοιχα.\\[-1.2\baselineskip]
+\begin{enumerate}[label=\bf \alph*),leftmargin=20pt]
+\item Να αποδείξετε ότι $AK = A\Lambda$.
+\item Αν $I$ είναι το σημείο τομής των $BK$ και $\Gamma\Lambda$, τότε, να αποδείξετε ότι η $AI$ διχοτομεί τη γωνία $\hat{A}$.
+\end{enumerate}
+\end{schltask}
+
+\vspace{8ex}
+
+\wish
+
+\vspace{4ex}
+
+\noindent{\bf Παρατηρήσεις:}
+\begin{itemize}[leftmargin=10pt]
+\item Να απαντήσετε σε \textit{\letterspace{8pt}ΕΝΑ} από τα δύο θέματα \textit{Θεωρίας} καθώς και σε
+  \textit{\letterspace{8pt}ΔΥΟ} από τις τρεις \textit{Ασκήσεις}.
+\item Όλες οι απαντήσεις να γραφούν στην κόλλα σας.
+\end{itemize}
+
+\vspace{7ex}
+
+\signatures{\textit{Ονομ/νυμο διευθυντή}}
+\hfill
+\signatures[Ο Εισηγητής]{\textit{Ονομ/νυμο εισηγητή}}
+\end{document}

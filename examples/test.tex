@@ -1,0 +1,250 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       Examples for the xelatex package schl
+%                               Tassos Tsesmetzis
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,a4page]{article}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{xgreek}
+
+\setmainfont[Mapping=tex-text]{Linux Biolinum O}
+
+% Package geometry. Set text area dimensions.
+\usepackage[width=0.9\paperwidth,height=0.95\paperheight,centering]{geometry}
+% Package amsfonts. We need it for the macro \mathbb.
+\usepackage{amsfonts}
+% Package enumerate. 
+\usepackage{enumerate}
+% Package tikz for graphics.
+\usepackage{tikz}
+\usetikzlibrary{calc,math}
+% Load package schl.
+\usepackage[greek]{schl}
+
+% Don't print page number
+\pagestyle{empty}
+
+% Macros for this document 
+% \lowerdots deviation from the base line.
+\def\dotDeviation{-0.5ex}
+% \lowerdots: Number of dots for filling in a word
+\def\dotNoForWord{35}
+% A macro that adds vertical space between adjucent multiple choice questions.
+\def\multichoiceskip{\vspace{2ex}}
+
+% Set \school.
+\school{Γυμνάσιο Ξάνθης}
+% Set name of the teacher.
+\teacher{Όνομα εκπαιδευτικού}
+% Set suject.
+\subject{Μαθηματικά}
+% Set grade.
+\grade{Α' Γυμνασίου}
+
+% A new macro for blank space to avoid some typing.
+\def\blank{\lowerdots[0ex]{10}}
+
+% Print text in multichoice environment in \small size.
+\setlist*[multichoice]{before=\small}
+% Set vertical distance between adjucent exercises to 7ex.
+\setlist*[exercise]{itemsep=7ex}
+% Print the question number in the true-false type questions in arabic
+% and set question to question vertical distance to 5ex.
+\setlist*[truefalse]{label=\arabic*.,itemsep=5ex,leftmargin=14pt}
+% The next four lines are for the macro \matchingque.
+\setlist*[leftmatching]{label=,itemsep=5ex}
+\setlist*[rightmatching]{label=,itemsep=2.5ex}
+\setlength{\rightmatchwidth}{80pt}
+\setlength{\rightmatchwidth}{180pt}
+
+\begin{document}
+% Print school logo.
+\noindent\schoollogo{200pt}
+\hfill
+% Print date at the end of line.
+\datefield{16/01/2019}
+
+\vspace{1ex}
+
+% Set the header.
+\examtitle[Επαναληπτικό τεστ στη Γεωμετρία]{}
+
+\vspace{4ex}
+
+\fullname{\lowerdots{60}}
+
+\vspace{1ex}
+
+% Enlarge the space between adjucent lines of text.
+% We want our student's handwritten letters to fit in the blank spaces.
+\setlength\baselineskip{3.55ex}
+
+\begin{exercise}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % First exercise
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item Να συμπληρώσετε τα κενά επιλέγοντας μία από τις απαντήσεις που δίνονται:\points{6}
+
+  \vspace{-1.5ex}
+
+  \begin{enumerate}[label=\arabic*.,leftmargin=14pt]
+  \item Από δύο σημεία \blank
+
+    % One could also use the more powerfull package tasks for
+    % typing multiple choice questions.
+    \begin{multichoice}[itemjoin=\hspace{4em}]
+    \item μπορούν να περάσουν άπειρες ευθείες
+    \item μπορεί να περάσει μόνο μία ευθεία\\\hspace*{9em}
+      % The three questions don't fit in a line.
+      % Print the third question in the next line.
+      % Also, add some horizontal space before third item.
+      % This space is determined with trial and error. Any other idea?
+    \item μπορούν να περάσουν μόνο δύο ευθείες
+    \end{multichoice}
+
+    \multichoiceskip
+  \item Αν οι πλευρές μίας γωνίας είναι ημιευθείες κάθετες μεταξύ τους, τότε η γωνία λέγεται \blank
+    
+    \begin{multichoice}
+    \item οξεία
+    \item ορθή
+    \item αμβλεία
+    \end{multichoice}
+
+    \multichoiceskip
+  \item Δύο ευθείες που βρίσκονται στο ίδιο επίπεδο και δεν έχουν κανένα κοινό σημείο, λέγονται \blank
+    
+    \begin{multichoice}
+    \item παράλληλες
+    \item τεμνόμενες
+    \item κάθετες
+    \end{multichoice}
+
+    \multichoiceskip
+  \item Δύο γωνίες που έχουν άθροισμα $180^\circ$ ονομάζονται \blank\ γωνίες.
+    
+    \begin{multichoice}
+    \item κατακορυφήν
+    \item συμπληρωματικές
+    \item παραπληρωματικές
+    \end{multichoice}
+    
+    \multichoiceskip
+  \item Δύο γωνίες που έχουν άθροισμα $90^\circ$ ονομάζονται \blank\ γωνίες.
+    
+    \begin{multichoice}
+    \item κατακορυφήν
+    \item συμπληρωματικές
+    \item παραπληρωματικές
+    \end{multichoice}
+    
+    \multichoiceskip
+  \item Δύο γωνίες που έχουν την κορυφή τους κοινή και τις πλευρές τους αντικείμενες ημιευθείες ονομάζονται \blank\ γωνίες.
+    
+    \begin{multichoice}
+    \item κατακορυφήν
+    \item συμπληρωματικές
+    \item παραπληρωματικές
+    \end{multichoice}
+
+  \end{enumerate}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Second exercise
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item Να χαρακτηρίσετε κάθε μία από τις πιο κάτω προτάσεις ως σωστή ή λάθος:\points{3}
+
+  \vspace{-1.5ex}
+
+  \begin{truefalse}
+  \item Το μήκος της τεθλασμένης γραμμής $AB\Gamma\Delta$ είναι $5\,cm$.\\
+    
+    \hspace{12em}
+    % One would prefer to enclose the next tikzpicture inside a
+    % \begin{center} ... \end{center}
+    % instead of prepending a 12em space.
+    % Unfortunately, this doesn't work due to the way that
+    % the \item is redefined inside truefalse.
+    \begin{tikzpicture}
+      \coordinate (A) at (-120:2);
+      \coordinate (B) at (0,0);
+      \coordinate (C) at (-30:2);
+      \coordinate (D) at ($(C) + (10:3)$);
+      \draw (A) node [below] {\small$A$} -- (B) node [above] {\small$B$}%
+      -- (C) node [below] {\small$\Gamma$} -- (D) node [above] {\small$\Delta$};
+      \node [above left] at ($0.5*(A) + 0.5*(B)$) {\small$2\ cm$};
+      \node [above right] at ($0.5*(B) + 0.5*(C)$) {\small$2\ cm$};
+      \node [below right] at ($0.5*(C) + 0.5*(D)$) {\small$3\ cm$};
+    \end{tikzpicture}
+  \item Το σημείο $M$ είναι το μέσο του τμήματος $AB$.\\
+    
+    \hspace{15em}
+    \begin{tikzpicture}
+      \coordinate (A) at (0,0);
+      \coordinate (M) at (1.5,0);
+      \coordinate (B) at (4,0);
+      \draw [|-|]  (A) node [below] {\small$A$} -- (M) node [below] {\small$M$};
+      \draw [-|] (M)-- (B) node [below] {\small$B$};
+      \node [above] at ($0.5*(A) + 0.5*(M)$) {\small$1,\!5\ cm$};
+      \node [above] at ($0.5*(B) + 0.5*(M)$) {\small$2,\!5\ cm$};
+    \end{tikzpicture}
+  \item  Οι ευθείες $\varepsilon_1$ και $\varepsilon_2$ είναι κάθετες.
+    
+    \hspace{16.3em}
+    \begin{tikzpicture}
+      \coordinate (A) at (1,1);
+      \coordinate (B) at (1,-1);
+      \draw (A) node [right] {\small$\varepsilon_1$} -- ($-1*(A)$);
+      \draw (B) -- ($-1*(B)$) node [left] {\small$\varepsilon_2$};
+      \fill [black] (45:0.2) -- (0,0) --(-45:0.2) -- (0.2 * sqrt 2,0) -- cycle;
+    \end{tikzpicture}
+  \end{truefalse}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Third exercise
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item Ενώστε κάθε γωνία με το είδος της.\points{6}
+
+  \matchingque[350pt]{%
+    % First angle
+    \hspace{1.5em}
+    \begin{tikzpicture}
+      \draw (15:1) -- (0:0) node [above right] {\small$\varphi$} -- (80:1);
+    \end{tikzpicture},%
+    % Second angle
+    \begin{tikzpicture}
+      \draw (30:1) -- (0:0) node [above] {\small$\varphi$} -- (160:1);
+    \end{tikzpicture},
+    % Third angle
+    \hspace{1.3em}
+    \begin{tikzpicture}
+      \draw (0:1) -- (0:0) node [below right] {\small$\varphi$} -- (-90:1);
+      \fill (0:0) rectangle (-45:0.2);
+    \end{tikzpicture}%
+  }{%
+    Η γωνία $\varphi$ είναι ευθεία γωνία.,%
+    Η γωνία $\varphi$ είναι αμβλεία γωνία.,%
+    Η γωνία $\varphi$ είναι ορθή γωνία.,%
+    Η γωνία $\varphi$ είναι οξεία γωνία.%
+  }
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Forth exercise
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item Δίνεται ο κύκλος $(K\,,\, 2 cm)$.
+  \begin{enumerate}[leftmargin=14pt]
+  \item Σχεδιάστε μια διάμετρο $AB$.\points{1}
+  \item Από τα σημεία $A,\ B$ σχεδιάστε τις εφαπτόμενες του κύκλου.\points{2}
+  \item Ποια είναι η σχετική θέση των εφαπτομένων που σχεδιάσατε; Δικαιολογήστε την απάντησή σας.\\\phantom{.}\points{2}
+  \end{enumerate}
+
+  \vspace{4ex}
+  
+  \begin{center}
+    \begin{tikzpicture}
+      \coordinate (K) at (0,);
+      \draw (K) circle [radius=2cm];
+      \fill (K) node [above] {\small$K$} circle [radius=1pt];
+    \end{tikzpicture}
+  \end{center}
+\end{exercise}
+\end{document}

@@ -1,0 +1,146 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       Examples for the xelatex package schl
+%                               Tassos Tsesmetzis
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,a4page]{article}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{xgreek}
+
+\setmainfont[Mapping=tex-text]{Linux Biolinum O}
+
+% Package geometry. Set text area dimensions.
+\usepackage[width=0.9\paperwidth,height=0.95\paperheight,centering]{geometry}
+% Package amsfonts. We need it for the macro \mathbb.
+\usepackage{amsfonts}
+% Package enumerate. 
+\usepackage{enumerate}
+% Package tikz for graphics.
+\usepackage{tikz}
+% Load package schl.
+\usepackage[greek]{schl}
+
+% Don't print page number
+\pagestyle{empty}
+
+% Macros for this document 
+% \lowerdots deviation from the base line.
+\def\dotDeviation{-0.5ex}
+% \lowerdots: Number of dots for filling in a word
+\def\dotNoForWord{35}
+
+% Set \school.
+\school{Γυμνάσιο Θεσσαλονίκης}
+% Set name of the teacher.
+\teacher{Όνομα εκπαιδευτικού}
+% Set suject.
+\subject{Μαθηματικά}
+% Set grade.
+\grade{Α' Γυμνασίου}
+
+
+\begin{document}
+% Print school logo.
+\noindent\schoollogo{200pt}
+\hfill
+% Print date at the end of line.
+% We use \makebox to leave a blank space after the Greek \date@term.
+% Another idea might be to replace the \makebox macro with something like
+% \phantom{<A test date>}.
+\datefield{\makebox[6em]{}}
+
+% Print a header for the worksheet appending the given argument to
+% the Greek \worksheet@term.
+\worksheettitle{στην παράγραφο Α.7.1}
+
+% Enlarge the space between adjucent lines of text.
+% We want out student's handwritten letters to fit in the blank spaces.
+\setlength\baselineskip{3.55ex}
+
+% Exercises are adapted from unit A.7.1 of the Greek textbook:
+% ΜΑΘΗΜΑΤΙΚΑ Α' ΓΥΜΝΑΣΙΟΥ
+% Βανδουλάκης Ι, Καλλιγάς Χ, Μαρκάκης Ν, Φερεντίνος Σ
+% ΟΕΔΒ
+\begin{enumerate}[\bf\large 1.]
+\item  Να συμπληρώσετε τα κενά:\\[-5ex]
+  \begin{enumerate}[\bf (a)]
+  \item Οι αριθμοί που έχουν πρόσημο $+$ λέγονται \lowerdots[\dotDeviation]{\dotNoForWord}, ενώ αυτοί που έχουν πρόσημο $-$ λέγονται \lowerdots[\dotDeviation]{\dotNoForWord}
+  \item Οι αριθμοί με το ίδιο πρόσημο λέγονται \lowerdots[\dotDeviation]{\dotNoForWord}, ενώ αυτοί με διαφορετικά πρόσημα λέγονται \lowerdots[\dotDeviation]{\dotNoForWord}
+  \item Στην ευθεία των αριθμών, δεξιά του μηδέν βρίσκονται οι \lowerdots[\dotDeviation]{\dotNoForWord} ρητοί και αριστερά του μηδέν οι \lowerdots[\dotDeviation]{\dotNoForWord} ρητοί.\\[-1ex]
+    \begin{center}
+      \begin{tikzpicture}
+        \draw [->, >=stealth] (-5,0) -- (5,0);
+        \foreach \i in {-4,-3,-2,-1,0,1,2,3,4}
+                \draw [very thin] (\i,0.1) -- (\i,-0.1);
+        \node at (0,-0.5) {\large $0$};
+        \node at (5,-0.3) {\large $x$};
+        \node at (-5,-0.3) {\large $x'$};
+      \end{tikzpicture}
+    \end{center}
+
+    \vspace{-2.5ex}
+
+  \item Φυσικοί αριθμοί: \lowerdots[\dotDeviation]{\dotNoForWord} \\
+    \noindent Ακέραιοι αριθμοί: \lowerdots[\dotDeviation]{\dotNoForWord} \\
+    \noindent Ρητοί αριθμοί: \lowerdots[\dotDeviation]{\dotNoForWord}
+  \end{enumerate}
+\item Να κατατάξετε τους παρακάτω αριθμούς σε δύο ομάδες, τους θετικούς και τους αρνητικούς:
+  $$-3,\!1,\quad +5,\quad +\frac83,\quad -20,\!7,\quad 11,\quad -2, \quad 18,\!5$$
+  % Print \solution@term. This area will be filled by students.
+  \solution{%
+    Θετικοί αριθμοί:\\
+    Αρνητικοί  αριθμοί:
+  }
+\item Στα ζεύγη αριθμών που ακολουθούν, να βρείτε ποιοι αριθμοί είναι ομόσημοι και ποιοι ετερόσημοι:
+  \begin{center}
+    % Use the multichoice environment. With the argument label=\bf(\alph*) we
+    % format the label of the environment.
+    % See the enumitem package documentation for more details.
+    \begin{multichoice}[label=\bf(\alph*)]
+    \item $3$ και $+3$
+    \item $-2$ και $-4$
+    \item $3$ και $-1,\!2$
+    \item $-\frac53$ και $+1,\!9$
+    \item $0$ και $-5$
+    \item $\frac12$ και $0$
+    \end{multichoice}
+  \end{center}
+  % Another idea is to use a tabular environment and define
+  % a counter, questionCounter, for each question. The macro
+  % \questionNo advances the counter and formats it's value. 
+  % \newcounter{questionCounter}
+  % \setcounter{questionCounter}{0}
+  % \def\questionNo{\stepcounter{questionCounter}(\alph{questionCounter})\quad}
+  % \begin{center}
+  %   \begin{tabular}{p{150pt}p{150pt}l}
+  %     \questionNo $3$ και $+3$ & \questionNo $-2$ και $-4$ & \questionNo $3$ και $-1,\!2$ \\[1ex]
+  %     \questionNo $-\frac53$ και $+1,\!9$ & \questionNo $0$ και $-5$ & \questionNo $\frac12$ και $0$
+  %   \end{tabular}
+  % \end{center}
+\solution{%
+  Ομόσημοι:\\
+  Ετερόσημοι:\\
+  Άλλο:
+}
+\item Τοποθετήστε στην ευθεία των αριθμών, τα σημεία με τετμημένη:
+  $$0,\quad -1,\!5,\quad 4,\quad +\frac12,\quad -2,\quad -\frac72,\quad +3,\!8$$
+  \solution{%
+
+    \vspace{3ex}
+
+    \begin{center}
+      \begin{tikzpicture}
+        \draw [->, >=stealth, line width=1pt] (-5,0) -- (5,0);
+        \foreach \i in {-4.8,-4.7,...,4.8}
+        \draw [line width=0.1pt] (\i,0.07) -- (\i,-0.07);
+        \foreach \i in {-4.5,-4.0,...,4.5}
+        \draw [line width=0.3pt] (\i,0.15) -- (\i,-0.15);
+        \node at (5,-0.25) {\large $x$};
+        \node at (-5,-0.25) {\large $x'$};
+      \end{tikzpicture}
+    \end{center}
+  }
+\end{enumerate}
+\end{document}

@@ -1,0 +1,19 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Defining a new macro \myexamdetails.
+% This is meant to be used in summative tests.
+% 
+% It is saved in a seperate file so that it can be used
+% by other documents.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\makeatletter
+\newcommand\myexamdetails[1][15em]{%
+  \parbox[t]{#1}{
+    \normalsize%
+    \textbf{\letterspace{\defaultletterspace}\schoolyearabbr@term:}%
+    \hspace{4pt}\schl@schoolyear\\[1ex]
+    \textbf{\grade@term:}\hspace{4pt}\schl@grade\\[1.0ex]
+    \textbf{\subject@term:}\hspace{4pt}\schl@subject \\[1.0ex]
+    \textbf{\date@term:}\hspace{4pt}\schl@schldate
+  }
+}
+\makeatother

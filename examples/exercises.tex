@@ -1,0 +1,104 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       Examples for the xelatex package schl
+%                               Tassos Tsesmetzis
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,a4page]{article}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{xgreek}
+
+\setmainfont[Mapping=tex-text]{Linux Biolinum O}
+
+% Package geometry. Set text area dimensions.
+\usepackage[width=0.9\paperwidth,height=0.9\paperheight,centering]{geometry}
+% Package amsfonts. We need it for the macro \mathbb.
+\usepackage{amsfonts}
+
+% Load the package schl
+\usepackage[greek]{schl}
+
+% Don't print page number
+\pagestyle{empty}
+
+% Set \school.
+\school{{\letterspace{\defaultletterspace} ΓΕΛ} Αθηνών}
+% Set name of the teacher.
+\teacher{Όνομα εκπαιδευτικού}
+% Set suject.
+\subject{Άλγεβρα}
+% Set grade.
+\grade{Β' Λυκείου}
+
+\begin{document}
+% Print school logo with size 40ex and no indentation.
+\noindent\schoollogo{40ex}%
+% Print deadline at the end of the current line.
+\hfill\deadline{Δευτέρα, 4 Μαίου}
+
+% Leave some space between header and logo.
+\vspace{4ex}
+
+\heading{Επαναληπτικές ασκήσεις}
+
+% Leave some space between header and the exercises.
+\vspace{1ex}
+
+\begin{exercise}
+\item Υπολογίστε την τιμή του πολυωνύμου $P(x) = x^2 - x + 1$, όταν $x = 1$.\\
+  % Print answer at the end of line. We need \phantom{.} because there is no
+  % letter in front of \answer.
+  \phantom{.}\answer{$1$}
+\item Να λύσετε την εξίσωση $\sin x = \cos x$.\\
+  \phantom{.}\answer{$x = \frac\pi{4} + \kappa \pi,\, \kappa\in\mathbb{Z}$}
+  % Add a hint to the exercise.
+  \hint{Παρατηρήστε ότι η εξίσωση δεν έχει ρίζες τους αριθμούς
+    $x = \frac{\pi}2 + \kappa \pi,\, \kappa\in\mathbb{Z}$. \\
+    Έτσι, για $x \neq \frac{\pi}2 + \kappa \pi,\, \kappa\in\mathbb{Z}$, μπορούμε
+    να γράψουμε $$\frac{\sin x}{\cos x} = 1 \Longleftrightarrow \tan x = 1
+    \Longleftrightarrow \ldots$$
+    }
+  \item Να λύσετε την εξίσωση $$x^3 - 4x^2 + x + 6 =0$$
+    \answer{$x=-1$ ή $x=2$ ή $x=3$}
+    \hint{Αναζητήστε μια ρίζα $\rho$ στους ακέραιους διαιρέτες του σταθερού όρου $6$. Στη συνέχεια, υπολογίστε: $(x^3 - 4x^2 + x + 6):(x - \rho)$ και παραγοντοποιήστε το αριστερό μέλος της εξίσωσης.%
+      }
+    \item Βρείτε τις λύσεις της ανίσωσης
+      $$e^{3x} \leq e^{2x + \ln 2} + e^x - 2$$
+      \answer{$0\leq x\leq \ln 2$}
+      \hint{Η ανίσωση γράφεται ισοδύναμα:
+        $$e^{3x} \leq 2 e^{2x} + e^x - 2 \Longleftrightarrow e^{3x} - 2 e^{2x} - e^x + 2 \leq 0$$
+        Θέστε $w = e^x$. Τότε η ανίσωση μετασχηματίζεται σε μια πολυωνυμική ανίσωση με μεταβλητή το $w$.
+        }
+      \item Για τις διάφορες τιμές του $\lambda\in\mathbb{R}$, να λύσετε το σύστημα
+        $$\left\{
+          \begin{array}{cl}
+            \lambda  x  - 2 y & = 1 \\
+            4x  + y & = -2
+          \end{array}
+        \right.
+        $$
+        \answer{%
+          % Our answers splits in several lines. We use a \parbox to put all text in
+          % a paragraph. First argument [c], selects as baseline of the text the horizontal
+          % line through the midpoint of it's height. Second argument {150pt} is the
+          % length of the box.
+          \parbox[c]{150pt}{%
+            % Choose the smallest size for our font.
+            {\tiny
+            \begin{itemize}
+            \item Αν $\lambda \neq -8$ το σύστημα έχει μοναδική λύση την
+              $(x\,,\, y) = (-\frac1{\lambda + 8}\,,\, -\frac{\lambda + 4}{\lambda + 8})$.
+            \item Αν $\lambda = -8$ το σύστημα είναι αδύνατο.
+            \end{itemize}
+            }
+          }
+        }
+        \hint{Υπολογίστε τις ορίζουσες του συστήματος $D,\ D_x,\ D_y$. Στη συνέχεια, βρείτε τις τιμές του
+          $\lambda$ για τις οποίες $D = 0$. Διακρίνουμε τις περιπτώσεις
+          \begin{itemize}
+          \item Για εκείνα τα $\lambda\in\mathbb{R}$ για τα οποία $D \neq 0$, το σύστημα έχει μοναδική
+            λύση την \ldots
+          \item Για κάθε μία από τις ρίζες της εξίσωσης $D = 0$, το σύστημα είναι είτε αόριστο, είτε αδύνατο\ldots          \end{itemize}
+        }
+\end{exercise}
+\end{document}

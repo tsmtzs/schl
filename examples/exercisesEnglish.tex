@@ -1,0 +1,128 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       Examples for the xelatex package schl
+%                               Tassos Tsesmetzis
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[12pt,a4page]{article}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{xgreek}
+
+\setmainfont[Mapping=tex-text]{Linux Biolinum O}
+
+% Package geometry. Set text area dimensions.
+\usepackage[width=0.9\paperwidth,height=0.9\paperheight,centering]{geometry}
+% Package amsfonts. We need it for the macro \mathbb.
+\usepackage{amsfonts}
+\usepackage{xcolor}
+
+% Load the package schl
+\usepackage[greek]{schl}
+
+% Don't print page number
+\pagestyle{empty}
+
+% Set \school.
+\school{Kronos High School}
+% Set name of the teacher.
+\teacher{\textit{teacher's name}}
+% Set suject.
+\subject{Algebra}
+% Set grade.
+\grade{7th grade}
+
+\makeatletter
+% Define some terms in English
+\def\deadline@term{Deadline}
+\def\hint@term{Hint}
+\def\answerabbr@term{Ans.}
+\makeatother
+
+\setlist*[exercise]{
+  label={%
+    \parbox[t]{\linewidth}{
+        \setlength \baselineskip{12pt}%
+        \setmainfont[Mapping=tex-text]{Linux Libertine O}\color{blue}%
+        \noindent\rule{\linewidth}{2pt}
+        \newline\noindent\colorbox{blue!90!black!10}{\makebox[0.99\linewidth][l]{\textsc{Exercise} \arabic*}}%
+        \\*[-1ex]\rule{\linewidth}{2pt}
+    }
+  }
+} 
+
+\newcommand\myitem[1]{%
+  \colorbox{green!80!black!20}{\begin{minipage}{0.99\linewidth}#1\end{minipage}}%
+}
+
+\begin{document}
+% Print school logo with size 40ex and no indentation.
+\noindent\schoollogo{40ex}%
+% Print deadline at the end of the current line.
+\hfill\deadline{Monday, February 11}
+
+% Leave some space between header and logo.
+\vspace{4ex}
+
+\begin{exercise}[itemsep=1ex]
+\item \myitem{Calculate the value of the polynomial $P(x) = x^2 - x + 1$, when $x = 1$.\\
+    % Print answer at the end of line. We need \phantom{.} because there is no
+  % letter in front of \answer.
+    \phantom{.}\answer{$1$}%
+  }
+\item \myitem{Solve the equation $\sin x = \cos x$.\\%
+    \phantom{.}\answer{$x = \frac\pi{4} + \kappa \pi,\, \kappa\in\mathbb{Z}$}
+    % Add a hint to the exercise.
+    \hint{Observe that none of the numbers $x = \frac{\pi}2 + \kappa \pi,\, \kappa\in\mathbb{Z}$ is a root. \\
+      For $x \neq \frac{\pi}2 + \kappa \pi,\, \kappa\in\mathbb{Z}$, we have
+       $$\frac{\sin x}{\cos x} = 1 \Longleftrightarrow \tan x = 1
+      \Longleftrightarrow \ldots$$
+    }
+  }
+\item \myitem{Solve the equation $$x^3 - 4x^2 + x + 6 =0$$%
+    \phantom{.}\answer{$x=-1$ or $x=2$ or $x=3$}
+    \hint{Find a root $\rho$ among the integer devisors of the constant term $6$. Then devide: $(x^3 - 4x^2 + x + 6):(x - \rho)$ and factor the left side of the given equation.%
+    }
+  }
+\item \myitem{Find the roots of the inequality
+    $$e^{3x} \leq e^{2x + \ln 2} + e^x - 2$$
+    \phantom{.}\answer{$0\leq x\leq \ln 2$}
+    \hint{The inequality is written as:
+      $$e^{3x} \leq 2 e^{2x} + e^x - 2 \Longleftrightarrow e^{3x} - 2 e^{2x} - e^x + 2 \leq 0$$
+      Set $w = e^x$. Then, the inequality transforms in a polynomial inequality with variable $w$.
+    }
+  }
+\item \myitem{For all $\lambda\in\mathbb{R}$, solve the system
+    $$\left\{
+      \begin{array}{cl}
+        \lambda  x  - 2 y & = 1 \\
+        4x  + y & = -2
+      \end{array}
+    \right.
+    $$
+    \phantom{.}\answer{%
+      % Our answers splits in several lines. We use a \parbox to put all text in
+      % a paragraph. First argument [c], selects as baseline of the text the horizontal
+      % line through the midpoint of it's height. Second argument {150pt} is the
+      % length of the box.
+      \parbox[c]{150pt}{%
+        % Choose the smallest size for our font.
+        {\tiny
+          \begin{itemize}
+          \item If $\lambda \neq -8$ the system has the unique solution
+            $(x\,,\, y) = (-\frac1{\lambda + 8}\,,\, -\frac{\lambda + 4}{\lambda + 8})$.
+          \item If $\lambda = -8$ the system has no solution.
+          \end{itemize}
+        }
+      }
+    }%
+    \hint{Calculate the determinants $D,\ D_x,\ D_y$. Then, find the values of
+      $\lambda$ for which $D = 0$. We have two cases:
+      \begin{itemize}[leftmargin=10pt]
+      \item For all $\lambda\in\mathbb{R}$ for which $D \neq 0$, the system  has a unique solution\ldots
+      \item For either one of the roots of the equation $D = 0$, the system either has infinite solutions, either has no solution\ldots          \end{itemize}
+    }
+  }
+\end{exercise}
+\end{document}

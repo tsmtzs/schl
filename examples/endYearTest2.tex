@@ -1,0 +1,169 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       Examples for the xelatex package schl
+%                               Tassos Tsesmetzis
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,a4page]{article}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{xgreek}
+
+\setmainfont[Mapping=tex-text]{Linux Biolinum O}
+
+% Package geometry. Set text area dimensions.
+\usepackage[width=0.9\paperwidth,height=0.9\paperheight,centering]{geometry}
+% Package amsfonts. We need it for the macro \mathbb.
+\usepackage{amsfonts}
+% Package enumerate. 
+\usepackage{enumerate}
+% Package bm.
+\usepackage{bm}
+% Package tikz
+\usepackage{tikz}
+\usetikzlibrary{calc}
+% Load package schl.
+\usepackage[greek]{schl}
+
+% Don't print page number
+\pagestyle{empty}
+
+% Set \school.
+\school{ΓΕΛ Βόλου}
+% Set name of the teacher.
+\teacher{Όνομα εκπαιδευτικού}
+% Set subject.
+\subject{Μαθηματικά Κατεύθυνσης}
+% Set grade.
+\grade{Β' Λυκείου}
+% Set \authorityii.
+\authorityiii{%
+  ΠΕΡΙΦ/ΚΗ Δ/ΝΣΗ  Α'/ΘΜΙΑΣ ΚΑΙ\\
+  Β'/ΘΜΙΑΣ ΕΚΠ/ΣΗΣ ΒΟΛΟΥ\\
+  Δ/ΝΣΗ Β'/ΘΜΙΑΣ ΕΚΠΑΙΔΕΥΣΗΣ\\
+  ΒΟΛΟΥ
+}
+% Set school year.
+\schoolyear{2018--19}
+% Set test date.
+\schldate{18/05/2019}
+% Set examination time.
+\examtime{8:30}
+
+% Default number of dots for \lowerdots.
+\def\defaultDots{10}
+
+% Set vertical space between enumerate items.
+\setlist*[enumerate]{itemsep=2ex}%
+% Set vertical space between tasks.
+\setlist*[schltask]{itemsep=2ex}%
+% Print text in multichoice environment in \small size.
+\setlist*[multichoice]{before=\small\hspace*{4em},label=\bf\alph*),itemjoin=\hspace{0.15\linewidth}}
+
+\begin{document}
+% Print \authoritylogo.
+\authoritylogo[3]
+\hfill%
+\examdetailsii
+
+\vspace{4ex}
+
+% Set the header.
+\finalexamheader{ΓΡΑΠΤΕΣ ΠΡΟΑΓΩΓΙΚΕΣ}{ΜΑΪΟΥ -- ΙΟΥΝΙΟΥ}
+
+\vspace*{1.0ex}
+
+\setlength \baselineskip{14.5pt}
+
+\begin{schltask}
+\item \leavevmode%
+  \begin{enumerate}[label=\bf Α\arabic*.,before=\vspace{-2ex},leftmargin=24pt]
+  \item Θεωρούμε σημείο αναφοράς $\bm{O}$ και ευθύγραμμο τμήμα $\bm{AB}$. Αν $\bm{M}$ είναι το μέσο του $\bm{AB}$, τότε, να αποδείξετε ότι\points{6}\phantom{.} % Crazy, but without \phantom macro \points leaks to next line
+    $$\bm{\overrightarrow{OM} = \frac{\overrightarrow{OA} + \overrightarrow{OB}}{2}}$$
+  \item Να χαρακτηρίσετε κάθε μία από τις παρακάτω προτάσεις ως {\textit σωστή} ή {\textit λάθος}:\points{9}
+  \begin{enumerate}[label=\bf\roman*)]
+  \item Το διάνυσμα $\vec{\gamma} = (3 \,,\, -2)$ είναι παράλληλο στην ευθεία $2x + 3y + 5 = 0$.
+  \item Το συμμετρικό του σημείου $A(2 \,,\, 3)$ ως προς τον άξονα $x'x$ είναι το $B(2 \,,\, -3)$.
+  \item  Τα διανύσματα $\vec{u} = (-3 \,,\, 4)$ και $\vec{v} = (2 \,,\, -1)$ είναι κάθετα.
+  \end{enumerate}
+\item Να επιλέξετε, τη σωστή απάντηση στις ακόλουθες προτάσεις: \points{10}
+  \begin{enumerate}[label=\bf\roman*)]
+  \item Μία ευθεία κάθετη στην ευθεία $y = -x$ είναι η\\
+    \begin{multichoice}
+    \item $y = 2x + 1$
+    \item $y = x - 1$
+    \item $y = -x +1$
+    \end{multichoice}
+  \item Το εσωτερικό γινόμενο δύο διανυσμάτων είναι\\
+    \begin{multichoice}
+    \item αριθμός
+    \item ευθύγραμμο τμήμα
+    \item διάνυσμα
+    \end{multichoice}
+  \end{enumerate}
+\end{enumerate}
+\item \points{25}\\[-1.5ex]
+  \begin{minipage}[b]{210pt}
+    \setlength \baselineskip{14.5pt}
+    \begin{enumerate}[label=\bf Β\arabic*.,leftmargin=24pt]
+    \item Να αποδείξετε ότι η εξίσωση της ευθείας $\varepsilon$ του διπλανού σχήματος είναι $$\varepsilon:\hspace{3pt} y = x - 2$$
+    \item Να βρείτε το σημείο της $\varepsilon$ που έχει τη μικρότερη απόσταση από την αρχή των αξόνων $O$.
+    \end{enumerate}
+\end{minipage}\hspace{8em}
+\begin{tikzpicture}
+  [%
+  axes/.style={->, >=stealth, thick},
+  scale=0.5
+  ]
+  \draw [axes] (-4,0) -- (4,0) node [below] {\small$\bm{x}$};
+  \draw [axes] (0,-4) -- (0,4) node [left] {\small$\bm{y}$};
+  %
+  \coordinate [label=above left:\footnotesize$O$] (O) at (0,0);
+  \coordinate [label=below:\footnotesize$2$] (A) at (2,0);
+  \coordinate [label=above:\footnotesize$\bm{\varepsilon}$] (B) at (-2, -4);
+  \coordinate (C) at (4, 2);
+  % 
+  \fill (A) circle [radius=3pt];%
+  %
+  \draw [very thick] (B) -- (C);
+  \draw (A) -- ($(0.4,0) + (A)$) arc [start angle=0, end angle=45, radius=0.4] -- cycle;
+  %
+  \node at ($(A)+(22:1.1)$) {\scriptsize$45^\circ$};
+\end{tikzpicture}
+\item \leavevmode\\
+  Δίνεται η εξίσωση 
+  $$2\lambda x + y - 1 = 0 \eqno(1)$$
+  όπου $\lambda\in\mathbb{R}$.
+  \begin{enumerate}[label=\bf Γ\arabic*.,leftmargin=24pt]
+  \item Να αποδείξετε ότι για κάθε τιμή της παραμέτρου $\lambda$, η εξίσωση (1) παριστάνει ευθεία.\points{5}
+  \item Να βρείτε το σημείο τομής των ευθειών που ορίζονται από την εξίσωση (1).\points{20}
+  \end{enumerate}
+\item \leavevmode\\
+  Θεωρήστε την εξίσωση 
+  $$x^2 + x y - 6 y^2 = 0 \eqno(2)$$
+  \begin{enumerate}[label=\bf Δ\arabic*.,leftmargin=24pt]
+  \item Να αποδείξετε ότι η εξίσωση (2) παριστάνει τις ευθείες\points{5}
+    $$ \varepsilon:\hspace{3pt} x - 2 y = 0 \qquad \hbox{και} \qquad \delta:\hspace{3pt} x + 3y = 0 $$
+  \item Να δείξετε ότι για κάθε σημείο M του άξονα $x'x$ ισχύει $d(M\,,\,\varepsilon) = \sqrt{2} \, d(M\,,\,\delta)$.\points{5}
+  \item Ένας κύκλος $C$ έχει το κέντρο του $K$ στον θετικό ημιάξονα $Ox$, εφάπτεται στη μία από τις ευθείες $\varepsilon$ και $\delta$, και δεν έχει κανένα κοινό σημείο με την άλλη ευθεία. Αν η μεγαλύτερη από τις αποστάσεις του $K$ από τις $\varepsilon$, $\delta$ είναι  $\sqrt{5}$, τότε, να βρείτε την εξίσωση του κύκλου $C$.\points{10}
+  \end{enumerate}
+\end{schltask}
+
+\vspace{8ex}
+
+{% Change font for the wish.
+  \setmainfont[Mapping=tex-text]{GFS Didot}%
+  \wish%
+}
+
+\vspace{4ex}
+
+\noindent{\bf Παρατήρηση:} \textit{Όλες οι απαντήσεις να γραφούν στην κόλλα σας.}
+
+
+\vspace{7ex}
+
+\signatures{\textit{Ονομ/νυμο διευθυντή}}
+\hfill
+\signatures[Οι Εισηγητές]{\textit{Ονομ/νυμο εισηγητή Α} \\ \textit{Ονομ/νυμο εισηγητή Β}}
+\end{document}

@@ -1,0 +1,95 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       Examples for the xelatex package schl
+%                               Tassos Tsesmetzis
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,a4page]{article}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{xgreek}
+
+\setmainfont[Mapping=tex-text]{Linux Biolinum O}
+
+% Package geometry. Set text area dimensions.
+\usepackage[width=0.9\paperwidth,height=0.95\paperheight,centering]{geometry}
+% Package amsfonts. We need it for the macro \mathbb.
+\usepackage{amsfonts}
+% Package enumerate. 
+\usepackage{enumerate}
+% Load package schl.
+\usepackage[greek]{schl}
+
+% Don't print page number
+\pagestyle{empty}
+
+% Set \school.
+\school{ΓΕΛ Ξάνθης}
+% Set name of the teacher.
+\teacher{Όνομα εκπαιδευτικού}
+% Set subject.
+\subject{Μαθηματικά και \\ \hspace*{4.3em} Στοιχεία Στατιστικής}
+% Set grade.
+\grade{Γ' Λυκείου}
+% Set \authorityii.
+\authorityiii{%
+  ΠΕΡΙΦ/ΚΗ Δ/ΝΣΗ  Α'/ΘΜΙΑΣ ΚΑΙ\\
+  Β'/ΘΜΙΑΣ ΕΚΠ/ΣΗΣ ΞΑΝΘΗΣ\\
+  Δ/ΝΣΗ Β'/ΘΜΙΑΣ ΕΚΠΑΙΔΕΥΣΗΣ\\
+  ΞΑΝΘΗΣ
+}
+% Set school year.
+\schoolyear{2018--19}
+% Set test date.
+\schldate{9/12/2018}
+
+% Print the question number in the true-false type questions in arabic
+% and set question to question vertical distance to 5ex.
+\setlist*[truefalse]{label=\arabic*.,itemsep=3ex,leftmargin=14pt}
+
+% Read file myexamdetails.tex. It defines the macro \myexamdetails.
+\input{myexamdetails}
+
+\begin{document}
+% Print \authoritylogo.
+\authoritylogo[-0.5]%{../pictures/ethnosimo.jpg}
+\hfill%
+\myexamdetails
+
+\vspace{1ex}
+
+% Set the header.
+\examtitle{Α' τετραμήνου}
+
+\vspace{4ex}
+
+\fullname{\lowerdots{60}}
+
+\begin{schltask}
+\item \points{25}\\
+  Κάθε μία από τις παρακάτω προτάσεις είναι είτε σωστή ( Σ ), είτε λάθος ( Λ ). Να κυκλώσετε τη σωστή απάντηση.
+  \begin{truefalse}
+  \item Η παράγωγος μιας συνάρτησης $f$ στο $x_0$, εκφράζει το  ρυθμό  μεταβολής του $y = f(x)$ ως προς το $x$, όταν $x = x_0$.
+  \item Ισχύει ότι $ (\cos x)' = -\sin x $.
+  \item Ισχύει ότι $(e^x)' = e^x$.
+  \item Ισχύει ότι $ \bigl( f(x)\cdot g(x) \bigr)' = f'(x)\cdot g(x) + f(x)\cdot g'(x) $.
+  \item Ισχύει ότι $ \biggl( f\bigl( g(x) \bigr) \biggr) ' = f' \bigl( g'(x) \bigr) $.
+  \end{truefalse}
+\item \points{25}\\
+  Να αποδείξετε ότι για την παράγωγο της σταθερής  συνάρτησης $f(x) = c$ ισχύει  $(c)' = 0$.
+\item \points{25}\\
+  Δίνεται η συνάρτηση $f(x) = x^2 - 4$, όπου $x\in\mathbb{R}$. Να υπολογίσετε το όριο
+  $\limdisplay{x\to-3} \frac{f(x) - 5}{x+3}$.
+  % Use \leavevmode to start a paragraph and then go to next line.
+  % Without \leavevmode the next code throws an error.
+\item \leavevmode\\ Θεωρούμε τη συνάρτηση $f(x) = x e^x$, όπου $x\in\mathbb{R}$.
+\begin{enumerate}[leftmargin=14pt]
+ \item Να δείξετε ότι η συνάρτηση $f$ ικανοποιεί τη σχέση $f''(x) - f(x) = 2 e^x$.\points{10}
+ \item Να βρείτε την εξίσωση της εφαπτομένης της γραφικής παράστασης της $f$ στο σημείο με τετμημένη $x_0 = 0$.\\\phantom{.}\points{15}
+ \end{enumerate}
+\end{schltask}
+
+\vspace{\fill}
+
+\wish
+\end{document}
