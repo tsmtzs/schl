@@ -19,7 +19,7 @@
    Is the font used in  /\sin, \cos, \tan, \cot, \gcd/ 
    and /\lcm/ good enough?
 ** TODO Better formating of the table in /\examdetailsii/
-** TODO Delete macro /\signer/?
+** DONE Delete macro /\signer/?
    Insert names in /\signatures/ without the need of /\signer/ macro,
    as part of argument #2.
 ** DONE Make a macro for True-False questions
@@ -127,6 +127,7 @@
 
     \end{document}
 
+** TODO Define internal macros for other languages.
 
 * *Generate schl.sty and schl.pdf*
 
@@ -136,6 +137,7 @@
    cp languages/schl-greek.def ~/texmf/tex/xelatex/schl/languages/;
    cp languages/schl-template.def ~/texmf/tex/xelatex/schl/languages/;
   #+end_src
+
 
 
 

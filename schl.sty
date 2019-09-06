@@ -52,7 +52,8 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LOCALIZATION
 %% To localize the package schl, define the following macros
-%% with each term in your language.
+%% with each term in your language. Put these definitions in
+%% a file schl-<your-language>.def.
 %% \grade@term             : Used by \examdetails and \examdetailsii.
 %% \subject@term           : Used by \examdetails and \examdetailsii.
 %% \testwriter@term        : Used by \examdetails.
@@ -86,7 +87,7 @@
 %% \trueabbr@term          : Used by \truefalselabel. The first letter of True.
 %% \falseabbr@term         : Used by \truefalselabel. The first letter of False.
 %%
-%% Other internal macros that are used are the following
+%% Other internal macros that are used are
 %% \schl@wish             : A wish for good luck, usually printed in tests. Used by \wish.
 %% \schl@headmaster       : The name of the headmaster. It is set with \headmaster.
 %% \schl@teacher          : Teacher's name. It is set with \teacher.
@@ -117,7 +118,7 @@
  }
 %%
 %% Macro \signatures is used to write the names of the teacher(s) and the headmaster.
-%% A handwritten signature is written in the right of those names.
+%% A handwritten signature is written in the right or above of those names.
 %% \signatures uses a \parbox with length \signatureslength.
 %% Each new name is written in a new line. The length between lines is
 %% \signaturelineskip.
@@ -127,7 +128,7 @@
 \setlength{\signaturelineskip}{7ex}
 %%
 %% Lengths \leftmatchwidth and \rightmatchwidth are used in macro \matchingque.
-%% Both specify the lenth of a \parbox. \leftmatchwidth is the length of the left
+%% Both specify the length of a \parbox. \leftmatchwidth is the length of the left
 %% column of the matching question, and \rightmatchwidth, is the length of the
 %% right. The default length is 150pt.
 \newlength{\leftmatchwidth}
@@ -135,7 +136,7 @@
 \setlength{\leftmatchwidth}{150pt}
 \setlength{\rightmatchwidth}{150pt}
 %%
-%% The following length is used inside truefalse environment.
+%% The following length is used inside the truefalse environment.
 %% It specifies the length of a \parbox. The letters T (true) and F
 %% are the text of this \parbox.
 \newlength{\truefalselength}
@@ -151,7 +152,7 @@
 \def\truefalselabel{\parbox[t][0pt][c]{\truefalselength}{\large \trueabbr@term\hfill\falseabbr@term}}
 %%
 %% Define a new true-false toggle named \first. This is used inside the environment truefalse.
-%% It is used to discriminate the first item from the rest items.
+%% It is used to discriminate the first item from the rest.
 \newtoggle{first}
 %%
 %% Macro \examdetailsii uses a 'tabular' environment. The space between rows is
@@ -329,7 +330,7 @@
   \heading{\worksheet@term\  #1}
 }
 %%
-%% Exam, term test title.
+%% Exam and term test title.
 \newcommand\examtitle[2][\termtest@term]{%
   \heading{#1 #2}
 }
@@ -459,7 +460,6 @@
     \end{tabular}
   }
 }
-\newcommand\signer[1]{\par #1}
 \newcommand\signatures[2][\headmaster@term]{%
   \parbox[t]{\signatureslength}{%
     \setlength \baselineskip{\signaturelineskip}

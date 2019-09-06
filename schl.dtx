@@ -62,7 +62,8 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LOCALIZATION
 %% To localize the package schl, define the following macros
-%% with each term in your language.
+%% with each term in your language. Put these definitions in
+%% a file schl-<your-language>.def.
 %% \grade@term             : Used by \examdetails and \examdetailsii.
 %% \subject@term           : Used by \examdetails and \examdetailsii.
 %% \testwriter@term        : Used by \examdetails.
@@ -96,7 +97,7 @@
 %% \trueabbr@term          : Used by \truefalselabel. The first letter of True.
 %% \falseabbr@term         : Used by \truefalselabel. The first letter of False.
 %%
-%% Other internal macros that are used are the following
+%% Other internal macros that are used are 
 %% \schl@wish             : A wish for good luck, usually printed in tests. Used by \wish.
 %% \schl@headmaster       : The name of the headmaster. It is set with \headmaster.
 %% \schl@teacher          : Teacher's name. It is set with \teacher.
@@ -135,7 +136,7 @@
 %   \iffalse meta-comment
 %%
 %% Macro \signatures is used to write the names of the teacher(s) and the headmaster. 
-%% A handwritten signature is written in the right of those names.
+%% A handwritten signature is written in the right or above of those names.
 %% \signatures uses a \parbox with length \signatureslength.
 %% Each new name is written in a new line. The length between lines is
 %% \signaturelineskip.
@@ -148,7 +149,7 @@
 % \iffalse meta-comment
 %%
 %% Lengths \leftmatchwidth and \rightmatchwidth are used in macro \matchingque.
-%% Both specify the lenth of a \parbox. \leftmatchwidth is the length of the left
+%% Both specify the length of a \parbox. \leftmatchwidth is the length of the left
 %% column of the matching question, and \rightmatchwidth, is the length of the
 %% right. The default length is 150pt.
 % \fi
@@ -159,7 +160,7 @@
 % 
 % \iffalse meta-comment
 %%
-%% The following length is used inside truefalse environment.
+%% The following length is used inside the truefalse environment.
 %% It specifies the length of a \parbox. The letters T (true) and F
 %% are the text of this \parbox.
 % \fi
@@ -182,7 +183,7 @@
 % \iffalse meta-comment
 %%
 %% Define a new true-false toggle named \first. This is used inside the environment truefalse.
-%% It is used to discriminate the first item from the rest items.
+%% It is used to discriminate the first item from the rest.
 % \fi
 %<package>\newtoggle{first}
 % 
@@ -238,7 +239,7 @@
 %   \textsf{schl} is a \XeLaTeX\  package that provides commands and environments suitable for
 % document types that appear
 %   in a classroom enviromnent. It's development is based on the Greek
-%   school system, but it may be usefull in other contexts as well.
+%   school system, but it may be usefull in other contexts also.
 % \end{abstract}
 %
 % \section{Introduction}
@@ -258,8 +259,9 @@
 % common multiple of integers. Another characteristic of Greek school mathematics, is that |\lim|
 % operator appears in display mode. |schl| offers a macro for this.
 %
-% By default, |schl| prints all macros in Greek but this can be changed to any other language.
-% This can be done by redifining package's internal macros.
+% By default, |schl| prints all macros as |undefined|. As of this version (\fileversion), Greek
+% is the only supported language. You set it with the option |greek|. Other languages can be supported
+% by redifining package's internal macros.
 %
 % |schl| loads the packages |fontspec, enumitem, mdframed| and |amsmath|. It is written for \XeLaTeX, but
 % can be used by any system that supports |fontspec|.
@@ -314,7 +316,7 @@
 %    \end{macrocode}
 %
 % \subsection{Lists}
-% |schl| package defines six types of lists. These are |question|, |exercise|, |schltask|, |multichoice|, |tickchoice| and |truefalse|. |tickchoice|  comes also with a stared version |tickchoice*|. All of them depend on the package |enumitem|.
+% |schl| package defines seven types of lists. These are |question|, |exercise|, |schltask|, |multichoice|, |tickchoice|, |truefalse| and |matchique|. |tickchoice|  comes also with a stared version |tickchoice*|. All of them depend on the package |enumitem|.
 %
 % \DescribeEnv{question}\DescribeEnv{exercise}\DescribeEnv{schltask}  These environments are  |enumerate|-like lists. List's |\item| is of the form \meta{type} \meta{counter}, where |type| is |\question@term| for |question|, |\exercise@term| for |exercise| and |\task@term| for |schltask|. \meta{counter} is the internal counter of the environment. 
 % \iffalse meta-comment
@@ -363,7 +365,8 @@
 %    \end{macrocode}
 %
 % \DescribeMacro{\letterspace} The macro |\letterspace|\marg{number} is used to set the horizontal space of adjacent characters in a word. It is based on the |\addfontfeature| macro from the package |fontspec|.
-% The argument \meta{number} is a percentage of the font size.
+% The argument \meta{number} is a percentage of the font size. In |schl| package is used to set the
+% space between capital word letters.
 %  \iffalse meta-comment
 %%
 %%  Space of capital word letters
@@ -557,10 +560,10 @@
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\examtitle} |\examtitle|\oarg{text}\marg{text} is used to set the title of tests. the optional argument has the default value |\termtest@term|. 
+% \DescribeMacro{\examtitle} |\examtitle|\oarg{text}\marg{text} is used to set the title of tests. The optional argument has the default value |\termtest@term|. 
 % \iffalse
 %%
-%% Exam, term test title.
+%% Exam and term test title.
 % \fi
 %    \begin{macrocode}
 \newcommand\examtitle[2][\termtest@term]{%
@@ -568,7 +571,7 @@
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\finalexamheader} Titles for end year exams have a standardized form in Greek schools. |\exams@term| is followed by information about the exam, then comes |\period@term| with the exam period after it. |\finalexamheader|\marg{info}\marg{period} is used for these cases.
+% \DescribeMacro{\finalexamheader} Titles for end year exams have a standardized form in Greek schools. |\exams@term| is followed by information about the exam. Then comes |\period@term| with the exam period after it. |\finalexamheader|\marg{info}\marg{period} is used for these cases.
 % \iffalse meta-comment
 %%
 %% Default headers for final exams.
@@ -765,9 +768,8 @@
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\signatures} Some types of written tests end with the names of the headmaster and the teacher(s) followed by handwritten signatures. Macro |\signer|\marg{name} accepts the name of a signer. |\signatures|\oarg{role}\marg{signer(s)} prints the name(s) of the \meta{signer(s)} under a line with the \meta{role} of the signer(s). |\signatureslength| is the length of the |\signatures| block.
+% \DescribeMacro{\signatures} Some types of written tests end with the names of the headmaster and the teacher(s) followed by handwritten signatures. |\signatures|\oarg{role}\marg{signer(s)} prints the name(s) of the \meta{signer(s)} under a line with the \meta{role} of the signer(s). |\signatureslength| is the length of the |\signatures| block.
 %    \begin{macrocode}
-\newcommand\signer[1]{\par #1}
 \newcommand\signatures[2][\headmaster@term]{%
   \parbox[t]{\signatureslength}{%
     \setlength \baselineskip{\signaturelineskip}

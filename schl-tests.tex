@@ -19,30 +19,33 @@
 
 \begin{document}
 
+\heading{Tests for \textit{schl} package}
+
 \begin{enumerate}
-\item Μαθηματικές συναρτήσεις
+\item Mathematical functions in greek:
   $$\tan_1^3 f(x)\quad \cot x \quad \sin \varphi \quad \cos t$$
   $$\gcd (1,2)\quad \lcm(3,4)$$
-\item Κενός χώρος για συμπλήρωση\\
-  Τα μαθηματικά είναι \lowerdots{3}. Ο Banach υπήρξε \lowerdots{20} από την Πολωνία. Μεταβλητό ύψος \lowerdots[0.5ex]{10}!\\ Και μέσα σε μαθηματικές εκφράσεις $\cos\frac\pi4 = \lowerdots{4}$.
-\item Το $x\to x_0$ κάτω από το όριο.  $\limdisplay{x\to x_0}f(x)$
-\item Το περιβάλλον \texttt{exercise} χρησιμοποιείται για τις εκφωνήσεις των ασκήσεων.
+\item Set $x\to x_0$ under $\lim$:  $\limdisplay{x\to x_0}f(x)$
+\item Blank space\\
+  I am  \lowerdots{3} years old. Banach is a mathematician from \lowerdots{20}. Change the vertical position \lowerdots[0.5ex]{10}!\\ Also in mathematical expressions $\cos\frac\pi4 = \lowerdots{4}$.\\
+  I am  \blankspace{2ex} years old. Banach is a mathematician from \blankspace{15ex}. Change the vertical position \blankspace[0.5ex]{5ex}!\\ Also in mathematical expressions $\cos\frac\pi4 = \blankspace{4ex}$.\\
+\item Environment \texttt{exercise} for typesetting exercises.
   \begin{exercise}
   \item  Να γράψετε όλους τους πρώτους αριθμούς που είναι μικρότεροι του $100$.
   \item Έχουμε κόκκινες και πράσινες χάντρες για να φτιάξουμε ένα βραχιόλι. Αν χρησιμοποιήσουμε όλες τις κόκκινες και βάλουμε τον ίδιο αριθμό από πράσινες, τότε, θα περισσέψει μια πράσινη χάντρα. Αν χρησιμοποιήσουμε όλες τις πράσινες και βάλουμε μισές κόκκινες από τον αριθμό των πράσινων, τότε, θα περισσέψουν δύο κόκκινες χάντρες. Πόσες κόκκινες και πόσες πράσινες χάντρες έχουμε;
   \item Δείξτε ότι το άθροισμα των γωνιών ενός τριγώνου είναι $180^\circ$.
   \end{exercise}
-\item Το περιβάλλον \texttt{schltask} χρησιμοποιείται για τις ασκήσεις των διαγωνισμάτων. 
+\item Environment \texttt{schltask} can be used for summative tests. 
   \begin{schltask}
   \item Λύστε την εξίσωση $x^2 - 3x + 2 = 0$.
   \item Αποδείξτε το Πυθαγόρειο θεώρημα.
   \item Δείξτε ότι οι διάμεσοι ενός τριγώνου συντρέχουν.
   \end{schltask}
-\item Η εντολή \verb/\answer/ εμφανίζει την απάντηση.
+\item The macro \verb/\answer/ is used to typeset the answer of an exercise.
   \begin{exercise}
   \item Υπολογίστε το άθροισμα 1 + 1.\\\phantom{.}\answer{2}
   \end{exercise}
-\item Με το περιβάλλον \texttt{solution}, εισάγουμε τη λύση μιας άσκησης.
+\item With the macro \texttt{solution}, we write the solution of an exercise.
   \begin{exercise}
   \item Δείξτε ότι το πλήθος των πρώτων είναι άπειρο.
     \solution{%
@@ -53,7 +56,7 @@
     \solution{%
       Αρκεί να δείξουμε ότι οι συντεταγμένες του σημείου $O(0\,,\,0)$ επαληθεύουν την εξίσωση της ευθείας.}
   \end{schltask}
-\item Μονάδες για ασκήσεις.
+\item Set points to exercises:
   \begin{schltask}
   \item \points{25}\\
     Διατυπώστε και αποδείξτε το θεώρημα του Bolzano.
@@ -63,11 +66,12 @@
     \item Υπολoγίστε το $f(3)$.\points{1}
     \end{enumerate}
   \end{schltask}
-  \item Με το περιβάλλον \texttt{question} εισάγουμε ερωτήσεις.
+  \item Environment \texttt{question}:.
     \begin{question}
     \item Υπάρχει μικρότερος πραγματικός αριθμός;
+    \item Υπάρχει μεγαλύτερος αρνητικός αριθμός;
     \end{question}
-\item Το περιβάλλον \texttt{hint} χρησιμοποιείται για την εισαγωγή υποδείξεων.
+\item Hints:
   \begin{exercise}
   \item Δείξτε ότι ανάμεσα σε οποιουσδήποτε δύο ρητούς αριθμούς, υπάρχει ρητός.
   \hint{%
@@ -76,90 +80,105 @@
   \hint{%
     Έχουμε $(\alpha + \beta)^2 = (\alpha + \beta) \cdot (\alpha + \beta) = \ldots$}
   \end{exercise}
-\item Με το περιβάλλον \texttt{multichoice} εισάγουμε πολλαπλές απαντήσεις.
+\item Environment \texttt{multichoice} is for multiple choice questions:
   % leave a blank line
   
   \begin{multichoice}
-  \item AhkAJh
-  \item nhsjhd
+  \item choice 1
+  \item choice 2
   \end{multichoice}
   % leave a blank line
 
-  Ακόμη ένα παράδειγμα
+  Another example
   % leave a blank line
 
   \begin{multichoice}
-  \item AhkAJh
-  \item nhsjhd
-  \item oasdp
+  \item choice 1
+  \item choice 2
+  \item choice 3
   \end{multichoice}
 
-  Ή
+  Or
 
   \begin{multichoice}[before=\hspace{3em},itemjoin=\hspace{3em},label=\bf\arabic*{})]
-  \item  nasid nsaid ansincc inwuiesb ncizhs
-  \item nbin p nloxn ioj znkxi mzoxmc z\\\hspace*{13em}
-  \item jkajs jdiajskj iojc 9wj c9ja snin so
+  \item  this is a very long choice 1
+  \item this is an even longer choice 2\\\hspace*{9em}
+  \item this is an remarkably long choice 3
   \end{multichoice}
-\item Το περιβάλλον \texttt{tickchoice} χρησιμοποιείται για πολλαπλές επιλογές. Σε κάθε μια από αυτές προηγείται ένα τετραγωνάκι για επιλογή. Οριζόντια:
+\item Environment \texttt{tickchoice}. Horizontal
 
   \begin{tickchoice*}
-  \item συνάρτηση
-  \item σχέση
-  \item σύνολο
+  \item choice A
+  \item choice B
+  \item choice C
   \end{tickchoice*}
 
-  και κάθετα
+  and vertical
   
   \begin{tickchoice}
-  \item συνάρτηση
-  \item σχέση
-  \item σύνολο
+  \item choice A
+  \item choice B
+  \item choice C
   \end{tickchoice}
-\item Ευχές για καλή επιτυχία.
+\item A wish for good luck
   \wish
-  Θέτοντας νέο κείμενο. Η εντολή \verb/\letterspace/ καθορίζει την απόσταση ανάμεσα στα γράμματα.
+  Setting the text. Macro \verb/\letterspace/ sets the space between adjucent letters
   \makeatletter
   \def\schl@wish{\letterspace{10} ΚΑΛΗ ΤΥΧΗ}
   \makeatother
   \wish
-\item Εισαγωγή ονόματος\hspace{2em} \fullname{}\\
+\item Write the name and date:\hspace{2em} \fullname{}\\
   \datefield{} \\
-  Και με τελείες \hspace{3em} \fullname{\lowerdots{40}}\\ \datefield{\blankspace{10em}}
-\item Παράδοση εργασίας κ.τ.λ. \hspace{3em} \deadline{2/2/2058}\\
-\item Θέματα θεωρίας σ' ένα διαγώνισμα \theorypart
-  Θέματα ασκήσεων σ' ένα διαγώνισμα \exercisepart
-\item Θέτοντας τον τίτλο ενός φύλλου εργασίας
+  Also, with dots or a line for blank space: \hspace{3em} \fullname{\lowerdots{40}}\\ \datefield{\blankspace{10em}}
+\item Exercise deadline: \hspace{3em} \deadline{2/2/2058}\\
+\item Header for the theory part of a test: \theorypart
+  Header for the exercise part of a test: \exercisepart
+\item Set the title of a worksheet
   \worksheettitle{}
-  ή
+  or
   \worksheettitle{στην παράγραφo \S A.2.3}
-\item Πεδίο για υπογραφές εισηγητών/διευθυντή\\
-  \signatures{\signer{Georg Cantor}}
+\item Teacher/headmaster signatures:\\
+  \signatures{Georg Cantor}
   \hfill
   \signatures[Οι Εισηγητές]{%
-    \signer{Αλφαβήτας Γαμαδέλτας}
-    \signer{Εψιλονζήτας Ηταθήτας}
+    Αλφαβήτας Γαμαδέλτας \\
+    Εψιλονζήτας Ηταθήτας
   }
-\item Επικεφαλίδα για διαγωνίσματα, τεστ κ.τ.λ.
+\item Headers for tests:
   \examtitle{}
   \examtitle{Α' τετραμήνου}
   \examtitle[Τεστ]{στο κεφάλαιο 1}
-\item Επικεφαλίδα τελικών εξετάσεων
+\item Header for end year summative tests:
   \finalexamheader{ΓΡΑΠΤΕΣ ΕΠΑΝΑΛΗΠΤΙΚΕΣ}{ΜΑΪΟΥ -- ΙΟΥΝΙΟΥ}
-\item Λογότυπο για τις εξετάσεις
-  \authoritylogo{../schl-teacher-guide/pictures/ethnosimo.jpg}
-\item Λογότυπο σχολείου\\ \schoollogo{100pt}
-\item Πληροφορίες για την εξέταση\\
-  \authoritylogo{../schl-teacher-guide/pictures/ethnosimo.jpg}\hfill\examdetails{ΙΟΥΝΙΟΥ}
+\item Logo of the  exams
+
+  \authoritylogo
+
+  or if we set \verb+\authorityiii+ and \verb+schl@school+:
+
+  \authorityiii{ΔΙΕYΘΥΝΣΗ Β/ΘΜΙΑΣ ΕΚΠΑΙΔΕΥΣΗΣ ΚΑΛΑΜΑΤΑΣ}
+  \school{Λύκειο Καλαμάτας}
+  \authoritylogo
+\item School logo
+
+  \school{ΓΥΜΝΑΣΙΟ ΠΑΤΡΩΝ}
+  \grade{Β' Γυμνασίου}
+  \subject{Μαθηματικά}
+  \teacher{Ήρων από την Αλεξάνδρεια}
+  \schoollogo{200pt}
+\item Exam details:
+
+  \authorityiii{ΔΙΕYΘΥΝΣΗ Β/ΘΜΙΑΣ ΕΚΠΑΙΔΕΥΣΗΣ ΚΑΛΑΜΑΤΑΣ}
+  \school{Λύκειο Καλαμάτας}
+  \schoolyear{2020-2021}
+  \schldate{10-05-2020}
+  \authoritylogo[2.2]\hfill\examdetails{0.5\linewidth}
 
   και
 
-  \authoritylogo{../schl-teacher-guide/pictures/ethnosimo.jpg}\hfill\examdetailsii
-\item Η εντολη \verb*/\blankspace/ εμφανίζει ένα ευθύγραμμο τμήμα. \\
-  Η εαρινή ισημερία πραγματοποιείται στις \blankspace{10em}.\\
-  Ήταν μια βροχερή μέρα. Από το πρωί \blankspace[-1ex]{3em}\\
-  \blankspace{0.8\textwidth}\\
-\item Ερωτήσεις τύπου σωστό--λάθος με το περιβάλλον \verb|truefalse|
+  \examtime{8:30}
+  \authoritylogo[3.3]\hspace{0.5em}\examdetailsii
+\item True-false type questions with the environment \verb|truefalse|
   \begin{truefalse}
   \item kjahs naoisjh nmaksjnd njaksjn dnamksdoh n ash nda
     ias doasj d jjsn ndijewh nasusfd has hujh djnjdi haiusd i
@@ -174,11 +193,10 @@
     ias doasj d jjsn ndijewh nasusfd has hujh djnjdi haiusd i
     kjahs naoisjh nmaksjnd njaksjn dnamksdoh n ash nda
   \end{truefalse}
-\item Ερωτήσεις αντιστοίχησης
+\item Matching questions:
   \setlist*[leftmatching]{label=}
   \setlist*[rightmatching]{label=}
   \setlength{\rightmatchwidth}{200pt}
   \matchingque[320pt]{παιδί,χταπόδι,παιχνίδι}{θάλασσα,κατάστημα,διάστημα,διάβασμα,ψωμί, σαλάμι και κασέρι ίσον σάντουϊτς}
-\item Tests and other animals \makebox[\linewidth]{\dotfill}
 \end{enumerate}
 \end{document}
