@@ -163,7 +163,7 @@
 %%
 %% Write $x\to x_0$ under \lim
 \newcommand{\limdisplay}[1]{\displaystyle\lim_{#1}}
-%% This command creates dots that represent a blank space.
+%% This command prints dots that represent a blank space.
 %% The first argument accepts a length. The deviation from the baseline.
 %% Second argument is the number of dots that are printed.
 %% From egreg's answer on tex.stackexchange.org
@@ -382,7 +382,7 @@
 }
 %%
 %% School logo
-%% Arg 1 is the length of the parbox.
+%% Argument 1 is the length of the parbox.
 \def\schoollogo#1{%
   \parbox[t]{#1}{%
     \schl@school\\%
@@ -393,7 +393,7 @@
 }
 %%
 %% Logo for exams.
-%% Argument is path to a picture.
+%% Argument is a multiplier for \baselineskip.
 \newcommand\authoritylogo[1][1.5]{%
   \noindent\parbox[t][\height]{0.4\textwidth}{%
     \centering%
