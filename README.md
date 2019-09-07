@@ -61,7 +61,7 @@ Load the package in the preable of your document
 
 and use the macros in the `document` environment.
 
-For a quick overview of its use see <schl-tests.tex>. Further examples are in the [`examples`](examples/) directory.
+For a quick overview of its use see [schl-tests.tex](schl-tests.tex). Further examples are in the [`examples`](examples/) directory.
 
 ## Contribute
 This project is open to contribution. Some of the things you could do are:
