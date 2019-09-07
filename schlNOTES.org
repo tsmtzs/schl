@@ -9,7 +9,7 @@
 ** TODO Make package TeX agnostic
    Currently, schl depends on /fontspec/ (for the command /\letterspace/). 
    This means that it runs on XeLaTeX and LuaTeX (?).
-** TODO Merge macros /\lowerdots/ and /\blankspace/ into one.
+** TODO Merge macros /\lowerdots/ and /\blankspace/ into one.(???)
    Define a new macro (name /\blankspace/?) with two arguments. 
    First argument is optional -- the deviation from base line.
    Second argument is mandatory -- the length of the space.
@@ -128,6 +128,8 @@
     \end{document}
 
 ** TODO Define internal macros for other languages.
+** TODO Check the installation in systems not running Linux.
+   Update the /README.md/.
 
 * *Generate schl.sty and schl.pdf*
 

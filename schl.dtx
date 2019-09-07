@@ -3,14 +3,7 @@
 % Copyright (C) 2019 by Tasos Tsesmetzis
 %
 % This file may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License, either
-% version 1.3 of this license or any later
-% version.  The latest version of this license is in:
-%
-%    http://www.latex-project.org/lppl.txt
-%
-% and version 1.3 or later is part of all distributions of
-% LaTeX version 2005/12/01 or later.
+% conditions of the MIT License. 
 %
 % \fi
 
@@ -236,7 +229,7 @@
 % \maketitle
 %
 % \begin{abstract}
-%   \textsf{schl} is a \XeLaTeX\  package that provides commands and environments suitable for
+%   |schl| is a \XeLaTeX\  package that provides commands and environments suitable for
 % document types that appear
 %   in a classroom enviromnent. It's development is based on the Greek
 %   school system, but it may be usefull in other contexts also.
@@ -259,9 +252,9 @@
 % common multiple of integers. Another characteristic of Greek school mathematics, is that |\lim|
 % operator appears in display mode. |schl| offers a macro for this.
 %
-% By default, |schl| prints all macros as |undefined|. As of this version (\fileversion), Greek
-% is the only supported language. You set it with the option |greek|. Other languages can be supported
-% by redifining package's internal macros.
+% By default, |schl| prints all macros that accept text as |undefined|. As of this version (\fileversion), Greek
+% is the only supported language. You can set it with the option |greek|. Other languages can be supported
+% by redefining package's internal macros.
 %
 % |schl| loads the packages |fontspec, enumitem, mdframed| and |amsmath|. It is written for \XeLaTeX, but
 % can be used by any system that supports |fontspec|.
