@@ -232,7 +232,7 @@
 %   |schl| is a \XeLaTeX\  package that provides commands and environments suitable for
 % document types that appear
 %   in a classroom enviromnent. It's development is based on the Greek
-%   school system, but it may be usefull in other contexts also.
+%   educational practice, but it may be usefull in other contexts also.
 % \end{abstract}
 %
 % \section{Introduction}
@@ -249,7 +249,7 @@
 %
 % |schl| is based on the Greek school practice. It redefines in Greek the common math macros
 % |\sin, \cos, \tan, \cot| and |\gcd|. Also, it provides the math operator |\lcm| for the least
-% common multiple of integers. Another characteristic of Greek school mathematics, is that |\lim|
+% common multiple of integers. A characteristic of Greek school mathematics, is that |\lim|
 % operator appears in display mode. |schl| offers a macro for this.
 %
 % By default, |schl| prints all macros that accept text as |undefined|. As of this version (\fileversion), Greek
@@ -279,7 +279,7 @@
 % \subsection{Blank space}
 % \DescribeMacro{\lowerdots}\DescribeMacro{\blankspace} Usually, we  need to designate blank space in a document. |schl| package has two commands for this. The first one |\lowerdots| \oarg{length}\marg{number}, prints \meta{number} dots. Optional argument \meta{length} sets the deviation from base line. It's  default value is |-0.3ex|.
 % \iffalse meta-comment
-%% This command creates dots that represent a blank space.
+%% This command prints dots that represent a blank space.
 %% The first argument accepts a length. The deviation from the baseline.
 %% Second argument is the number of dots that are printed.
 %% From egreg's answer on tex.stackexchange.org
@@ -665,7 +665,7 @@
 % \iffalse meta-comment
 %%
 %% School logo
-%% Arg 1 is the length of the parbox.
+%% Argument 1 is the length of the parbox.
 % \fi
 %    \begin{macrocode}
 \def\schoollogo#1{%
@@ -682,7 +682,7 @@
 % \iffalse meta-comment
 %%
 %% Logo for exams.
-%% Argument is path to a picture.
+%% Argument is a multiplier for \baselineskip.
 % \fi
 %    \begin{macrocode}
 \newcommand\authoritylogo[1][1.5]{%
