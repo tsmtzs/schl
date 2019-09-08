@@ -72,7 +72,7 @@ This project is open to contribution. Some of the things you could do are:
 - **Localize the package**<br/>If you 're using /schl/ in a language different than Greek, 
   you could create a file `schl-<you-language>.def` and open a pull request.
 - **Write example documents**<br/>
-  If you used *schl* in cases that are not similar with those under the directory `examples`, you could
+  If you have used *schl* in cases that are not similar with those under the directory `examples`, you could
   write a tex document and open a pull request.
 - **Help improve the code**<br/>
   Open a pull request with your contribution.
