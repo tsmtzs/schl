@@ -4,7 +4,7 @@
 document types that appear in a classroom enviromnent. It's development is based on 
 the Greek educational practice, but it may be usefull in other contexts also.
 
-Basic macros of the package are the following:
+Basic macros of the package are:
 
 * Mathematics
   * `\sin, \cos, \tan, \cot, \gcd`: *schl* redefines these operators in Greek.
@@ -16,7 +16,7 @@ Basic macros of the package are the following:
 * Lists
   * `question, exercise, schltask`: Environments for typesetting questions, exercises and tasks.
   * `multichoice`: An environment for typesetting multiple choice answers.
-  * `tickchoice` and `tickchoice`: `itemize` type lists with a square as symbol for each item.
+  * `tickchoice` and `tickchoice*`: `itemize` type lists with a square as symbol for each item.
   * `truefalse`: An environment for typesetting true-false type questions.
   * `matchingque`: A macro for typesseting matching questions.
 * Answers, solutions and hints
