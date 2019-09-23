@@ -27,7 +27,7 @@
 
 % \iffalse meta-comment
 %%
-%% Greatest common devisor and least common multiple operators in Greek.
+%% Greatest common divisor and least common multiple operators in Greek.
 % \fi
   \renewcommand{\gcd}{\mathop{%
     \mathgroup\symgroperators ΜΚΔ}\nolimits}
