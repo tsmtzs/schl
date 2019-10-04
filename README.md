@@ -69,11 +69,11 @@ This project is open to contribution. Some of the things you could do are:
 - **Use schl**<br/>You could email the maintainer some remarks about it's use.
 - **Report issues, errors and bugs.**<br/>If you have a github account, create an *issue*. 
   Otherwise, send an email to the maintainer.
-- **Localize the package**<br/>If you 're using /schl/ in a language different than Greek, 
+- **Localize the package**<br/>If you 're using `schl` in a language different than Greek, 
   you could create a file `schl-<your-language>.def` and open a pull request.
 - **Write example documents**<br/>
   If you have used `schl` in cases that are not similar with those under the directory `examples`, you could
-  write a tex document and open a pull request.
+  write a `tex` document and open a pull request.
 - **Help improve the code**<br/>
   Open a pull request with your contribution.
   
