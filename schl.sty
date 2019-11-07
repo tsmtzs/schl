@@ -23,7 +23,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{schl}
-[2019/06/15 v0.1 Custom package]
+[2019/11/07 v1.0 Custom package]
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% REQUIRED PACKAGES
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -42,6 +42,9 @@
 }
 \DeclareOption{greek}{
   \input{languages/schl-greek.def}
+}
+\DeclareOption{grmath}{
+  \input{grmath.def}
 }
 %%  Execute default options.
 \ExecuteOptions{default}
@@ -160,9 +163,6 @@
 %%
 %% \defaultletterspace is the default letter space percentage for macro \letterspace
 \def\defaultletterspace{10.0}
-%%
-%% Write $x\to x_0$ under \lim
-\newcommand{\limdisplay}[1]{\displaystyle\lim_{#1}}
 %% This command prints dots that represent a blank space.
 %% The first argument accepts a length. The deviation from the baseline.
 %% Second argument is the number of dots that are printed.

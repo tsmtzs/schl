@@ -10,7 +10,7 @@
 % \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}
 %<package>\ProvidesPackage{schl}
-%<package>[2019/06/15 v0.1 Custom package]
+%<package>[2019/11/07 v1.0 Custom package]
 %
 % \iffalse meta-comment
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,6 +40,10 @@
 %
 %<package>\DeclareOption{greek}{
 %<package>  \input{languages/schl-greek.def}
+%<package>}
+%
+%<package>\DeclareOption{grmath}{
+%<package>  \input{grmath.def}
 %<package>}
 %
 %  \iffalse meta-comment
@@ -201,7 +205,7 @@
 \setmainfont[Mapping=tex-text]{Linux Biolinum O}
 \usepackage{schl}
 \renewcommand{\abstractname}{Abstract}
-\date{July, 2019}
+\date{November, 2019}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
@@ -213,6 +217,8 @@
 %
 %
 % \changes{v0.1}{2019/06/22}{Initial version}
+% \changes{v0.5}{2019/11/07}{2nd version}
+% \changes{v1.0}{2019/11/07}{3rd version}
 %
 % \GetFileInfo{schl.sty}
 %
@@ -260,21 +266,13 @@
 % can be used by any system that supports |fontspec|.
 % \section{Macros}
 % \subsection{Mathematics}
-% \DescribeMacro{\sin}\DescribeMacro{\cos}\DescribeMacro{\tan}\DescribeMacro{\cot}
-% These macros redefine in Greek the corresponding trigonometric operators
-% |\sin, \cos, \tan| and |\cot|.
+% The option |grmath| provides common mathematics operators in Greek. 
+% Specifically redefines in Greek the trigonometric operators
+% |\sin|, |\cos|, |\tan|, |\cot|, |\arcsin|, |\arccos|, |\arctan|, |\cot|, |\sec|, |\csc|, |\arccot|, |\arcsec| and |\arccsc|.
+% Also, provides the arithmetic operators |\gcd| and |\lcm| for \textsf{greatest common divisor} and
+% \textsf{least common multiple} .
 %
-% \DescribeMacro{\gcd}\DescribeMacro{\lcm} |\gcd| and |\lcm| provide the arithmetic operators for \textsf{greatest common divisor} and
-% \textsf{least common multiple} in Greek.
-%
-% \DescribeMacro{\limdisplay} Command |\limdisplay| \marg{text} prints \meta{text} under |\lim|
-% \iffalse meta-comment
-%%
-%% Write $x\to x_0$ under \lim
-% \fi
-%    \begin{macrocode}
-\newcommand{\limdisplay}[1]{\displaystyle\lim_{#1}}
-%    \end{macrocode}
+% \DescribeMacro{\limdisplay} Command |\limdisplay| \marg{text} prints \meta{text} under |\lim|.
 % 
 % \subsection{Blank space}
 % \DescribeMacro{\lowerdots}\DescribeMacro{\blankspace} Usually, we  need to designate blank space in a document. |schl| package has two commands for this. The first one |\lowerdots| \oarg{length}\marg{number}, prints \meta{number} dots. Optional argument \meta{length} sets the deviation from base line. It's  default value is |-0.3ex|.

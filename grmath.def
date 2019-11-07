@@ -1,0 +1,31 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% schl package
+% Mathematics operators in Greek.
+% Adapted from grmath.sty
+% by Apostolos Syropoulos.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesFile{grmath.def}[2019/11/07 v0.1 Mathematics operators in Greek.]
+
+\DeclareSymbolFont{groperators}{\encodingdefault}{\familydefault}{m}{n}
+\SetSymbolFont{groperators}{bold}{\encodingdefault}{\familydefault}{bx}{n}
+
+\def\sin{\mathop{\mathgroup\symgroperators ημ}\nolimits}
+\def\cos{\mathop{\mathgroup\symgroperators συν}\nolimits}
+\def\tan{\mathop{\mathgroup\symgroperators εφ}\nolimits}
+\def\arcsin{\mathop{\mathgroup\symgroperators τοξημ}\nolimits}
+\def\arccos{\mathop{\mathgroup\symgroperators τοξσυν}\nolimits}
+\def\arctan{\mathop{\mathgroup\symgroperators τοξεφ}\nolimits}
+\def\cot{\mathop{\mathgroup\symgroperators σφ}\nolimits}
+\def\sec{\mathop{\mathgroup\symgroperators τεμ}\nolimits}
+\def\csc{\mathop{\mathgroup\symgroperators στεμ}\nolimits}
+\def\gcd{\mathop{\mathgroup\symgroperators ΜΚΔ}\nolimits}
+\def\lcm{\mathop{\mathgroup\symgroperators ΕΚΠ}\nolimits}
+\def\arccot{\mathop{\mathgroup\symgroperators τοξσφ}\nolimits}
+\def\arcsec{\mathop{\mathgroup\symgroperators τοξτεμ}\nolimits}
+\def\arccsc{\mathop{\mathgroup\symgroperators τοξστεμ}\nolimits}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Write $x\to x_0$ under \lim
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\limdisplay}[1]{\displaystyle\lim_{#1}}
+\endinput
