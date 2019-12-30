@@ -42,10 +42,6 @@
 %<package>  \input{languages/schl-greek.def}
 %<package>}
 %
-%<package>\DeclareOption{grmath}{
-%<package>  \input{grmath.def}
-%<package>}
-%
 %  \iffalse meta-comment
 %%  Execute default options.
 %  \fi
@@ -238,7 +234,7 @@
 %   |schl| is a \XeLaTeX\  package that provides commands and environments suitable for
 % document types that appear
 %   in a classroom enviromnent. It's development is based on the Greek
-%   educational practice, but it may be usefull in other contexts also.
+%   school practice, but it may be usefull in other contexts also.
 % \end{abstract}
 %
 % \section{Introduction}
@@ -253,11 +249,6 @@
 % to typeset headers for each document type, a macro for typing the points of an exercise and two
 % commands for blank space. There is also a macro for typesetting a wish for good luck!
 %
-% |schl| is based on the Greek school practice. It redefines in Greek the common math macros
-% |\sin, \cos, \tan, \cot| and |\gcd|. Also, it provides the math operator |\lcm| for the least
-% common multiple of integers. A characteristic of Greek school mathematics, is that |\lim|
-% operator appears in display mode. |schl| offers a macro for this.
-%
 % By default, |schl| prints all macros that accept text as |undefined|. As of this version (\fileversion), Greek
 % is the only supported language. You can set it with the option |greek|. Other languages can be supported
 % by redefining package's internal macros.
@@ -265,15 +256,6 @@
 % |schl| loads the packages |fontspec, enumitem, mdframed| and |amsmath|. It is written for \XeLaTeX, but
 % can be used by any system that supports |fontspec|.
 % \section{Macros}
-% \subsection{Mathematics}
-% The option |grmath| provides common mathematics operators in Greek. 
-% Specifically redefines in Greek the trigonometric operators
-% |\sin|, |\cos|, |\tan|, |\cot|, |\arcsin|, |\arccos|, |\arctan|, |\cot|, |\sec|, |\csc|, |\arccot|, |\arcsec| and |\arccsc|.
-% Also, provides the arithmetic operators |\gcd| and |\lcm| for \textsf{greatest common divisor} and
-% \textsf{least common multiple} .
-%
-% \DescribeMacro{\limdisplay} Command |\limdisplay| \marg{text} prints \meta{text} under |\lim|.
-% 
 % \subsection{Blank space}
 % \DescribeMacro{\lowerdots}\DescribeMacro{\blankspace} Usually, we  need to designate blank space in a document. |schl| package has two commands for this. The first one |\lowerdots| \oarg{length}\marg{number}, prints \meta{number} dots. Optional argument \meta{length} sets the deviation from base line. It's  default value is |-0.3ex|.
 % \iffalse meta-comment

@@ -15,7 +15,7 @@
    Second argument is mandatory -- the length of the space.
    It must accept an option for the /style/ of the blank space
    (line, dotted, empty)
-** TODO Define Greek math operators with better font control
+** DONE Define Greek math operators with better font control
    Is the font used in  /\sin, \cos, \tan, \cot, \gcd/ 
    and /\lcm/ good enough?
 ** TODO Better formating of the table in /\examdetailsii/
@@ -23,110 +23,7 @@
    Insert names in /\signatures/ without the need of /\signer/ macro,
    as part of argument #2.
 ** DONE Make a macro for True-False questions
-   This macro should be an enumerate-like environment.
-   The user will write one question per \item.
-   The command will produce a table like structure with two columns.
-   First column will have the questions prepended by \item's counter value.
-   Second column will have the letters T for true and F for false.
-   Use \trueabbr@term for T and \falseabbr@term for F.
-
-   |      1st column         |  2nd col |
-   | *counter* | *question*  | *answer* |
-   |-----------+-------------+----------|
-   |        1. | bla bla bla | T    F   |
-   |           | bla bla bla |          |
-   |        2. | bla bla bla | T    F   |
-   |           | bla bla bla |          |
-   |        3. | bla bla bla | T    F   |
-   |           | bla bla bla |          |
-
-
-*** Working on it
-    addapted from 
-    cfr's answer on
-    https://tex.stackexchange.com/questions/164613/adding-code-at-the-end-of-each-list-item
-    accessed 11/07/2019
-
-    # needs calc package
-    \newlength{\truefalselength}
-    \setlength{\truefalselength}{50pt}
-    \def\truefalselabel{\parbox[t][0pt][c]{\truefalselength}{\large Σ\hfill Λ}}
-    \newif\iffirst
-    \newlist{truefalse}{enumerate}{1}
-    \setlist[truefalse]{label={\bf \arabic*.},%
-    before*={%
-    \let\defaultitem\item%     save the standard definition of \item in a macro
-    \firsttrue%
-    \def\item{%
-    \iffirst%
-    \firstfalse
-    \defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
-    \else%
-    \end{minipage}\hfill\truefalselabel\defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
-    \fi
-    }% new, temporary defition of \item
-    },
-    after*={% This takes care of adding the fill for the final item on the list and just makes sure that \item is reset to its standard definition
-    \end{minipage}\hfill\truefalselabel% fill for final item in list
-    % \let\item\defaultitem% restore standard definition of \item
-    }%
-    }
-
 ** DONE Make a macro for matching questions.
-
-   It should accept items A, B, C, ... (indefinite number)
-   and items 1, 2, 3, 4, ...
-   Print each type of items in a seperate column.
-   Prepend the value of a counter before each item in column A (optional?)
-   Prepend the value of a counter before each item in column 2 (optional?)
-
-   | *Column A* | *Column 2* |
-   |------------+------------|
-   |            | item 1     |
-   |------------+------------|
-   | item A     | item 2     |
-   |------------+------------|
-   | item B     | item 3     |
-   |------------+------------|
-   | item C     | item 4     |
-   |------------+------------|
-   |            | item 5     |
-   |------------+------------|
-
-*** Working on it	
-    % from David Carlisle
-    % https://tex.stackexchange.com/questions/225919/how-to-split-input-string-in-a-latex-command
-
-    \documentclass{article}
-
-    \makeatletter
-    \newcommand\myfunc[2]{%
-    \parbox[c]{100pt}{%
-    \begin{enumerate}
-      \@for\tmp:=#1%
-      \do{%
-      \item \tmp
-      }
-    \end{enumerate}
-    }\hfill  \parbox[c]{100pt}{%
-    \begin{enumerate}
-      \@for\tmp:=#2%
-      \do{%
-      \item \tmp
-      }
-    \end{enumerate}
-    }
-    }
-    \makeatother
-
-    \let\func\fbox
-
-    \begin{document}
-
-    \myfunc{a,b,c,d}{lp,oa,us,uas,ooa}
-
-    \end{document}
-
 ** TODO Define internal macros for other languages.
 ** TODO Check the installation in systems not running Linux.
    Update the /README.md/.
@@ -138,5 +35,4 @@
    cp schl.sty ~/texmf/tex/xelatex/schl/;
    cp languages/schl-greek.def ~/texmf/tex/xelatex/schl/languages/;
    cp languages/schl-template.def ~/texmf/tex/xelatex/schl/languages/;
-   cp grmath.def ~/texmf/tex/xelatex/schl/;
   #+end_src

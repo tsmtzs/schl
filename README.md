@@ -6,10 +6,6 @@ the Greek educational practice, but it may be usefull in other contexts also.
 
 Basic macros of the package are:
 
-* Mathematics
-  * `\sin, \cos, \tan, \cot, \gcd`: *schl* redefines these operators in Greek.
-  * `\lcm`: Least common multiple operator.
-  * `\limdisplay`: `\lim` operator in display mode.
 * Blank space
   * `\lowerdots`: Use dots to designate blank space.
   * `\blankspace`: Use a line for blank space.
@@ -43,8 +39,7 @@ Basic macros of the package are:
   * `\wish`: Prints a wish for good luck.
 
  By default, *schl* prints all macros that accept text as *undefined*. As of this version, Greek
- is the only supported language. You can set it with the option `greek`. Other languages can be supported
- by redefining package's internal macros.
+ is the only supported language. You can set it with the option `greek`. Other languages can be supported by redefining package's internal macros.
 
 ## Requirements
  *schl* loads the packages *fontspec, enumitem, mdframed* and *amsmath*. It is written for XeLaTeX, but
