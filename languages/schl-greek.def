@@ -42,6 +42,7 @@
 \def\name@term{ΟΝΟΜΑ}
 \def\examnoabbr@term{Α\@.Μ\@.Μ\.}
 \def\time@term{ΩΡΑ}
+\def\duration@term{Διάρκεια}
 
 \def\fullname@term{Ονοματεπώνυμο}
 

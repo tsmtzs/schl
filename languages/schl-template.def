@@ -37,6 +37,7 @@
 \def\name@term{undefined}
 \def\examnoabbr@term{undefined}
 \def\time@term{undefined}
+\def\duration@term{undefined}
 
 \def\fullname@term{undefined}
 
