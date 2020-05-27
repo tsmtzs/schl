@@ -29,10 +29,27 @@
    Update the /README.md/.
 
 * *Generate schl.sty and schl.pdf*
-
+  
   #+begin_src bash
    rm schl.sty && xelatex schl.ins && xelatex schl.dtx && xelatex schl.dtx;
    cp schl.sty ~/texmf/tex/xelatex/schl/;
    cp languages/schl-greek.def ~/texmf/tex/xelatex/schl/languages/;
    cp languages/schl-template.def ~/texmf/tex/xelatex/schl/languages/;
+  #+end_src
+  
+* *Make changes in all files*
+  
+  #+begin_src bash
+   # working directory
+   workdir=~/myProjects/schl
+   # change
+   oldVal=worksheethd;
+   # with
+   newVal=worksheethd;
+   # Search and change common parameters in all files
+   # except those in node_modules, bin and .git
+   # if file {} is a regular file the substitute parVal with parName
+   find ${workdir}/* -type d \( -path $(workdir)/node_modules -o -path $(pwd)/.git \) \
+        -prune  -o \
+        -exec test -f {} \; -exec sed -i -e "s/oldVal/newVal/g" {} \;
   #+end_src

@@ -74,7 +74,7 @@
 %% \deadline@term          : Used by \deadline.
 %% \theoryheader@term      : Used by \theorypart. It is the word 'THEORY'.
 %% \exerciseheader@term    : Used by \exercisepart. It is the word 'EXERCISES'.
-%% \worksheet@term         : Used by \worksheettile.
+%% \worksheet@term         : Used by \worksheethd.
 %% \termtest@term          : Used by \examtitle. It is the word that corresponds to a
 %%                           summary test during the year.
 %% \exams@term             : Used by \finalexamheader. The word 'EXAMS'.
@@ -522,14 +522,14 @@
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\worksheettitle} Macro |\worksheettitle|\marg{text} sets the title of a worksheet. It appends \meta{text} to |\worksheet@term|.
+% \DescribeMacro{\worksheethd} Macro |\worksheethd|\marg{text} sets the title of a worksheet. It appends \meta{text} to |\worksheet@term|.
 % \iffalse meta-comment
 %%
 %% The title of a worksheet.
 %% Argument is a text to be appended in \worksheet@term
 % \fi
 %    \begin{macrocode}
-\newcommand\worksheettitle[1]{%
+\newcommand\worksheethd[1]{%
   \heading{\worksheet@term\  #1}
 }
 %    \end{macrocode}
