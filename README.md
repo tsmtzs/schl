@@ -23,7 +23,7 @@ Basic macros of the package are:
 * Headers
   * `\worksheethd`: Set the title of a worksheet.
   * `\examhd`: Set the title of a summative test.
-  * `\finalexamheader`: Set the header for end year summative tests.
+  * `\finalexamhd`: Set the header for end year summative tests.
   * `\theorypart, \exercisepart`: Headers for the theory and exercise parts of a document.
 * School information
   * `\school, \headmaster, \teacher, \subject, \grade, \schoolyear, \schldate`

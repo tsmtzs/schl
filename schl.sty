@@ -73,8 +73,8 @@
 %% \worksheet@term         : Used by \worksheettile.
 %% \termtest@term          : Used by \examhd. It is the word that corresponds to a
 %%                           summary test during the year.
-%% \exams@term             : Used by \finalexamheader. The word 'EXAMS'.
-%% \period@term            : Used by \finalexamheader. The word 'PERIOD'.
+%% \exams@term             : Used by \finalexamhd. The word 'EXAMS'.
+%% \period@term            : Used by \finalexamhd. The word 'PERIOD'.
 %% \headmaster@term        : Used by \signatures.
 %% \answerabbr@term        : Used by \answer. An abbreviation for the word 'answer'.
 %% \exercise@term          : Used by the environment 'exercise'.
@@ -333,7 +333,7 @@
 }
 %%
 %% Default headers for final exams.
-\newcommand\finalexamheader[2]{%
+\newcommand\finalexamhd[2]{%
   \heading{\letterspace{\defaultletterspace} #1 \exams@term\\[0.5ex] \period@term\  #2}
 }
 %%
