@@ -71,7 +71,7 @@
 %% \theoryheader@term      : Used by \theorypart. It is the word 'THEORY'.
 %% \exerciseheader@term    : Used by \exercisepart. It is the word 'EXERCISES'.
 %% \worksheet@term         : Used by \worksheettile.
-%% \termtest@term          : Used by \examtitle. It is the word that corresponds to a
+%% \termtest@term          : Used by \examhd. It is the word that corresponds to a
 %%                           summary test during the year.
 %% \exams@term             : Used by \finalexamheader. The word 'EXAMS'.
 %% \period@term            : Used by \finalexamheader. The word 'PERIOD'.
@@ -328,7 +328,7 @@
 }
 %%
 %% Exam and term test title.
-\newcommand\examtitle[2][\termtest@term]{%
+\newcommand\examhd[2][\termtest@term]{%
   \heading{#1 #2}
 }
 %%

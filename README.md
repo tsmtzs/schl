@@ -22,7 +22,7 @@ Basic macros of the package are:
   * `\deadline`: Set the deadline date.
 * Headers
   * `\worksheethd`: Set the title of a worksheet.
-  * `\examtitle`: Set the title of a summative test.
+  * `\examhd`: Set the title of a summative test.
   * `\finalexamheader`: Set the header for end year summative tests.
   * `\theorypart, \exercisepart`: Headers for the theory and exercise parts of a document.
 * School information
