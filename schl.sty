@@ -65,16 +65,17 @@
 %% \lastname@term          : Used by \examdetailsii.
 %% \name@term              : Used by \examdetailsii.
 %% \time@term              : Used by \examdetailsii.
+%% \duration@term          :
 %% \examnoabbr@term        : Used by \examdetailsii. An abbreviation for the exam number of a student.
 %% \fullname@term          : Used by \fullname.
 %% \deadline@term          : Used by \deadline.
 %% \theoryheader@term      : Used by \theorypart. It is the word 'THEORY'.
 %% \exerciseheader@term    : Used by \exercisepart. It is the word 'EXERCISES'.
-%% \worksheet@term         : Used by \worksheettile.
-%% \termtest@term          : Used by \examtitle. It is the word that corresponds to a
+%% \worksheet@term         : Used by \worksheethd.
+%% \termtest@term          : Used by \examhd. It is the word that corresponds to a
 %%                           summary test during the year.
-%% \exams@term             : Used by \finalexamheader. The word 'EXAMS'.
-%% \period@term            : Used by \finalexamheader. The word 'PERIOD'.
+%% \exams@term             : Used by \finalexamhd. The word 'EXAMS'.
+%% \period@term            : Used by \finalexamhd. The word 'PERIOD'.
 %% \headmaster@term        : Used by \signatures.
 %% \answerabbr@term        : Used by \answer. An abbreviation for the word 'answer'.
 %% \exercise@term          : Used by the environment 'exercise'.
@@ -323,17 +324,17 @@
 %%
 %% The title of a worksheet.
 %% Argument is a text to be appended in \worksheet@term
-\newcommand\worksheettitle[1]{%
+\newcommand\worksheethd[1]{%
   \heading{\worksheet@term\  #1}
 }
 %%
 %% Exam and term test title.
-\newcommand\examtitle[2][\termtest@term]{%
+\newcommand\examhd[2][\termtest@term]{%
   \heading{#1 #2}
 }
 %%
 %% Default headers for final exams.
-\newcommand\finalexamheader[2]{%
+\newcommand\finalexamhd[2]{%
   \heading{\letterspace{\defaultletterspace} #1 \exams@term\\[0.5ex] \period@term\  #2}
 }
 %%

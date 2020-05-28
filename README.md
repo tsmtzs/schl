@@ -21,9 +21,9 @@ Basic macros of the package are:
   * `\hint`: Typeset a hint for an exercise.
   * `\deadline`: Set the deadline date.
 * Headers
-  * `\worksheettitle`: Set the title of a worksheet.
-  * `\examtitle`: Set the title of a summative test.
-  * `\finalexamheader`: Set the header for end year summative tests.
+  * `\worksheethd`: Set the title of a worksheet.
+  * `\examhd`: Set the title of a summative test.
+  * `\finalexamhd`: Set the header for end year summative tests.
   * `\theorypart, \exercisepart`: Headers for the theory and exercise parts of a document.
 * School information
   * `\school, \headmaster, \teacher, \subject, \grade, \schoolyear, \schldate`

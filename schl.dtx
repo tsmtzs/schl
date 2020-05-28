@@ -74,11 +74,11 @@
 %% \deadline@term          : Used by \deadline.
 %% \theoryheader@term      : Used by \theorypart. It is the word 'THEORY'.
 %% \exerciseheader@term    : Used by \exercisepart. It is the word 'EXERCISES'.
-%% \worksheet@term         : Used by \worksheettile.
-%% \termtest@term          : Used by \examtitle. It is the word that corresponds to a
+%% \worksheet@term         : Used by \worksheethd.
+%% \termtest@term          : Used by \examhd. It is the word that corresponds to a
 %%                           summary test during the year.
-%% \exams@term             : Used by \finalexamheader. The word 'EXAMS'.
-%% \period@term            : Used by \finalexamheader. The word 'PERIOD'.
+%% \exams@term             : Used by \finalexamhd. The word 'EXAMS'.
+%% \period@term            : Used by \finalexamhd. The word 'PERIOD'.
 %% \headmaster@term        : Used by \signatures.
 %% \answerabbr@term        : Used by \answer. An abbreviation for the word 'answer'.
 %% \exercise@term          : Used by the environment 'exercise'.
@@ -522,36 +522,36 @@
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\worksheettitle} Macro |\worksheettitle|\marg{text} sets the title of a worksheet. It appends \meta{text} to |\worksheet@term|.
+% \DescribeMacro{\worksheethd} Macro |\worksheethd|\marg{text} sets the title of a worksheet. It appends \meta{text} to |\worksheet@term|.
 % \iffalse meta-comment
 %%
 %% The title of a worksheet.
 %% Argument is a text to be appended in \worksheet@term
 % \fi
 %    \begin{macrocode}
-\newcommand\worksheettitle[1]{%
+\newcommand\worksheethd[1]{%
   \heading{\worksheet@term\  #1}
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\examtitle} |\examtitle|\oarg{text}\marg{text} is used to set the title of tests. The optional argument has the default value |\termtest@term|. 
+% \DescribeMacro{\examhd} |\examhd|\oarg{text}\marg{text} is used to set the title of tests. The optional argument has the default value |\termtest@term|. 
 % \iffalse
 %%
 %% Exam and term test title.
 % \fi
 %    \begin{macrocode}
-\newcommand\examtitle[2][\termtest@term]{%
+\newcommand\examhd[2][\termtest@term]{%
   \heading{#1 #2}
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\finalexamheader} Titles for end year exams have a standardized form in Greek schools. |\exams@term| is followed by information about the exam. Then comes |\period@term| with the exam period after it. |\finalexamheader|\marg{info}\marg{period} is used for these cases.
+% \DescribeMacro{\finalexamhd} Titles for end year exams have a standardized form in Greek schools. |\exams@term| is followed by information about the exam. Then comes |\period@term| with the exam period after it. |\finalexamhd|\marg{info}\marg{period} is used for these cases.
 % \iffalse meta-comment
 %%
 %% Default headers for final exams.
 % \fi
 %    \begin{macrocode}
-\newcommand\finalexamheader[2]{%
+\newcommand\finalexamhd[2]{%
   \heading{\letterspace{\defaultletterspace} #1 \exams@term\\[0.5ex] \period@term\  #2}
 }
 %    \end{macrocode}
