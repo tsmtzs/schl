@@ -585,7 +585,7 @@
 %    \end{macrocode}
 % 
 % \subsection{School information}
-% \DescribeMacro{\school}\DescribeMacro{\headmaster}\DescribeMacro{\teacher}\DescribeMacro{\subject}\DescribeMacro{\grade}\DescribeMacro{\schoolyear}\DescribeMacro{\schldate}\DescribeMacro{\examtime} The macros |\school|\marg{text}, |\headmaster|\marg{name}, |\teacher|\marg{name}, |\subject|\marg{text}, |\grade|\marg{text}, |\schoolyear|\marg{year}, |\schldate|\marg{date} and |\examtime|\marg{time} define and set the value of internal macros.
+% \DescribeMacro{\school}\DescribeMacro{\headmaster}\DescribeMacro{\teacher}\DescribeMacro{\subject}\DescribeMacro{\grade}\DescribeMacro{\schoolyear}\DescribeMacro{\schldate}\DescribeMacro{\examtime} The macros |\school|\marg{text}, |\headmaster|\marg{name}, |\teacher|\marg{name}, |\subject|\marg{text}, |\grade|\marg{text}, |\schoolyear|\marg{year}, |\schldate|\marg{date}, |\examtime|\marg{time} define and set the value of internal macros.
 % \iffalse meta-comment
 %%
 %% Set subject, grade, date, school year etc.
@@ -639,6 +639,17 @@
 %    \begin{macrocode}
 \newcommand\datefield[1][0]{%
   \noindent{\normalsize\date@term :}
+}
+%    \end{macrocode}
+%
+% \DescribeMacro{\duration} |\datefield|\marg{duration} prints |\duration@term| with \meta{duration} after it.
+% \iffalse meta-comment
+%%
+%% Show the duration of the test.
+% \fi
+%    \begin{macrocode}
+\newcommand\duration[1]{%
+  \noindent{\normalsize\textbf{\duration@term}: #1}
 }
 %    \end{macrocode}
 %
