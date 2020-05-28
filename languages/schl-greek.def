@@ -47,6 +47,7 @@
 \def\fullname@term{Ονοματεπώνυμο}
 
 \def\deadline@term{Παράδοση}
+\def\remark@term{Παρατήρηση}
 
 \def\theoryheader@term{ΘΕΩΡΙΑ}
 \def\exerciseheader@term{ΑΣΚΗΣΕΙΣ}
