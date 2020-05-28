@@ -69,6 +69,8 @@
 %% \examnoabbr@term        : Used by \examdetailsii. An abbreviation for the exam number of a student.
 %% \fullname@term          : Used by \fullname.
 %% \deadline@term          : Used by \deadline.
+%% \remark@term            : Used by \remark.
+%% \reminder@term          : Used by \reminder.
 %% \theoryheader@term      : Used by \theorypart. It is the word 'THEORY'.
 %% \exerciseheader@term    : Used by \exercisepart. It is the word 'EXERCISES'.
 %% \worksheet@term         : Used by \worksheethd.
@@ -318,6 +320,11 @@
 %% Add a remark to a document.
 \newcommand\remark[1]{%
   \noindent{\textbf{\normalsize\remark@term}: #1}
+}
+%%
+%% Add a remark to a document.
+\newcommand\reminder[1]{%
+  \noindent{\textbf{\normalsize\reminder@term}: #1}
 }
 %%
 %% Large centered text in bold face.

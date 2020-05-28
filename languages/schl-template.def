@@ -43,6 +43,7 @@
 
 \def\deadline@term{undefined}
 \def\remark@term{undefined}
+\def\reminder@term{undefined}
 
 \def\theoryheader@term{undefined}
 \def\exerciseheader@term{undefined}
