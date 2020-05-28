@@ -24,7 +24,7 @@
 \def\schl@subject{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
 \def\schl@teacher{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
 \def\schl@schoolyear{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
-\def\schl@schldate{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
+\def\schl@date{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
 \def\schl@examtime{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
 
 \def\grade@term{Τάξη}

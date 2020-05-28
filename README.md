@@ -26,7 +26,7 @@ Basic macros of the package are:
   * `\finalexamhd`: Set the header for end year summative tests.
   * `\theorypart, \exercisepart`: Headers for the theory and exercise parts of a document.
 * School information
-  * `\school, \headmaster, \teacher, \subject, \grade, \schoolyear, \schldate`
+  * `\school, \headmaster, \teacher, \subject, \grade, \schoolyear, \setdate`
 * Macros for tests
   * `\examtime`: Print the time of the exam.
   * `\points`: Set the points of an exercise.

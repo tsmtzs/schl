@@ -98,8 +98,8 @@
 %%                          Used by \schoollogo, \examdetails and \examdetailsii
 %% \schl@grade            : The grade. It is set with \grade. Used by \schoollogo, \examdetails
 %%                          and \examdetailsii
-%% \schl@schldate         : The date that the produced document will be given to students.
-%%                          Defined with \schldate and used by \examdetails and \examdetailsii.
+%% \schl@date             : The date that the produced document will be given to students.
+%%                          Defined with \setdate and used by \examdetails and \examdetailsii.
 %% \schl@examtime         : The time of the exam. It is set with \examtime and used by \examdetailsii.
 %% \schl@schoolyear       : School year is set with \schoolyear and used by \examdetails and \examdetailsii.
 %% \schl@authorityi, \schl@authorityii, \schl@authorityiii
@@ -370,7 +370,7 @@
 \newcommand\subject[1]{\def\schl@subject{#1}}
 \newcommand\grade[1]{\def\schl@grade{#1}}
 \newcommand\schoolyear[1]{\def\schl@schoolyear{#1}}
-\newcommand\schldate[1]{\def\schl@schldate{#1}}
+\newcommand\setdate[1]{\def\schl@date{#1}}
 \newcommand\examtime[1]{\def\schl@examtime{#1}}
 \newcommand\authorityi[1]{\def\schl@authorityi{#1}}
 \newcommand\authorityii[1]{\def\schl@authorityii{#1}}
@@ -389,6 +389,12 @@
 %% A field for writing the date.
 \newcommand\datefield[1][0]{%
   \noindent{\normalsize\date@term :}
+}
+%%
+%% Get \schl@date.
+%% \schl@date is set with \setdate.
+\newcommand\getdate{%
+  {\noindent\schl@date}
 }
 %%
 %% Show the duration of the test.
@@ -446,7 +452,7 @@
         \textbf{\subject@term:}\hspace{3pt}\schl@subject \\[1.0ex]
         \textbf{\testwriter@term:}\hspace{3pt}\schl@teacher\\[1.0ex]
         \textbf{\testsupervisor@term:}\\[1.0ex]
-        \textbf{\date@term:}\hspace{3pt}\schl@schldate
+        \textbf{\date@term:}\hspace{3pt}\schl@date
     \end{mdframed}
   }
 }
@@ -468,7 +474,7 @@
       {\bf\letterspace{\defaultletterspace}\MakeUppercase{\subject@term}:} %
                       & \multicolumn{3}{|c|}{\schl@subject} \\
       \hline
-      {\bf\letterspace{\defaultletterspace}\MakeUppercase{\date@term}:} & \schl@schldate
+      {\bf\letterspace{\defaultletterspace}\MakeUppercase{\date@term}:} & \schl@date
                       & {\bf\letterspace{\defaultletterspace}\time@term:} %
                       & \schl@examtime\\
       \hline

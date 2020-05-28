@@ -19,7 +19,7 @@
 \def\schl@subject{undefined}
 \def\schl@teacher{undefined}
 \def\schl@schoolyear{undefined}
-\def\schl@schldate{undefined}
+\def\schl@date{undefined}
 \def\schl@examtime{undefined}
 
 \def\grade@term{undefined}
