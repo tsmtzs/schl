@@ -72,6 +72,7 @@
 %% \examnoabbr@term        : Used by \examdetailsii. An abbreviation for the exam number of a student.
 %% \fullname@term          : Used by \fullname.
 %% \deadline@term          : Used by \deadline.
+%% \remark@term            : Used by \remark.
 %% \theoryheader@term      : Used by \theorypart. It is the word 'THEORY'.
 %% \exerciseheader@term    : Used by \exercisepart. It is the word 'EXERCISES'.
 %% \worksheet@term         : Used by \worksheethd.
@@ -505,6 +506,16 @@
 %    \begin{macrocode}
 \newcommand\deadline[1]{%
   \noindent{{\bf\normalsize\deadline@term}: #1}
+}
+%    \end{macrocode}
+% \DescribeMacro{\remark} Add a remark in a document. |\remark|\marg{text} prints |\remark@term| followed by argument \meta{text}.
+% \iffalse meta-comment
+%%
+%% Add a remark to a document.
+% \fi
+%    \begin{macrocode}
+\newcommand\remark[1]{%
+  \noindent{\textbf{\normalsize\remark@term}: #1}
 }
 %    \end{macrocode}
 %

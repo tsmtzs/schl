@@ -42,6 +42,7 @@
 \def\fullname@term{undefined}
 
 \def\deadline@term{undefined}
+\def\remark@term{undefined}
 
 \def\theoryheader@term{undefined}
 \def\exerciseheader@term{undefined}
