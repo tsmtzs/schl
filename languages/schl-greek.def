@@ -1,7 +1,7 @@
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %% PACKAGE schl
 %% TERMS IN GREEK
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \ProvidesFile{schl-greek.def}[2019/07/07 v0.1 Terms in Greek for the schl package]
 
 \def\points@term#1{%
@@ -15,10 +15,14 @@
 % default wish
 \def\schl@wish{\letterspace{\defaultletterspace}ΚΑΛΗ ΕΠΙΤΥΧΙΑ}
 
-% \schl@authorityi > \schl@authorityii > \schl@authorityii
-\def\schl@authorityi{\letterspace{\defaultletterspace}ΕΛΛΗΝΙΚΗ ΔΗΜΟΚΡΑΤΙΑ}
-\def\schl@authorityii{\letterspace{\defaultletterspace}ΥΠΟΥΡΓΕΙΟ ΠΑΙΔΕΙΑΣ, ΕΡΕΥΝΑΣ \& ΘΡΗΣΚΕΥΜΑΤΩΝ}
-\def\schl@authorityiii{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
+\def\schl@authorities{%
+  \letterspace{\defaultletterspace}
+  ΕΛΛΗΝΙΚΗ ΔΗΜΟΚΡΑΤΙΑ
+
+  \vspace{3\lineskip}
+
+  ΥΠΟΥΡΓΕΙΟ ΠΑΙΔΕΙΑΣ, ΕΡΕΥΝΑΣ \& ΘΡΗΣΚΕΥΜΑΤΩΝ
+}
 \def\schl@school{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
 \def\schl@grade{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}
 \def\schl@subject{ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ}

@@ -99,11 +99,9 @@
 %%                          Defined with \setdate.
 %% \schl@examtime         : The time of the exam. It is set with \examtime.
 %% \schl@schoolyear       : School year is set with \schoolyear.
-%% \schl@authorityi, \schl@authorityii, \schl@authorityiii
-%%                        : These three macros define a hierarhy of authorities with
-%%                          \schl@authorityi > \schl@authorityii > \schl@authorityiii.
-%%                          e.x. \schl@authorityi might be the Ministry of Education, etc
-%%                          They are set with \authorityi, \authorityii and \authorityiii
+%% \schl@authorities      : This macros define the authorities that the school belongs to.
+%%                          E.x. might be the Ministry of Education, etc
+%%                          It is set with \authorities
 %%                          and are used in \authoritylogo.
 %% \schl@school           : The name of the school.Is set with \school. It is used by \schoollogo
 %%                          \authoritylogo.
@@ -369,9 +367,7 @@
 \newcommand\schoolyear[1]{\def\schl@schoolyear{#1}}
 \newcommand\setdate[1]{\def\schl@date{#1}}
 \newcommand\examtime[1]{\def\schl@examtime{#1}}
-\newcommand\authorityi[1]{\def\schl@authorityi{#1}}
-\newcommand\authorityii[1]{\def\schl@authorityii{#1}}
-\newcommand\authorityiii[1]{\def\schl@authorityiii{#1}}
+\newcommand\authorities[1]{\def\schl@authorities{#1}}
 %%
 %% Print the points of an exescise.
 \newcommand{\points}[2][\hfill]{%
@@ -418,15 +414,7 @@
 
     \vspace{#1\baselineskip}
 
-    {\schl@authorityi}
-
-    \vspace{3\lineskip}
-
-    {\footnotesize\schl@authorityii}
-
-    \vspace{2\lineskip}
-
-    {\footnotesize\schl@authorityiii}
+    {\schl@authorities}
 
     \vspace{3\lineskip}
 

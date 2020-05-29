@@ -10,10 +10,7 @@
 % default wish
 \def\schl@wish{undefined}
 
-% \schl@authorityi > \schl@authorityii > \schl@authorityii
-\def\schl@authorityi{undefined}
-\def\schl@authorityii{undefined}
-\def\schl@authorityiii{undefined}
+\def\sch@authorities{undefined}
 \def\schl@school{undefined}
 \def\schl@grade{undefined}
 \def\schl@subject{undefined}
