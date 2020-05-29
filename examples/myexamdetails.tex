@@ -1,19 +1,69 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% Defining a new macro \myexamdetails.
-% This is meant to be used in summative tests.
+% Defining macros that print details of a test.
+% To be used in summative tests.
 % 
-% It is saved in a seperate file so that it can be used
+% They 're saved in a seperate file so that it can be used
 % by other documents.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \makeatletter
-\newcommand\myexamdetails[1][15em]{%
-  \parbox[t]{#1}{
-    \normalsize%
-    \textbf{\letterspace{\defaultletterspace}\schoolyearabbr@term:}%
-    \hspace{4pt}\schl@schoolyear\\[1ex]
-    \textbf{\grade@term:}\hspace{4pt}\schl@grade\\[1.0ex]
-    \textbf{\subject@term:}\hspace{4pt}\schl@subject \\[1.0ex]
-    \textbf{\date@term:}\hspace{4pt}\schl@date
-  }
+% 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Print details of the exam.
+%% First argument is the line width for the frame.
+%% Second argument is the length of the \parbox.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\examdetails[2][3pt]{%
+\parbox[t]{#2}{
+\begin{mdframed}[linewidth=#1]
+\normalsize%
+{%
+\bf\letterspace{\defaultletterspace}%
+\schoolyearabbr@term:\hspace{3pt}\schl@schoolyear
+}\\[1.0ex]
+\textbf{\grade@term:}\hspace{3pt}\schl@grade\\[1.0ex]
+\textbf{\subject@term:}\hspace{3pt}\schl@subject \\[1.0ex]
+\textbf{Εισηγητής:}\hspace{3pt}\schl@teacher\\[1.0ex]
+\textbf{Επιτηρητές:}\\[1.0ex]
+\textbf{\date@term:}\hspace{3pt}\schl@date
+\end{mdframed}
+}
+}
+%
+% 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\examdetailsii{%
+\parbox[t]{0.53\linewidth}{%
+\begin{center}%
+\underline{\bf\letterspace{\defaultletterspace}\schoolyear@term\  \schl@schoolyear}%
+\end{center}
+\begin{tabular}{|r|c|r|c|}
+\hline
+{\bf\letterspace{\defaultletterspace}ΕΠΙΘΕΤΟ:} & \multicolumn{3}{|c|}{} \\
+\hline
+{\bf\letterspace{\defaultletterspace}ΟΝΟΜΑ:} & \multicolumn{3}{|c|}{} \\
+\hline
+{\bf\letterspace{\defaultletterspace}\examnoabbr@term:} & %
+& {\bf\letterspace{\defaultletterspace}\MakeUppercase{\grade@term}:}
+& \schl@grade \\
+\hline
+{\bf\letterspace{\defaultletterspace}\MakeUppercase{\subject@term}:} %
+& \multicolumn{3}{|c|}{\schl@subject} \\
+\hline
+{\bf\letterspace{\defaultletterspace}\MakeUppercase{\date@term}:} & \schl@date
+& {\bf\letterspace{\defaultletterspace}\time@term:} %
+& \schl@examtime\\
+\hline
+\end{tabular}
+}
+}
+% 
+% 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\examdetailsiii[1][15em]{%
+\parbox[t]{#1}{
+\normalsize%
+\textbf{\letterspace{\defaultletterspace}\schoolyearabbr@term:}%
+\hspace{4pt}\schl@schoolyear\\[1ex]
+\textbf{\grade@term:}\hspace{4pt}\schl@grade\\[1.0ex]
+\textbf{\subject@term:}\hspace{4pt}\schl@subject \\[1.0ex]
+\textbf{\date@term:}\hspace{4pt}\schl@date
+}
 }
 \makeatother

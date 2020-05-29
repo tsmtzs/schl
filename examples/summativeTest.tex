@@ -22,6 +22,9 @@
 % Load the gr-math package
 \usepackage{gr-math}
 
+% Use custom macros based on schl
+\input{myexamdetails}
+
 % Don't print page number
 \pagestyle{empty}
 
@@ -49,14 +52,11 @@
 % and set question to question vertical distance to 5ex.
 \setlist*[truefalse]{label=\arabic*.,itemsep=3ex,leftmargin=14pt}
 
-% Read file myexamdetails.tex. It defines the macro \myexamdetails.
-\input{myexamdetails}
-
 \begin{document}
 % Print \authoritylogo.
 \authoritylogo[-0.5]%{../pictures/ethnosimo.jpg}
 \hfill%
-\myexamdetails
+\examdetailsiii
 
 \vspace{1ex}
 

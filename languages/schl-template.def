@@ -24,8 +24,6 @@
 
 \def\grade@term{undefined}
 \def\subject@term{undefined}
-\def\testwriter@term{undefined}
-\def\testsupervisor@term{undefined}
 \def\date@term{undefined}
 \def\trueabbr@term{undefined}
 \def\falseabbr@term{undefined}
@@ -33,8 +31,6 @@
 \def\schoolyear@term{undefined}
 \def\schoolyearabbr@term{undefined}
 \def\examperiod@term{undefined}
-\def\lastname@term{undefined}
-\def\name@term{undefined}
 \def\examnoabbr@term{undefined}
 \def\time@term{undefined}
 \def\duration@term{undefined}

@@ -54,19 +54,17 @@
 %% To localize the package schl, define the following macros
 %% with each term in your language. Put these definitions in
 %% a file schl-<your-language>.def.
-%% \grade@term             : Used by \examdetails and \examdetailsii.
-%% \subject@term           : Used by \examdetails and \examdetailsii.
-%% \testwriter@term        : Used by \examdetails.
-%% \testsupervisor@term    : Used by \examdetails.
-%% \date@term              : Used by \examdetails, \examdetailsii and \datefield.
-%% \schoolyear@term        : Used by \examdetailsii.
-%% \schoolyearabbr@term    : Used by \examdetails. An abbreviation for the word 'schoolyear'.
-%% \examperiod@term        : Used by \examdetails.
-%% \lastname@term          : Used by \examdetailsii.
-%% \name@term              : Used by \examdetailsii.
-%% \time@term              : Used by \examdetailsii.
+%% \grade@term             :
+%% \subject@term           :
+%% \testwriter@term        :
+%% \testsupervisor@term    :
+%% \date@term              : Used by \datefield.
+%% \schoolyear@term        :
+%% \schoolyearabbr@term    : An abbreviation for the word 'schoolyear'.
+%% \examperiod@term        :
+%% \time@term              :
 %% \duration@term          :
-%% \examnoabbr@term        : Used by \examdetailsii. An abbreviation for the exam number of a student.
+%% \examnoabbr@term        : An abbreviation for the exam number of a student.
 %% \fullname@term          : Used by \fullname.
 %% \deadline@term          : Used by \deadline.
 %% \remark@term            : Used by \remark.
@@ -95,13 +93,12 @@
 %% \schl@headmaster       : The name of the headmaster. It is set with \headmaster.
 %% \schl@teacher          : Teacher's name. It is set with \teacher.
 %% \schl@subject          : The subject of the test, worksheet etc. (algebra, ...). It is set with \subject.
-%%                          Used by \schoollogo, \examdetails and \examdetailsii
-%% \schl@grade            : The grade. It is set with \grade. Used by \schoollogo, \examdetails
-%%                          and \examdetailsii
+%%                          Used by \schoollogo.
+%% \schl@grade            : The grade. It is set with \grade. Used by \schoollogo
 %% \schl@date             : The date that the produced document will be given to students.
-%%                          Defined with \setdate and used by \examdetails and \examdetailsii.
-%% \schl@examtime         : The time of the exam. It is set with \examtime and used by \examdetailsii.
-%% \schl@schoolyear       : School year is set with \schoolyear and used by \examdetails and \examdetailsii.
+%%                          Defined with \setdate.
+%% \schl@examtime         : The time of the exam. It is set with \examtime.
+%% \schl@schoolyear       : School year is set with \schoolyear.
 %% \schl@authorityi, \schl@authorityii, \schl@authorityiii
 %%                        : These three macros define a hierarhy of authorities with
 %%                          \schl@authorityi > \schl@authorityii > \schl@authorityiii.
@@ -434,51 +431,6 @@
     \vspace{3\lineskip}
 
     {\small\letterspace{\defaultletterspace}\MakeUppercase{\schl@school}}
-  }
-}
-%%
-%% Print details of the exam.
-%% First argument is the line width for the frame.
-%% Second argument is the length of the \parbox.
-\newcommand\examdetails[2][3pt]{%
-  \parbox[t]{#2}{
-    \begin{mdframed}[linewidth=#1]
-      \normalsize%
-      {%
-        \bf\letterspace{\defaultletterspace}%
-        \schoolyearabbr@term:\hspace{3pt}\schl@schoolyear
-      }\\[1.0ex]
-      \textbf{\grade@term:}\hspace{3pt}\schl@grade\\[1.0ex]
-        \textbf{\subject@term:}\hspace{3pt}\schl@subject \\[1.0ex]
-        \textbf{\testwriter@term:}\hspace{3pt}\schl@teacher\\[1.0ex]
-        \textbf{\testsupervisor@term:}\\[1.0ex]
-        \textbf{\date@term:}\hspace{3pt}\schl@date
-    \end{mdframed}
-  }
-}
-\newcommand\examdetailsii{%
-  \parbox[t]{0.53\linewidth}{%
-    \begin{center}%
-      \underline{\bf\letterspace{\defaultletterspace}\schoolyear@term\  \schl@schoolyear}%
-    \end{center}
-    \begin{tabular}{|r|c|r|c|}
-      \hline
-      {\bf\letterspace{\defaultletterspace}\lastname@term:} & \multicolumn{3}{|c|}{} \\
-      \hline
-      {\bf\letterspace{\defaultletterspace}\name@term:} & \multicolumn{3}{|c|}{} \\
-      \hline
-      {\bf\letterspace{\defaultletterspace}\examnoabbr@term:} & %
-                      & {\bf\letterspace{\defaultletterspace}\MakeUppercase{\grade@term}:}
-                      & \schl@grade \\
-      \hline
-      {\bf\letterspace{\defaultletterspace}\MakeUppercase{\subject@term}:} %
-                      & \multicolumn{3}{|c|}{\schl@subject} \\
-      \hline
-      {\bf\letterspace{\defaultletterspace}\MakeUppercase{\date@term}:} & \schl@date
-                      & {\bf\letterspace{\defaultletterspace}\time@term:} %
-                      & \schl@examtime\\
-      \hline
-    \end{tabular}
   }
 }
 \newcommand\signatures[2][\headmaster@term]{%
