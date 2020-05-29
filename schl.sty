@@ -485,7 +485,12 @@
   \parbox[t]{\signatureslength}{%
     \setlength \baselineskip{\signaturelineskip}
     \begin{center}
-      #1 \\ #2
+      #1%
+      \@for\arg:=#2
+      \do {%
+        \\%
+        \arg%
+      }
     \end{center}
   }
 }

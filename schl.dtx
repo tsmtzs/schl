@@ -789,13 +789,18 @@
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\signatures} Some types of written tests end with the names of the headmaster and the teacher(s) followed by handwritten signatures. |\signatures|\oarg{role}\marg{signer(s)} prints the name(s) of the \meta{signer(s)} under a line with the \meta{role} of the signer(s). |\signatureslength| is the length of the |\signatures| block.
+% \DescribeMacro{\signatures} Some types of written tests end with the names of the headmaster and the teacher(s) followed by handwritten signatures. |\signatures|\oarg{role}\marg{signer(s)} prints \meta{role}. After it follow the name(s) of the \meta{signer(s)}, one per line. \meta{Signer(s)} is a comma separated list of values. The default value for \meta{role} is |\headmaster@term|. |\signatureslength| is the length of the |\signatures| block and |\signatureslineskip| is the length between adjucent lines.
 %    \begin{macrocode}
 \newcommand\signatures[2][\headmaster@term]{%
   \parbox[t]{\signatureslength}{%
     \setlength \baselineskip{\signaturelineskip}
     \begin{center}
-      #1 \\ #2
+      #1%
+      \@for\arg:=#2
+      \do {%
+        \\%
+        \arg%
+      }
     \end{center}
   }
 }
