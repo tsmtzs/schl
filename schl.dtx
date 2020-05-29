@@ -102,11 +102,9 @@
 %%                          Defined with \setdate.
 %% \schl@examtime         : The time of the exam. It is set with \examtime.
 %% \schl@schoolyear       : School year is set with \schoolyear.
-%% \schl@authorityi, \schl@authorityii, \schl@authorityiii
-%%                        : These three macros define a hierarhy of authorities with 
-%%                          \schl@authorityi > \schl@authorityii > \schl@authorityiii.
-%%                          e.x. \schl@authorityi might be the Ministry of Education, etc
-%%                          They are set with \authorityi, \authorityii and \authorityiii
+%% \schl@authorities      : This macros define the authorities that the school belongs to.
+%%                          E.x. might be the Ministry of Education, etc
+%%                          It is set with \authorities
 %%                          and are used in \authoritylogo.
 %% \schl@school           : The name of the school.Is set with \school. It is used by \schoollogo
 %%                          \authoritylogo.
@@ -622,11 +620,9 @@
 \newcommand\examtime[1]{\def\schl@examtime{#1}}
 %    \end{macrocode}
 %
-% \DescribeMacro{\authorityi}\DescribeMacro{\authorityii}\DescribeMacro{\authorityiii} In a similar vein, |\authorityi|\marg{text}, |\authorityii|\marg{text} and |\authorityiii|\marg{text} define the internal macros |\schl@authorityi|, |\schl@authorityii| and |\schl@authorityiii|. 
+% \DescribeMacro{\authorities} In a similar vein, |\authorities|\marg{text} is used to define the internal macro |\schl@authorities|.
 %    \begin{macrocode}
-\newcommand\authorityi[1]{\def\schl@authorityi{#1}}
-\newcommand\authorityii[1]{\def\schl@authorityii{#1}}
-\newcommand\authorityiii[1]{\def\schl@authorityiii{#1}}
+\newcommand\authorities[1]{\def\schl@authorities{#1}}
 %    \end{macrocode}
 %
 % \subsection{Other macros for tests}
@@ -703,7 +699,7 @@
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\authoritylogo} |\authoritylogo|\oarg{number} prints |\sch@authorityi, \sch@authorityii, \sch@authorityiii| and |\schl@school|. Argument \meta{number} is a multiplier for |\baselineskip|. This spaces is added above macro.
+% \DescribeMacro{\authoritylogo} |\authoritylogo|\oarg{number} prints |\sch@authorities| and |\schl@school|. Argument \meta{number} is a multiplier for |\baselineskip|. This spaces is added above the macro.
 % \iffalse meta-comment
 %%
 %% Logo for exams.
@@ -716,15 +712,7 @@
 
     \vspace{#1\baselineskip}
 
-    {\schl@authorityi}
-
-    \vspace{3\lineskip}
-    
-    {\footnotesize\schl@authorityii}
-
-    \vspace{2\lineskip}
-    
-    {\footnotesize\schl@authorityiii}
+    {\schl@authorities}
 
     \vspace{3\lineskip}
 
