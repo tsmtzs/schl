@@ -29,8 +29,6 @@
 
 \def\grade@term{Τάξη}
 \def\subject@term{Μάθημα}
-\def\testwriter@term{Εισηγητής}
-\def\testsupervisor@term{Επιτηρητής}
 \def\date@term{Ημερομηνία}
 \def\trueabbr@term{Σ}
 \def\falseabbr@term{Λ}
@@ -38,8 +36,6 @@
 \def\schoolyear@term{ΣΧΟΛΙΚΟ ΕΤΟΣ}
 \def\schoolyearabbr@term{ΣΧΟΛ\@.\, ΕΤΟΣ}
 \def\examperiod@term{ΕΞΕΤΑΣΤΙΚΗ ΠΕΡΙΟΔΟΣ}
-\def\lastname@term{ΕΠΙΘΕΤΟ}
-\def\name@term{ΟΝΟΜΑ}
 \def\examnoabbr@term{Α\@.Μ\@.Μ\.}
 \def\time@term{ΩΡΑ}
 \def\duration@term{Διάρκεια}
