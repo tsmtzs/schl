@@ -329,8 +329,8 @@
 \setlist*[rightmatching]{label=\bf\arabic*.}
 %%
 %% Write the answer of an exercise.
-\newcommand\answer[1]{%
-  \hfill{\footnotesize (\answerabbr@term: #1)}
+\newcommand\answer[2][\hfill\footnotesize]{%
+  {#1 (\answerabbr@term: #2)}
 }
 %%
 %% With this command you write the solution of an exercise.
@@ -340,23 +340,23 @@
 }
 %%
 %% A macro for exercise hints.
-\newcommand\hint[1]{%
-  \par{\scriptsize\noindent\textbf{\hint@term:} #1}%
+\newcommand\hint[2][\noindent\footnotesize]{%
+  \par{#1\textbf{\hint@term:} #2}%
 }
 %%
 %% Print the deadline of an assignment
-\newcommand\deadline[1]{%
-  \noindent{{\bf\normalsize\deadline@term}: #1}
+\newcommand\deadline[2][\noindent\bf]{%
+  {#1\deadline@term}: #2%
 }
 %%
 %% Add a remark to a document.
-\newcommand\remark[1]{%
-  \noindent{\textbf{\normalsize\remark@term}: #1}
+\newcommand\remark[2][\noindent\bf]{%
+  {#1\remark@term}: #2%
 }
 %%
 %% Add a remark to a document.
-\newcommand\reminder[1]{%
-  \noindent{\textbf{\normalsize\reminder@term}: #1}
+\newcommand\reminder[2][\noindent\bf]{%
+  {#1\reminder@term}: #2%
 }
 %%
 %% Large centered text in bold face.
@@ -407,29 +407,27 @@
 \newcommand\authorities[1]{\def\schl@authorities{#1}}
 %%
 %% Print the points of an exescise.
-\newcommand{\points}[2][\hfill]{%
-#1(\textbf{\footnotesize \points@term{#2}\  #2})
+\newcommand{\points}[2][\hfill\bf\footnotesize]{%
+{#1(\points@term{#2}\  #2)}
 }
 %%
 %% A field for writing the full name.
-\newcommand\fullname[1]{%
-  \noindent{\normalsize\fullname@term :} #1
+\newcommand\fullname[2][\noindent\rmfamily]{%
+  {#1\fullname@term}: #2%
 }
 %%
 %% A field for writing the date.
-\newcommand\datefield[1][0]{%
-  \noindent{\normalsize\date@term :}
+\newcommand\datefield[2][\noindent\bf]{%
+  {#1\date@term}: #2%
 }
 %%
 %% Get \schl@date.
 %% \schl@date is set with \setdate.
-\newcommand\getdate{%
-  {\noindent\schl@date}
-}
+\newcommand\getdate{\schl@date}
 %%
 %% Show the duration of the test.
-\newcommand\duration[1]{%
-  \noindent{\normalsize\textbf{\duration@term}: #1}
+\newcommand\duration[2][\noindent\bf]{%
+  {#1\duration@term}: #2%
 }
 %%
 %% School logo
