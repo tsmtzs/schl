@@ -147,7 +147,14 @@
 %% This behaviour is heavily dependend on the font used and font size (\large here).
 %%
 %% \trueabbr@term and \falseabbr@term are the first letters of the words True, False.
-\def\truefalselabel{\parbox[t][0pt][c]{\truefalselength}{\large \trueabbr@term\hfill\falseabbr@term}}
+\def\truefalselabel{\parbox[t][0pt][c]{\truefalselength}{\large\trueabbr@term\hfill\falseabbr@term}}
+%%
+%% Macro \truefalsesquares prints two squares inside a \parbox.
+%% \parbox's argument height is given the value 0pt.
+%% This is done so that the top of the squares align
+%% with the line of the true-false question.
+%% This behaviour is heavily dependend on the font used and font size (\large here).
+\def\truefalsesquares{\parbox[t][0pt][c]{\truefalselength}{\large$\square$\hfill$\square$}}
 %%
 %% Define a new true-false toggle named \first. This is used inside the environment truefalse.
 %% It is used to discriminate the first item from the rest.
@@ -236,7 +243,7 @@
   before=\hspace{\fill},
   after=\hspace{\fill}
 }
-%% An environment to typeset true-false questions. Is is defined with the enumitem package.
+%% An environment to typeset true-false questions. It is defined with the enumitem package.
 %% Each question is followed by the letters \trueabbr@term and \falseabbr@term.
 %% It uses the calc package
 %%
@@ -261,6 +268,36 @@
     after*={%   This takes care of adding the fill for the final item on
       %         the list and just makes sure that \item is reset to its standard definition
     \end{minipage}\hfill\truefalselabel% fill for final item in list
+    \let\item\defaultitem% restore standard definition of \item
+  }%
+}
+%% An environment to typeset true-false questions. It is defined with the enumitem package.
+%% Each question is followed by two squares.
+%% It uses the calc package
+%%
+%% Adapted from cfr's answer on
+%% https://tex.stackexchange.com/questions/164613/adding-code-at-the-end-of-each-list-item
+%% accessed 11/07/2019
+\newlist{truefalse*}{enumerate}{1}
+\setlist[truefalse*]{label={\bf \arabic*.},%
+  before*={%
+    \hfill\truefalselabel%      Print first line only with the terms True - False
+    \let\defaultitem\item%      Save the standard definition of \item in a macro.
+    \toggletrue{first}%                 Set the first toggle with initial value true.
+    \def\item{%
+      \iftoggle{first}{%
+        \togglefalse{first}%              Set the first toggle to take the value false.
+        \defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
+        }{%
+        \end{minipage}\hfill\truefalsesquares\defaultitem%
+        \begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
+        }
+      }% new, temporary defition of \item
+    },
+    after*={%   This takes care of adding the fill for the final item on
+      %         the list and just makes sure that \item is reset to its standard definition
+    \end{minipage}\hfill% fill for final item in list
+    \truefalsesquares
     \let\item\defaultitem% restore standard definition of \item
   }%
 }
