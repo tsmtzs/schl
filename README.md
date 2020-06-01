@@ -13,13 +13,15 @@ Basic macros of the package are:
   * `question, exercise, schltask`: Environments for typesetting questions, exercises and tasks.
   * `multichoice`: An environment for typesetting multiple choice answers.
   * `tickchoice` and `tickchoice*`: `itemize` type lists with a square as symbol for each item.
-  * `truefalse`: An environment for typesetting true-false type questions.
+  * `truefalse` and `truefalse*`: Environments for typesetting true-false type questions.
   * `matchingque`: A macro for typesseting matching questions.
-* Answers, solutions and hints
+* Answers, solutions, hints...
   * `\answer`: For typesetting  the answer of an exercise.
   * `\solution`: For typesetting the solution of an exercise.
   * `\hint`: Typeset a hint for an exercise.
   * `\deadline`: Set the deadline date.
+  * `\remark`: Add a remark to a document.
+  * `\reminder`: Write a reminder to a document.
 * Headers
   * `\worksheethd`: Set the title of a worksheet.
   * `\examhd`: Set the title of a summative test.
@@ -28,13 +30,13 @@ Basic macros of the package are:
 * School information
   * `\school, \headmaster, \teacher, \subject, \grade, \schoolyear, \setdate`
 * Macros for tests
+  * `\duration`: Set the duration of a test.
   * `\examtime`: Print the time of the exam.
   * `\points`: Set the points of an exercise.
   * `\fullname`: A field that accepts a name.
   * `\datefield`: A field for writing the date.
   * `\schoollogo` Prints school, teacher, grade and subject.
   * `\authoritylogo`: Prints a hierarchy of authorities starting from the Ministry of Education.
-  * `\examdetails, \examdetailsii`: Print information about an exam.
   * `\signatures`: A field that prints the name of the teacher or the headmaster. 
   * `\wish`: Prints a wish for good luck.
 
