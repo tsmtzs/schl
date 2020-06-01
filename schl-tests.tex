@@ -39,7 +39,7 @@
   \end{schltask}
 \item The macro \verb/\answer/ is used to typeset the answer of an exercise.
   \begin{exercise}
-  \item Υπολογίστε το άθροισμα 1 + 1.\\\phantom{.}\answer{2}
+  \item Υπολογίστε το άθροισμα 1 + 1.\\\phantom{.}\answer[\hfill\small]{2}
   \end{exercise}
 \item With the macro \texttt{solution}, we write the solution of an exercise.
   \begin{exercise}
@@ -58,8 +58,8 @@
     Διατυπώστε και αποδείξτε το θεώρημα του Bolzano.
   \item  Θεωρούμε τη συνάρτηση $f:\mathbb{R}\rightarrow\mathbb{R}$ με τύπο $f(x) = \frac1{x-1}$.
     \begin{enumerate}
-    \item Βρείτε το πεδίο ορισμού της $f$.\points{10}
-    \item Υπολoγίστε το $f(3)$.\points{1}
+    \item Βρείτε το πεδίο ορισμού της $f$.\points[\hfill\itshape]{10}
+    \item \points[\itshape\scriptsize]{1} Υπολoγίστε το $f(3)$.
     \end{enumerate}
   \end{schltask}
   \item Environment \texttt{question}:.
@@ -73,7 +73,7 @@
   \hint{%
     Θεωρούμε τους ρητούς $\rho_1 < \rho_2$. Ορίζουμε τον πραγματικό $\frac{\rho_1 + \rho_2}2$. Στη συνέχεια δείχνουμε ότι ο $x$ είναι \ldots}
 \item Δείξτε ότι $(\alpha + \beta)^2 = \alpha^2 + 2 \alpha \beta + \beta^2$.
-  \hint{%
+  \hint[\small]{%
     Έχουμε $(\alpha + \beta)^2 = (\alpha + \beta) \cdot (\alpha + \beta) = \ldots$}
   \end{exercise}
 \item Environment \texttt{multichoice} is for multiple choice questions:
@@ -124,17 +124,23 @@
   \makeatother
   \wish
 \item Write the name and date:\\
-  \fullname{}\\
-  \datefield{} \\[1ex]
+  \fullname\\
+  \datefield \\[1ex]
   Also, with dots or a line for blank space:\\
   \fullname{\lowerdots{40}}\\ \datefield{\blankspace{10em}}\\[1ex]
   We could use \\
   \setdate{28 Μαΐου 2020}
   \datefield{\getdate}
-\item Exercise deadline: \hspace{3em} \deadline{2/2/2058}\\
-\item Set the duration of a test:\\ \duration{10'}
-\item Add a remark in a document:\\ \remark{Αυτή είναι μια παρατήρηση.}
-\item Add a reminder in a document:\\ \reminder{Εδώ ξεκινά μια υπενθύμιση.}
+\item Exercise deadline:\\
+  \deadline{2/2/2058}\\
+\item Set the duration of a test:\\ \duration{10'} or \duration[\it]{10'} or \duration[\rm]{10'}
+\item Add a remark in a document:\\
+  \remark{Αυτή είναι μια παρατήρηση.}\\
+  \remark[\rm]{Αυτή είναι μια παρατήρηση.}\\
+  \remark[\it]{Αυτή είναι μια παρατήρηση.}
+\item Add a reminder in a document:\\
+  \reminder{Εδώ ξεκινά μια υπενθύμιση.}\\
+  \reminder[\mdseries]{Εδώ ξεκινά μια υπενθύμιση.}
 \item Header for the theory part of a test: \theorypart
   Header for the exercise part of a test: \exercisepart
 \item Set the title of a worksheet

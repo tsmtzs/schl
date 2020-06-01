@@ -514,8 +514,8 @@
 %% Write the answer of an exercise.
 % \fi
 %    \begin{macrocode}
-\newcommand\answer[1]{%
-  \hfill{\footnotesize (\answerabbr@term: #1)}
+\newcommand\answer[2][\hfill\footnotesize]{%
+  {#1 (\answerabbr@term: #2)}
 }
 %    \end{macrocode}
 %
@@ -537,8 +537,8 @@
 %% A macro for exercise hints.
 % \fi
 %    \begin{macrocode}
-\newcommand\hint[1]{%
-  \par{\scriptsize\noindent\textbf{\hint@term:} #1}%
+\newcommand\hint[2][\noindent\footnotesize]{%
+  \par{#1\textbf{\hint@term:} #2}%
 }
 %    \end{macrocode}
 %
@@ -548,8 +548,8 @@
 %% Print the deadline of an assignment
 % \fi
 %    \begin{macrocode}
-\newcommand\deadline[1]{%
-  \noindent{{\bf\normalsize\deadline@term}: #1}
+\newcommand\deadline[2][\noindent\bf]{%
+  {#1\deadline@term}: #2%
 }
 %    \end{macrocode}
 % 
@@ -559,8 +559,8 @@
 %% Add a remark to a document.
 % \fi
 %    \begin{macrocode}
-\newcommand\remark[1]{%
-  \noindent{\textbf{\normalsize\remark@term}: #1}
+\newcommand\remark[2][\noindent\bf]{%
+  {#1\remark@term}: #2%
 }
 %    \end{macrocode}
 %
@@ -570,8 +570,8 @@
 %% Add a remark to a document.
 % \fi
 %    \begin{macrocode}
-\newcommand\reminder[1]{%
-  \noindent{\textbf{\normalsize\reminder@term}: #1}
+\newcommand\reminder[2][\noindent\bf]{%
+  {#1\reminder@term}: #2%
 }
 %    \end{macrocode}
 %
@@ -680,8 +680,8 @@
 %% Print the points of an exescise.
 % \fi
 %    \begin{macrocode}
-\newcommand{\points}[2][\hfill]{%
-#1(\textbf{\footnotesize \points@term{#2}\  #2})
+\newcommand{\points}[2][\hfill\bf\footnotesize]{%
+{#1(\points@term{#2}\  #2)}
 }
 %    \end{macrocode}
 %
@@ -691,8 +691,8 @@
 %% A field for writing the full name.
 % \fi
 %    \begin{macrocode}
-\newcommand\fullname[1]{%
-  \noindent{\normalsize\fullname@term :} #1
+\newcommand\fullname[2][\noindent\rmfamily]{%
+  {#1\fullname@term}: #2%
 }
 %    \end{macrocode}
 %
@@ -702,8 +702,8 @@
 %% A field for writing the date.
 % \fi
 %    \begin{macrocode}
-\newcommand\datefield[1][0]{%
-  \noindent{\normalsize\date@term :}
+\newcommand\datefield[2][\noindent\bf]{%
+  {#1\date@term}: #2%
 }
 %    \end{macrocode}
 %
@@ -714,9 +714,7 @@
 %% \schl@date is set with \setdate.
 % \fi
 %    \begin{macrocode}
-\newcommand\getdate{%
-  {\noindent\schl@date}
-}
+\newcommand\getdate{\schl@date}
 %    \end{macrocode}
 %
 % \DescribeMacro{\duration} |\duration|\marg{duration} prints |\duration@term| with \meta{duration} after it.
@@ -725,8 +723,8 @@
 %% Show the duration of the test.
 % \fi
 %    \begin{macrocode}
-\newcommand\duration[1]{%
-  \noindent{\normalsize\textbf{\duration@term}: #1}
+\newcommand\duration[2][\noindent\bf]{%
+  {#1\duration@term}: #2%
 }
 %    \end{macrocode}
 %
