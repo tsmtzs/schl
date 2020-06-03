@@ -1,0 +1,66 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PACKAGE schl
+%% TERMS IN ENGLISH
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesFile{schl-template.def}[2019/09/03 v0.1 Term macros of the schl package]
+
+\def\points@term#1{%
+  \ifnum 1=#1
+  point
+  \else
+  points
+  \fi
+}
+
+% default wish
+\def\schl@wish{Good luck!}
+
+\def\sch@authorities{undefined}
+\def\schl@school{undefined}
+\def\schl@grade{undefined}
+\def\schl@subject{undefined}
+\def\schl@teacher{undefined}
+\def\schl@schoolyear{undefined}
+\def\schl@date{undefined}
+\def\schl@examtime{undefined}
+
+\def\grade@term{Grade}
+\def\subject@term{Subject}
+\def\date@term{Date}
+\def\trueabbr@term{T}
+\def\falseabbr@term{F}
+
+\def\schoolyear@term{SCHOOL YEAR}
+\def\schoolyearabbr@term{SCHL YEAR}
+\def\examperiod@term{EXAM PERIDO}
+\def\examnoabbr@term{undefined}
+\def\time@term{TIME}
+\def\duration@term{Duration}
+
+\def\fullname@term{Fullname}
+
+\def\deadline@term{Deadline}
+\def\remark@term{Remark}
+\def\reminder@term{Reminder}
+
+\def\theoryheader@term{THEORY}
+\def\exerciseheader@term{EXERCISES}
+
+\def\worksheet@term{Worksheet}
+
+\def\termtest@term{Test}
+
+\def\exams@term{EXAMS}
+\def\period@term{PERIOD}
+
+\def\headmaster@term{Headmaster}
+
+\def\answerabbr@term{Uns.}
+
+\def\exercise@term{Exercise}
+\def\question@term{Question}
+\def\task@term{TASK}
+\def\solution@term{Solution}
+\def\hint@term{Hint}
+
+\endinput
