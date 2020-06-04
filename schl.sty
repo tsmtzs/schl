@@ -43,6 +43,9 @@
 \DeclareOption{greek}{
   \input{languages/schl-greek.def}
 }
+\DeclareOption{english}{
+  \input{languages/schl-english.def}
+}
 %%  Execute default options.
 \ExecuteOptions{default}
 \ProcessOptions\relax
@@ -189,7 +192,7 @@
 \newlist{question}{enumerate}{1}
 \setlist*[question]{%
   align=left,
-  label=\normalsize\bf \question@term\  \arabic*.,
+  label=\bf \question@term\  \arabic*.,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -199,7 +202,7 @@
 \newlist{exercise}{enumerate}{1}
 \setlist*[exercise]{%
   align=left,
-  label=\normalsize\bf\exercise@term\  \arabic*.,
+  label=\bf\exercise@term\  \arabic*.,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -209,7 +212,7 @@
 \newlist{schltask}{enumerate}{1}
 \setlist*[schltask]{%
   align=left,
-  label=\normalsize\bf\letterspace{\defaultletterspace}\task@term\  \Alph*,
+  label=\bf\letterspace{\defaultletterspace}\task@term\  \arabic*,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -340,8 +343,8 @@
 }
 %%
 %% A macro for exercise hints.
-\newcommand\hint[2][\noindent\footnotesize]{%
-  \par{#1\textbf{\hint@term:} #2}%
+\newcommand\hint[2][\par\noindent\footnotesize]{%
+  {#1\textbf{\hint@term:} #2}%
 }
 %%
 %% Print the deadline of an assignment

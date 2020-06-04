@@ -42,6 +42,12 @@
 %<package>  \input{languages/schl-greek.def}
 %<package>}
 %
+%<schl-english>\ProvidesFile{languages/schl-english.def}
+%
+%<package>\DeclareOption{english}{
+%<package>  \input{languages/schl-english.def}
+%<package>}
+%
 %  \iffalse meta-comment
 %%  Execute default options.
 %  \fi
@@ -308,7 +314,7 @@
 \newlist{question}{enumerate}{1}
 \setlist*[question]{%
   align=left,
-  label=\normalsize\bf \question@term\  \arabic*.,
+  label=\bf \question@term\  \arabic*.,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -323,7 +329,7 @@
 \newlist{exercise}{enumerate}{1}
 \setlist*[exercise]{%
   align=left,
-  label=\normalsize\bf\exercise@term\  \arabic*.,
+  label=\bf\exercise@term\  \arabic*.,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -338,7 +344,7 @@
 \newlist{schltask}{enumerate}{1}
 \setlist*[schltask]{%
   align=left,
-  label=\normalsize\bf\letterspace{\defaultletterspace}\task@term\  \Alph*,
+  label=\bf\letterspace{\defaultletterspace}\task@term\  \arabic*,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -537,8 +543,8 @@
 %% A macro for exercise hints.
 % \fi
 %    \begin{macrocode}
-\newcommand\hint[2][\noindent\footnotesize]{%
-  \par{#1\textbf{\hint@term:} #2}%
+\newcommand\hint[2][\par\noindent\footnotesize]{%
+  {#1\textbf{\hint@term:} #2}%
 }
 %    \end{macrocode}
 %

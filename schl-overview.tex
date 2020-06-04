@@ -24,13 +24,13 @@
 \pagestyle{empty}
 
 % Load the package 'schl'.
-\usepackage[greek]{schl}
+\usepackage[english]{schl}
 
 % Change some schl macro terms to English
-\makeatletter
-\def\exercise@term{Exercise}
-\def\task@term{Task}
-\makeatother
+% \makeatletter
+% \def\exercise@term{Exercise}
+% \def\task@term{Task}
+% \makeatother
 
 % Change the space between adjacent rows in a tabular environment.
 \renewcommand{\arraystretch}{2.5}
@@ -74,13 +74,13 @@ defined in \verb|languages/sch-greek.def|. If you want to set them in a differen
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Environment 'exercise'
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\item With the environment \texttt{exercise} you can typeset exercises. We have set \verb|\def\exercise@term{Exercise}|.
+\item With the environment \texttt{exercise} you can typeset exercises.
   \begin{center}
     \footnotesize
     \begin{tabular}{c|p{0.4\textwidth}}
       \textit{\large code} & \hfill\textit{\large result}\hfill\phantom{.} \\ \hline
       \begin{minipage}[t]{0.4\textwidth}
-        % Remove white space on every new line inside lstlisting environent
+        % Remove white space from the start of every new line inside lstlisting environent
 \begin{lstlisting}
 \begin{exercise}
 \item  Write all prime integers that are less or equall to $100$.
@@ -89,23 +89,24 @@ defined in \verb|languages/sch-greek.def|. If you want to set them in a differen
 \end{exercise}
         \end{lstlisting}
       \end{minipage} &
-                       \parbox[t]{0.4\textwidth}{%
                        \begin{exercise}
                        \item  Write all prime integers that are less or equall to $100$.
                        \item We 've bought $120$ watermelons from a local grocery shop. The total weight was $360\, kg$ and the watermelons were sold for $0.5\euro$ per $kg$. The grocer was highly delighted from this and decided to dedicate himself in the black art of Mathematics. Furthermore, he offered as a $2.5\%$ discount. How much money did we gave for the watermelons?
                        \item Prove that the sum of the angles of a triangle equals $180^\circ$.
                        \end{exercise}
-                       }
     \end{tabular}
   \end{center}
-\item The environment \texttt{schltask} can be used for summative tests. Seting \verb|\def\task@term{Task}| we get
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Environment schltask'
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item The environment \texttt{schltask} can be used for summative tests.
   %
     \begin{center}
     \footnotesize
     \begin{tabular}{c|p{0.4\textwidth}}
       \textit{\large code} & \hfill\textit{\large result}\hfill\phantom{.} \\ \hline
       \begin{minipage}[t]{0.4\textwidth}
-        % Remove white space on every new line inside lstlisting environent
+        % Remove white space from the start of every new line inside lstlisting environent
 \begin{lstlisting}
 \begin{schltask}
 \item Solve the equation $x^2 - 3x + 2 = 0$.
@@ -114,54 +115,155 @@ defined in \verb|languages/sch-greek.def|. If you want to set them in a differen
 \end{schltask}
         \end{lstlisting}
       \end{minipage} &
-                       \parbox[t]{0.4\textwidth}{%
                        \begin{schltask}
                        \item Solve the equation $x^2 - 3x + 2 = 0$.
                        \item Prove the Pythagorean theorem.
                        \item Prove that the medians of a triangle have a common point.
                        \end{schltask}
-                       }
     \end{tabular}
   \end{center}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Macro \asnswer
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \item The macro \verb/\answer/ is used to typeset the answer of an exercise.
-  \begin{exercise}
-  \item Υπολογίστε το άθροισμα 1 + 1.\\\phantom{.}\answer[\hfill\small]{2}
+    %
+    \begin{center}
+    \footnotesize
+    \begin{tabular}{c|p{0.4\textwidth}}
+      \textit{\large code} & \hfill\textit{\large result}\hfill\phantom{.} \\ \hline
+      \begin{minipage}[t]{0.4\textwidth}
+        % Remove white space from the start of every new line inside lstlisting environent
+\begin{lstlisting}
+\begin{exercise}
+  \item Find the sum $1 + 1$.\answer[\hfill\footnotesize]{2}
+\end{exercise}
+\end{lstlisting}
+\end{minipage} &
+      \begin{minipage}[t]{0.4\textwidth}
+        \begin{exercise}
+  \item Find the sum $1 + 1$.\answer[\hfill\footnotesize]{2}
   \end{exercise}
-\item With the macro \texttt{solution}, we write the solution of an exercise.
-  \begin{exercise}
-  \item Δείξτε ότι το πλήθος των πρώτων είναι άπειρο.
-    \solution{%
-      Υποθέτουμε ότι υπάρχει πεπερασμένο πλήθος πρώτων αριθμών $p_1,\ldots,p_\nu$. Θεωρούμε τον ακέραιο \ldots}
-  \end{exercise}
-  \begin{schltask}
-  \item Να δείξετε ότι η ευθεία $y = x$ διέρχεται από την αρχή των αξόνων.
-    \solution{%
-      Αρκεί να δείξουμε ότι οι συντεταγμένες του σημείου $O(0\,,\,0)$ επαληθεύουν την εξίσωση της ευθείας.}
-  \end{schltask}
-\item Set points to exercises:
-  \begin{schltask}
-  \item \points{25}\\
-    Διατυπώστε και αποδείξτε το θεώρημα του Bolzano.
-  \item  Θεωρούμε τη συνάρτηση $f:\mathbb{R}\rightarrow\mathbb{R}$ με τύπο $f(x) = \frac1{x-1}$.
-    \begin{enumerate}
-    \item Βρείτε το πεδίο ορισμού της $f$.\points[\hfill\itshape]{10}
-    \item \points[\itshape\scriptsize]{1} Υπολoγίστε το $f(3)$.
-    \end{enumerate}
-  \end{schltask}
-\item Environment \texttt{question}:.
-  \begin{question}
-  \item Υπάρχει μικρότερος πραγματικός αριθμός;
-  \item Υπάρχει μεγαλύτερος αρνητικός αριθμός;
-  \end{question}
-\item Hints:
-  \begin{exercise}
-  \item Δείξτε ότι ανάμεσα σε οποιουσδήποτε δύο ρητούς αριθμούς, υπάρχει ρητός.
-    \hint{%
-      Θεωρούμε τους ρητούς $\rho_1 < \rho_2$. Ορίζουμε τον πραγματικό $\frac{\rho_1 + \rho_2}2$. Στη συνέχεια δείχνουμε ότι ο $x$ είναι \ldots}
-  \item Δείξτε ότι $(\alpha + \beta)^2 = \alpha^2 + 2 \alpha \beta + \beta^2$.
-    \hint[\small]{%
-      Έχουμε $(\alpha + \beta)^2 = (\alpha + \beta) \cdot (\alpha + \beta) = \ldots$}
-  \end{exercise}
+  \end{minipage}
+    \end{tabular}
+  \end{center}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Macro \solution
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item With the macro \verb|\solution|, we write the solution of an exercise.
+      %
+  \begin{center}
+    \footnotesize
+    \begin{tabular}{c|p{0.4\textwidth}}
+      \textit{\large code} & \hfill\textit{\large result}\hfill\phantom{.} \\ \hline
+      \begin{minipage}[t]{0.4\textwidth}
+        % Remove white space from the start of every new line inside lstlisting environent
+\begin{lstlisting}
+\begin{exercise}
+\item Prove that there are infinite prime numbers.
+  \solution{%
+    Assume that there is a finite number of primes $p_1,\ldots,p_\nu$. Define the integer\ldots}
+\end{exercise}
+\end{lstlisting}
+\end{minipage} &
+                 \begin{exercise}
+                 \item Prove that there are infite prime numbers.
+                   \solution{%
+                     Assume that there is a finite number if primes $p_1,\ldots,p_\nu$. Define the integer\ldots}
+                 \end{exercise}
+    \end{tabular}
+  \end{center}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Macro \points
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item Set points to exercises with the macro \verb|\points|:
+        %
+  \begin{center}
+    \footnotesize
+    \begin{tabular}{c|p{0.4\textwidth}}
+      \textit{\large code} & \hfill\textit{\large result}\hfill\phantom{.} \\ \hline
+      \begin{minipage}[t]{0.4\textwidth}
+        % Remove white space from the start of every new line inside lstlisting environent
+\begin{lstlisting}
+\begin{schltask}
+\item \points{25}\par
+  Prove the theorem of Bolzano.
+\item \points{11}\par
+  Let $f:\mathbb{R}\rightarrow\mathbb{R}$ be a function with $f(x) = \frac1{x-1}$.
+  \begin{enumerate}
+  \item \points[\itshape]{10} Find its domain.
+  \item \points[\itshape]{1} Calculate the value $f(3)$.
+  \end{enumerate}
+\end{schltask}
+\end{lstlisting}
+\end{minipage} &
+                 \begin{schltask}
+                 \item \points{25}\par
+                   Prove the theorem of Bolzano.
+                 \item \points{11}\par
+                   Let $f:\mathbb{R}\rightarrow\mathbb{R}$ be a function with $f(x) = \frac1{x-1}$.
+                   \begin{enumerate}
+                   \item \points[\itshape]{10} Find its domain.
+                   \item \points[\itshape]{1} Calculate the value $f(3)$.
+                   \end{enumerate}
+                 \end{schltask}
+    \end{tabular}
+  \end{center}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Environment 'question'
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Environment \verb|question|:
+        %
+  \begin{center}
+    \footnotesize
+    \begin{tabular}{c|p{0.4\textwidth}}
+      \textit{\large code} & \hfill\textit{\large result}\hfill\phantom{.} \\ \hline
+      \begin{minipage}[t]{0.4\textwidth}
+        % Remove white space from the start of every new line inside lstlisting environent
+\begin{lstlisting}
+\begin{question}
+ \item Is there a bigger real number?
+ \item Is there a smallest positive real number?
+\end{question}
+\end{lstlisting}
+\end{minipage} &
+                 \begin{question}
+                 \item Is there a bigger real number?
+                 \item Is there a smallest positive real number?
+                 \end{question}
+    \end{tabular}
+  \end{center}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Macro \hint
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Hints with the macro \verb|\hint|:
+        %
+  \begin{center}
+    \footnotesize
+    \begin{tabular}{c|p{0.4\textwidth}}
+      \textit{\large code} & \hfill\textit{\large result}\hfill\phantom{.} \\ \hline
+      \begin{minipage}[t]{0.4\textwidth}
+        % Remove white space from the start of every new line inside lstlisting environent
+\begin{lstlisting}
+\begin{exercise}
+\item Prove that between two rational numbers there is an irrational.
+  \hint[\par\noindent\scriptsize]{%
+    Assume rationals $\rho_1 < \rho_2$. We define the real number $\frac{\rho_1 + \rho_2}2$. Then, $x$ is\ldots}
+\item Prove that $(\alpha + \beta)^2 = \alpha^2 + 2 \alpha \beta + \beta^2$.
+  \hint[\par\noindent\scriptsize]{%
+    We have $(\alpha + \beta)^2 = (\alpha + \beta) \cdot (\alpha + \beta) = \ldots$}
+\end{exercise}
+\end{lstlisting}
+\end{minipage} &
+                 \begin{exercise}
+                 \item Prove that between two rational numbers there is an irrational.
+                   \hint[\par\noindent\scriptsize]{%
+                     Assume rationals $\rho_1 < \rho_2$. We define the real number $\frac{\rho_1 + \rho_2}2$. Then, $x$ is\ldots}
+                 \item Prove that $(\alpha + \beta)^2 = \alpha^2 + 2 \alpha \beta + \beta^2$.
+                   \hint[\par\noindent\scriptsize]{%
+                     We have $(\alpha + \beta)^2 = (\alpha + \beta) \cdot (\alpha + \beta) = \ldots$}
+                 \end{exercise}
+    \end{tabular}
+  \end{center}
 \item Environment \texttt{multichoice} is for multiple choice questions:
   % leave a blank line
   
@@ -245,7 +347,7 @@ defined in \verb|languages/sch-greek.def|. If you want to set them in a differen
   \finalexamhd{ΓΡΑΠΤΕΣ ΕΠΑΝΑΛΗΠΤΙΚΕΣ}{ΜΑΪΟΥ -- ΙΟΥΝΙΟΥ}
 \item Logo of the  exams
 
-  \authoritylogo\\
+  % \authoritylogo\\
   
   or if we set \verb+\authorities+ and \verb+schl@authorities+:
 
@@ -261,7 +363,7 @@ defined in \verb|languages/sch-greek.def|. If you want to set them in a differen
     ΔΙΕYΘΥΝΣΗ Β/ΘΜΙΑΣ ΕΚΠΑΙΔΕΥΣΗΣ ΜΕΣΣΗΝΙΑΣ
   }
   \school{Λύκειο Καλαμάτας}
-  \authoritylogo
+  % \authoritylogo
 \item School logo
 
   \school{ΓΥΜΝΑΣΙΟ ΠΑΤΡΩΝ}
