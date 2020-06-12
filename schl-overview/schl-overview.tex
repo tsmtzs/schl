@@ -1,0 +1,177 @@
+\documentclass[10pt,a4page]{article}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{xgreek}
+
+\setmainfont[Mapping=tex-text]{Linux Biolinum O}
+
+\usepackage[width=0.9\paperwidth,height=0.9\paperheight,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{enumerate}
+\usepackage{listings}
+
+\lstset{
+  basicstyle=\footnotesize\ttfamily,
+  columns=flexible,
+  breaklines=true,
+  backgroundcolor=\color{blue!10},
+  extendedchars=true,
+  numbers=none,
+  language=TeX,
+  belowskip=-1\medskipamount
+}
+
+\pagestyle{empty}
+
+% Load the package 'schl'.
+\usepackage[english]{schl}
+
+% Change the space between adjacent rows in a tabular environment.
+\renewcommand{\arraystretch}{2.5}
+
+\author{Tassos Tsesmetzis}
+\title{An overview of the \texttt{schl} package}
+\date{}
+
+% A macro for table column headings
+\newcommand{\columnhd}[1]{%
+  \hfill\textit{\large #1}\hfill\phantom{.}
+}
+\def\cellwidth{0.4\textwidth}
+% Insert code and text examples in tables:
+\newcommand{\miniexample}[2][c]{%
+  \parbox[#1]{\cellwidth}{#2}
+}
+\newcommand{\codeexample}[2][c]{%
+  \miniexample[#1]{\lstinputlisting{#2}}
+}
+\newcommand{\textexample}[2][c]{%
+  \small
+  \colorbox[gray]{0.9}{\miniexample[#1]{\input{#2}}}
+}
+
+\newcommand{\examplerow}[2][10pt]{%
+  \par\noindent\phantom{}\hfill\codeexample{#2}\hspace{#1}\textexample{#2}\hfill\phantom{}
+}
+
+\begin{document}
+\maketitle
+
+\verb|schl| is a \XeLaTeX\, package that provides commands and environments suitable for document types that appear in a classroom enviromnent. It's development is based on the Greek school educational practice, but it may be usefull in other contexts also. This document offers a quick view of working examples for \verb|schl|'s marcos. If we load the package passing the parameter \verb|greek|, several macros will be printed in Greek. These are
+defined in \verb|languages/sch-greek.def|. If you want to set them in a different language modify the \verb|languages/sch-template.def| file.
+
+\begin{enumerate}
+\item Blank space is designated with the macros \verb|\lowerdots| and \verb|\blankspace|.
+  \examplerow{exampleBlankspace01.tex}
+  \examplerow{exampleBlankspace02.tex}
+  \examplerow{exampleBlankspace03.tex}
+  \examplerow{exampleBlankspace04.tex}
+
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Environment 'exercise'
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item With the environment \texttt{exercise} you can typeset exercises.
+  \examplerow{exampleEnvirExercise.tex}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Environment schltask'
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item The environment \texttt{schltask} can be used for summative tests.
+  \examplerow{exampleEnvirSchltask.tex}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Macro \asnswer
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item The macro \verb/\answer/ is used to typeset the answer of an exercise.
+  \examplerow{exampleMacroAnswer.tex}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Macro \solution
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item With the macro \verb|\solution|, we write the solution of an exercise.
+  \examplerow{exampleMacroSolution.tex}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Macro \points
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item Set points to exercises with the macro \verb|\points|:
+  \examplerow{exampleMacroPoints.tex}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Environment 'question'
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item Environment \verb|question|:
+  \examplerow{exampleEnvirQuestion.tex}
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % Macro \hint
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\item Hints with the macro \verb|\hint|:
+  \examplerow{exampleMacroHint.tex}
+\item Environment \verb|multichoice| is for multiple choice questions:
+  % leave a blank line
+  \examplerow{exampleEnvirMultichoice01.tex}
+
+  Another example
+  \examplerow{exampleEnvirMultichoice02.tex}
+\item Environment \texttt{tickchoice}. Horizontal
+  \examplerow{exampleEnvirTickchoice01.tex}
+
+  and vertical
+
+  \examplerow{exampleEnvirTickchoice02.tex}
+\item A wish for good luck
+  \examplerow{exampleMacroWish01.tex}
+
+  Setting the text. Macro \verb/\letterspace/ sets the space between adjucent letters
+    \examplerow{exampleMacroWish02.tex}
+
+  \item Write the name and date:
+    \examplerow{exampleMacroNameDate01.tex}
+
+    Also, with dots or a line for blank space:
+    \examplerow{exampleMacroNameDate02.tex}
+
+    We could use
+    \examplerow{exampleMacroNameDate03.tex}
+  \item Exercise deadline:
+        \examplerow{exampleMacroDeadline.tex}
+
+      \item Set the duration of a test:
+        \examplerow{exampleMacroDuration.tex}
+
+      \item Add a remark in a document:
+        \examplerow{exampleMacroRemark.tex}
+
+      \item Add a reminder in a document:
+        \examplerow{exampleMacroReminder.tex}
+
+      \item Header for the theory part of a test:
+        \examplerow{exampleMacroTheorypart.tex}
+
+        Header for the exercise part of a test:
+        \examplerow{exampleMacroExercisepart.tex}
+
+      \item Set the title of a worksheet
+        \examplerow{exampleMacroWorksheethd.tex}
+
+      \item Teacher/headmaster signatures:
+        \examplerow{exampleMacroSignatures.tex}
+
+      \item Headers for tests:
+        \examplerow{exampleMacroExamhd.tex}
+
+      \item Header for end year summative tests:
+        \examplerow{exampleMacroFinalExamhd.tex}
+
+      \item School logo
+        \examplerow{exampleMacroSchoollogo.tex}
+
+      \item True-false type questions with the environment \verb|truefalse|
+        \examplerow{exampleEnvirTruefalse01.tex}
+
+      \item \verb|truefalse*| is a variant of \verb|truefalse|.
+        \examplerow{exampleEnvirTruefalse02.tex}
+
+      \item Matching questions:
+        \examplerow{exampleMacroMatchingque.tex}
+\end{enumerate}
+\end{document}

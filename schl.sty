@@ -411,7 +411,7 @@
 %%
 %% Print the points of an exescise.
 \newcommand{\points}[2][\hfill\bf\footnotesize]{%
-{#1(\points@term{#2}\  #2)}
+{#1(\points@term{#2} #2)}
 }
 %%
 %% A field for writing the full name.
@@ -420,7 +420,7 @@
 }
 %%
 %% A field for writing the date.
-\newcommand\datefield[2][\noindent\bf]{%
+\newcommand\datefield[2][\noindent\rmfamily]{%
   {#1\date@term}: #2%
 }
 %%
