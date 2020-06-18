@@ -284,7 +284,7 @@
 \newlist{truefalse*}{enumerate}{1}
 \setlist[truefalse*]{label={\bf \arabic*.},%
   before*={%
-    \hfill\truefalselabel%      Print first line only with the terms True - False
+    \strut\hfill\truefalselabel%      Print first line only with the terms True - False
     \let\defaultitem\item%      Save the standard definition of \item in a macro.
     \toggletrue{first}%                 Set the first toggle with initial value true.
     \def\item{%

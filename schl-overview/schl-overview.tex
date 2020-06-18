@@ -18,10 +18,13 @@
   basicstyle=\footnotesize\ttfamily,
   columns=flexible,
   breaklines=true,
-  backgroundcolor=\color{blue!10},
+  frame=single,
+  framerule=0pt,
+  % backgroundcolor=\color{blue!10},
   extendedchars=true,
   numbers=none,
   language=TeX,
+  aboveskip=\medskipamount,
   belowskip=-1\medskipamount
 }
 
@@ -37,26 +40,26 @@
 \title{An overview of the \texttt{schl} package}
 \date{}
 
-% A macro for table column headings
-\newcommand{\columnhd}[1]{%
-  \hfill\textit{\large #1}\hfill\phantom{.}
-}
 \def\cellwidth{0.4\textwidth}
 % Insert code and text examples in tables:
-\newcommand{\miniexample}[2][c]{%
-  \parbox[#1]{\cellwidth}{#2}
+\newcommand{\miniexample}[3][t]{%
+  \parbox[#1][#3][t]{\cellwidth}{#2}
 }
-\newcommand{\codeexample}[2][c]{%
-  \miniexample[#1]{\lstinputlisting{#2}}
+\newcommand{\codeexample}[3][c]{%
+  \colorbox[HTML]{b0c4be}{\miniexample[#1]{\lstinputlisting{#2}}{#3}}
 }
-\newcommand{\textexample}[2][c]{%
-  \small
-  \colorbox[gray]{0.9}{\miniexample[#1]{\input{#2}}}
+\newcommand{\textexample}[3][c]{%
+  {\footnotesize
+    \colorbox[gray]{0.9}{\miniexample[#1]{\input{#2}}{#3}}%
+  }
 }
 
-\newcommand{\examplerow}[2][10pt]{%
-  \par\noindent\phantom{}\hfill\codeexample{#2}\hspace{#1}\textexample{#2}\hfill\phantom{}
+\newcommand{\examplerow}[3][10pt]{%
+  \par\noindent\strut\hfill\codeexample{#2}{#3}\hspace{#1}\textexample{#2}{#3}\hfill\strut
 }
+
+% Height of examples. To be used as parameter to \examplerow
+\newlength{\exheight}
 
 \begin{document}
 \maketitle
@@ -66,112 +69,177 @@ defined in \verb|languages/sch-greek.def|. If you want to set them in a differen
 
 \begin{enumerate}
 \item Blank space is designated with the macros \verb|\lowerdots| and \verb|\blankspace|.
-  \examplerow{exampleBlankspace01.tex}
-  \examplerow{exampleBlankspace02.tex}
-  \examplerow{exampleBlankspace03.tex}
-  \examplerow{exampleBlankspace04.tex}
+  % 
+  \setlength{\exheight}{18pt}
+  \lstset{
+    aboveskip=1pt
+  }
+  \examplerow{exampleMacroBlankspace01.tex}{\exheight}
+  % 
+  \setlength{\exheight}{19pt}
+  \examplerow{exampleMacroBlankspace02.tex}{\exheight}
+  % 
+  \setlength{\exheight}{19pt}
+  \examplerow{exampleMacroBlankspace03.tex}{\exheight}
+  % 
+  \setlength{\exheight}{28pt}
+  \examplerow{exampleMacroBlankspace04.tex}{\exheight}
 
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
   % Environment 'exercise'
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \item With the environment \texttt{exercise} you can typeset exercises.
-  \examplerow{exampleEnvirExercise.tex}
+  % 
+  \setlength{\exheight}{132pt}
+  \examplerow{exampleEnvirExercise.tex}{\exheight}
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
   % Environment schltask'
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \item The environment \texttt{schltask} can be used for summative tests.
-  \examplerow{exampleEnvirSchltask.tex}
+  % 
+  \setlength{\exheight}{57pt}
+  \examplerow{exampleEnvirSchltask.tex}{\exheight}
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
   % Macro \asnswer
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \item The macro \verb/\answer/ is used to typeset the answer of an exercise.
-  \examplerow{exampleMacroAnswer.tex}
+  % 
+  \setlength{\exheight}{38pt}
+  \examplerow{exampleMacroAnswer.tex}{\exheight}
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
   % Macro \solution
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \item With the macro \verb|\solution|, we write the solution of an exercise.
-  \examplerow{exampleMacroSolution.tex}
+  % 
+  \setlength{\exheight}{56pt}
+  \examplerow{exampleMacroSolution.tex}{\exheight}
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
   % Macro \points
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \item Set points to exercises with the macro \verb|\points|:
-  \examplerow{exampleMacroPoints.tex}
+  % 
+  \setlength{\exheight}{113pt}
+  \examplerow{exampleMacroPoints.tex}{\exheight}
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
   % Environment 'question'
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \item Environment \verb|question|:
-  \examplerow{exampleEnvirQuestion.tex}
+  % 
+  \setlength{\exheight}{38pt}
+  \examplerow{exampleEnvirQuestion.tex}{\exheight}
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
   % Macro \hint
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \item Hints with the macro \verb|\hint|:
-  \examplerow{exampleMacroHint.tex}
+  % 
+  \setlength{\exheight}{123pt}
+  \examplerow{exampleMacroHint.tex}{\exheight}
 \item Environment \verb|multichoice| is for multiple choice questions:
-  % leave a blank line
-  \examplerow{exampleEnvirMultichoice01.tex}
+  % 
+  \setlength{\exheight}{48pt}
+  \examplerow{exampleEnvirMultichoice01.tex}{\exheight}
 
   Another example
-  \examplerow{exampleEnvirMultichoice02.tex}
+  % 
+  \setlength{\exheight}{57pt}
+  \examplerow{exampleEnvirMultichoice02.tex}{\exheight}
 \item Environment \texttt{tickchoice}. Horizontal
-  \examplerow{exampleEnvirTickchoice01.tex}
+  % 
+  \setlength{\exheight}{48pt}
+  \examplerow{exampleEnvirTickchoice01.tex}{\exheight}
 
   and vertical
 
-  \examplerow{exampleEnvirTickchoice02.tex}
+  % 
+  \setlength{\exheight}{47pt}
+  \examplerow{exampleEnvirTickchoice02.tex}{\exheight}
 \item A wish for good luck
-  \examplerow{exampleMacroWish01.tex}
+  % 
+  \setlength{\exheight}{24pt}
+  \examplerow{exampleMacroWish01.tex}{\exheight}
 
   Setting the text. Macro \verb/\letterspace/ sets the space between adjucent letters
-    \examplerow{exampleMacroWish02.tex}
+  % 
+  \setlength{\exheight}{48pt}
+  \examplerow{exampleMacroWish02.tex}{\exheight}
 
-  \item Write the name and date:
-    \examplerow{exampleMacroNameDate01.tex}
+\item Write the name and date:
+  % 
+  \setlength{\exheight}{20pt}
+  \examplerow{exampleMacroNameDate01.tex}{\exheight}
 
-    Also, with dots or a line for blank space:
-    \examplerow{exampleMacroNameDate02.tex}
+  Also, with dots or a line for blank space:
+  \examplerow{exampleMacroNameDate02.tex}{\exheight}
 
-    We could use
-    \examplerow{exampleMacroNameDate03.tex}
-  \item Exercise deadline:
-        \examplerow{exampleMacroDeadline.tex}
+  We could use
+  \examplerow{exampleMacroNameDate03.tex}{\exheight}
+\item Exercise deadline:
+  % 
+  \setlength{\exheight}{10pt}
+  \examplerow{exampleMacroDeadline.tex}{\exheight}
 
-      \item Set the duration of a test:
-        \examplerow{exampleMacroDuration.tex}
+\item Set the duration of a test:
+  % 
+  \setlength{\exheight}{26pt}
+  \examplerow{exampleMacroDuration.tex}{\exheight}
 
-      \item Add a remark in a document:
-        \examplerow{exampleMacroRemark.tex}
+\item Add a remark in a document:
+  % 
+  \setlength{\exheight}{29pt}
+  \examplerow{exampleMacroRemark.tex}{\exheight}
 
-      \item Add a reminder in a document:
-        \examplerow{exampleMacroReminder.tex}
+\item Add a reminder in a document:
+  % 
+  \setlength{\exheight}{19pt}
+  \examplerow{exampleMacroReminder.tex}{\exheight}
 
-      \item Header for the theory part of a test:
-        \examplerow{exampleMacroTheorypart.tex}
+\item Header for the theory part of a document:
+  % 
+  \setlength{\exheight}{27pt}
+  \examplerow{exampleMacroTheorypart.tex}{\exheight}
 
-        Header for the exercise part of a test:
-        \examplerow{exampleMacroExercisepart.tex}
+  Header for the exercise part of a document:
+  \examplerow{exampleMacroExercisepart.tex}{\exheight}
 
-      \item Set the title of a worksheet
-        \examplerow{exampleMacroWorksheethd.tex}
+\item Set the title of a worksheet
+  % 
+  \setlength{\exheight}{47pt}
+  \examplerow{exampleMacroWorksheethd.tex}{\exheight}
 
-      \item Teacher/headmaster signatures:
-        \examplerow{exampleMacroSignatures.tex}
+\item Teacher/headmaster signatures:
+  % 
+  \setlength{\exheight}{57pt}
+  \setlength{\signatureslength}{80pt}
+  \setlength{\signaturelineskip}{20pt}
+  \examplerow{exampleMacroSignatures.tex}{\exheight}
 
-      \item Headers for tests:
-        \examplerow{exampleMacroExamhd.tex}
+\item Headers for tests:
+  \examplerow{exampleMacroExamhd.tex}{\exheight}
 
-      \item Header for end year summative tests:
-        \examplerow{exampleMacroFinalExamhd.tex}
+\item Header for end year summative tests:
+  % 
+  \setlength{\exheight}{30pt}
+  \examplerow{exampleMacroFinalExamhd.tex}{\exheight}
 
-      \item School logo
-        \examplerow{exampleMacroSchoollogo.tex}
+\item School logo
+  % 
+  \setlength{\exheight}{48pt}
+  \examplerow{exampleMacroSchoollogo.tex}{\exheight}
 
-      \item True-false type questions with the environment \verb|truefalse|
-        \examplerow{exampleEnvirTruefalse01.tex}
+\item True-false type questions with the environment \verb|truefalse|\\
+  % 
+  \setlength{\exheight}{68pt}
+  \setlength{\truefalselength}{20pt}
+  \examplerow{exampleEnvirTruefalse01.tex}{\exheight}
 
-      \item \verb|truefalse*| is a variant of \verb|truefalse|.
-        \examplerow{exampleEnvirTruefalse02.tex}
+\item \verb|truefalse*| is a variant of \verb|truefalse|.
+  % 
+  \setlength{\exheight}{68pt}
+  \examplerow{exampleEnvirTruefalse02.tex}{\exheight}
 
-      \item Matching questions:
-        \examplerow{exampleMacroMatchingque.tex}
+\item Matching questions:
+  % 
+  \setlength{\exheight}{98pt}
+  \examplerow{exampleMacroMatchingque.tex}{\exheight}
 \end{enumerate}
 \end{document}
