@@ -35,7 +35,11 @@
 \renewcommand{\arraystretch}{2.5}
 
 \author{\small Tassos Tsesmetzis}
-\title{An overview of the  package \texttt{schl}}
+\title{%
+  \vspace{-5ex}
+  An overview of the  package \texttt{schl}%
+  \vspace{-4ex}
+}
 \date{}
 
 \def\cellwidth{0.4\textwidth}
@@ -158,6 +162,9 @@ The following list provides some basic example use cases.
 
   Add a header for the exercise part of a document with \verb|\exercisepart|
   \examplerow{exampleMacroExercisepart.tex}{\exheight}
+
+  \newpage
+
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
   % Macro '\matchingque'
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -283,7 +290,7 @@ The following list provides some basic example use cases.
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \item The environment \verb|multichoice| is for multiple choice questions:
   % 
-  \setlength{\exheight}{61pt}
+  \setlength{\exheight}{72pt}
   \examplerow{exampleEnvirMultichoice01.tex}{\exheight}
 
   Another example

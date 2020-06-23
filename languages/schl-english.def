@@ -55,7 +55,7 @@
 
 \def\headmaster@term{Headmaster}
 
-\def\answerabbr@term{Uns.}
+\def\answerabbr@term{Ans.}
 
 \def\exercise@term{Exercise}
 \def\question@term{Question}

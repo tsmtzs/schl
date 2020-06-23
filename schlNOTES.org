@@ -29,7 +29,6 @@
    Update the /README.md/.
 
 * *Generate schl.sty and schl.pdf*
-  
   #+begin_src sh
    rm schl.sty && xelatex schl.ins && xelatex schl.dtx && xelatex schl.dtx;
    cp schl.sty ~/texmf/tex/xelatex/schl/;
