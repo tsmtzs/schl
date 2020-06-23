@@ -41,7 +41,7 @@ Basic macros of the package are:
   * `\wish`: Prints a wish for good luck.
 
  By default, *schl* prints all macros that accept text as *undefined*. As of this version, Greek
- is the only supported language. You can set it with the option `greek`. Other languages can be supported by redefining package's internal macros.
+ is the only full supported language. You can set it with the option `greek`. A partial support for English is provided.  Other languages can be supported by redefining package's internal macros.
 
 ## Requirements
  *schl* loads the packages *fontspec, enumitem, mdframed* and *amsmath*. It is written for XeLaTeX, but
@@ -58,7 +58,7 @@ Load the package in the preable of your document
 
 and use the macros in the `document` environment.
 
-For a quick overview of the macros see [schl-tests.pdf](schl-tests.pdf). Further examples are in the [`examples`](examples/) directory.
+For a quick overview of the macros see [schl-overview.pdf](schl-overview/schl-overview.pdf). Further examples are in the [`examples`](examples/) directory.
 
 ## Contribute
 This project is open to contribution. Some of the things you could do are:
