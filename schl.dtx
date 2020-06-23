@@ -42,6 +42,12 @@
 %<package>  \input{languages/schl-greek.def}
 %<package>}
 %
+%<schl-english>\ProvidesFile{languages/schl-english.def}
+%
+%<package>\DeclareOption{english}{
+%<package>  \input{languages/schl-english.def}
+%<package>}
+%
 %  \iffalse meta-comment
 %%  Execute default options.
 %  \fi
@@ -308,7 +314,7 @@
 \newlist{question}{enumerate}{1}
 \setlist*[question]{%
   align=left,
-  label=\normalsize\bf \question@term\  \arabic*.,
+  label=\bf \question@term\  \arabic*.,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -323,7 +329,7 @@
 \newlist{exercise}{enumerate}{1}
 \setlist*[exercise]{%
   align=left,
-  label=\normalsize\bf\exercise@term\  \arabic*.,
+  label=\bf\exercise@term\  \arabic*.,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -338,7 +344,7 @@
 \newlist{schltask}{enumerate}{1}
 \setlist*[schltask]{%
   align=left,
-  label=\normalsize\bf\letterspace{\defaultletterspace}\task@term\  \Alph*,
+  label=\bf\letterspace{\defaultletterspace}\task@term\  \arabic*,
   wide,
   leftmargin=0pt,
   labelindent=0pt
@@ -448,7 +454,7 @@
 \newlist{truefalse*}{enumerate}{1}
 \setlist[truefalse*]{label={\bf \arabic*.},%
   before*={%
-    \hfill\truefalselabel%      Print first line only with the terms True - False
+    \strut\hfill\truefalselabel%      Print first line only with the terms True - False
     \let\defaultitem\item%      Save the standard definition of \item in a macro.
     \toggletrue{first}%                 Set the first toggle with initial value true.
     \def\item{%                 
@@ -526,7 +532,7 @@
 % \fi
 %    \begin{macrocode}
 \newcommand\solution[1]{%
-  \par\noindent\phantom{.}\hfill\textbf{\solution@term}\hfill\phantom{.}\par%
+  \par\noindent\strut\hfill\textbf{\solution@term}\hfill\strut\par%
   \noindent #1
 }
 %    \end{macrocode}
@@ -537,8 +543,8 @@
 %% A macro for exercise hints.
 % \fi
 %    \begin{macrocode}
-\newcommand\hint[2][\noindent\footnotesize]{%
-  \par{#1\textbf{\hint@term:} #2}%
+\newcommand\hint[2][\par\noindent\footnotesize]{%
+  {#1\textbf{\hint@term:} #2}%
 }
 %    \end{macrocode}
 %
@@ -681,7 +687,7 @@
 % \fi
 %    \begin{macrocode}
 \newcommand{\points}[2][\hfill\bf\footnotesize]{%
-{#1(\points@term{#2}\  #2)}
+{#1(\points@term{#2} #2)}
 }
 %    \end{macrocode}
 %
@@ -702,7 +708,7 @@
 %% A field for writing the date.
 % \fi
 %    \begin{macrocode}
-\newcommand\datefield[2][\noindent\bf]{%
+\newcommand\datefield[2][\noindent\rmfamily]{%
   {#1\date@term}: #2%
 }
 %    \end{macrocode}
