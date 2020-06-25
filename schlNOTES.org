@@ -1,34 +1,13 @@
 # ######################################################################
-# A TODO list for the
-#	package schl v0.1
+# Some notes and usefull bash scripts for the package
+#			schl
 # 
-# Tassos Tsesmetzis -- July 2019
+# Tassos Tsesmetzis -- June 2020
 # ######################################################################
 
-* *A TODO list*
-** TODO Make package TeX agnostic
-   Currently, schl depends on /fontspec/ (for the command /\letterspace/). 
-   This means that it runs on XeLaTeX and LuaTeX (?).
-** TODO Merge macros /\lowerdots/ and /\blankspace/ into one.(???)
-   Define a new macro (name /\blankspace/?) with two arguments. 
-   First argument is optional -- the deviation from base line.
-   Second argument is mandatory -- the length of the space.
-   It must accept an option for the /style/ of the blank space
-   (line, dotted, empty)
-** DONE Define Greek math operators with better font control
-   Is the font used in  /\sin, \cos, \tan, \cot, \gcd/ 
-   and /\lcm/ good enough?
-** TODO Better formating of the table in /\examdetailsii/
-** DONE Delete macro /\signer/?
-   Insert names in /\signatures/ without the need of /\signer/ macro,
-   as part of argument #2.
-** DONE Make a macro for True-False questions
-** DONE Make a macro for matching questions.
-** TODO Define internal macros for other languages.
-** TODO Check the installation in systems not running Linux.
-   Update the /README.md/.
-
 * *Generate schl.sty and schl.pdf*
+Run the next script if you make changes in /schl.dtx/. It will generate
+the file /schl.sty/ and copy all the necessary /schl/ files to ~/texmf/tex/xelatex/schl.
   #+begin_src sh
    rm schl.sty && xelatex schl.ins && xelatex schl.dtx && xelatex schl.dtx;
    cp schl.sty ~/texmf/tex/xelatex/schl/;
@@ -38,7 +17,8 @@
   #+end_src
 
 * *Make changes in all files*
-  
+Run this script if you change the name of a /schl/ macro or environment. It will use 
+sed to change the old name with the new one in all files under the directory schl. 
   #+begin_src bash
    # working directory
    workdir=~/myProjects/schl
@@ -47,8 +27,8 @@
    # with
    newVal=worksheethd;
    # Search and change common parameters in all files
-   # except those in node_modules, bin and .git
-   # if file {} is a regular file the substitute parVal with parName
+   # except those in .git
+   # if file {} is a regular file then substitute oldVal with newVal
    find ${workdir}/* -type d \( -path $(workdir)/node_modules -o -path $(pwd)/.git \) \
         -prune  -o \
         -exec test -f {} \; -exec sed -i -e "s/oldVal/newVal/g" {} \;
