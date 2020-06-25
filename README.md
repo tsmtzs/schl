@@ -56,9 +56,9 @@ Load the package in the preable of your document
 
     \usepackage[greek]{schl}
 
-and use the macros in the `document` environment.
+and use the macros in the `document` environment. 
 
-For a quick overview of the macros see [schl-overview.pdf](schl-overview/schl-overview.pdf). Further examples are in the [`examples`](examples/) directory.
+For a quick overview of the macros see [schl-overview.pdf](schl-overview/schl-overview.pdf). Further examples can be found under the directory [`examples`](examples/).
 
 ## Contribute
 This project is open to contribution. Some of the things you could do are:
@@ -70,13 +70,16 @@ This project is open to contribution. Some of the things you could do are:
     If you have a github account, create an *issue*. Otherwise, send an email to the maintainer.
 
 - **Localize the package**  
-    If you 're using `schl` in a language different than Greek, you could create a file `schl-<your-language>.def` and open a pull request.
+    If you 're using `schl` in a language different than Greek, you could create a file `schl-<your-language>.def` and open a pull request. Follow the 
+	template file [schl-template.def](languages/schl-template.def).
 
 - **Write example documents**  
 	If you have used `schl` in cases that are not similar with those under the directory `examples`, you could write a `tex` document and open a pull request.
 
 - **Help improve the code**  
-	Open a pull request with your contribution.
+  We use the `master` `git` branch for development. Each contribution should be done under a new branch. For code improvements and refinements name 
+  branches following the scheme `topic/<someTopic>`. E.x. `topic/refactorSignatures`, `topic/addOverviewDir` etc. For bug fixes name branches as 
+  `fix/<whatToFix>`. E.x. `fix/macroAnswer`. Open a pull request with your contribution. 
   
 
 ## License

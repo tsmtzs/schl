@@ -16,56 +16,56 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [0.3.1] - 2020-06-23
 ### Added
-- Files ```schl-overview/example*.tex```. Each code example  of 
-```schl-overview/schl-overview.tex``` corresponds in an example file.
+- Files `schl-overview/example*.tex`. Each code example  of 
+`schl-overview/schl-overview.tex` corresponds in an example file.
 ### Changed
-- File ```README.md```.
-- Improvements in ```schl-overview/schl-overview.tex```.
+- File `README.md`.
+- Improvements in `schl-overview/schl-overview.tex`.
 
 ## [0.3.0] - 2020-06-04
 ### Added
-- File ```languages/schl-english.def```. 
+- File `languages/schl-english.def`. 
 ### Changed
-- File ```schl-tests.tex``` renamed as ```schl-overview.tex```.
+- File `schl-tests.tex` renamed as `schl-overview.tex`.
 
 ## [0.2.1] - 2020-06-01
 ### Changed
-- Macros refactored: ```\answer```, ```\points```, ```\deadline```, ```\duration```, 
-```\remark``` and ```\datefield```.
+- Macros refactored: `\answer`, `\points`, `\deadline`, `\duration`, 
+`\remark` and `\datefield`.
 
 ## [0.2.0] - 2020-06-01
 ### Added
-- Macro ```\duration```.
-- Macro ```\remark```.
-- Macro ```\reminder```.
-- Macro ```\getdate```.
-- Macro ```\authority```. Can be used in place of ```\authorityi```, ```\authorityii``` 
-and ```\authorityiii```
-- Environment ```truefalse*```.
+- Macro `\duration`.
+- Macro `\remark`.
+- Macro `\reminder`.
+- Macro `\getdate`.
+- Macro `\authority`. Can be used in place of `\authorityi`, `\authorityii` 
+and `\authorityiii`
+- Environment `truefalse*`.
 ### Changed
-- Macro ```\worksheettitle``` renamed as ```\worksheethd```.
-- Macro ```\examtitle``` renamed as ```\examhd```.
-- Macro ```\finalexamtitle``` renamed as ```\finalexamhd```.
-- Macro ```\schl@schldate``` renamed as ```\schl@date```.
-- Macro ```\schldate``` renamed as ```\setdate```.
-- Macro ```\signatures```. A comma seperated list of values can be given as second argument.
+- Macro `\worksheettitle` renamed as `\worksheethd`.
+- Macro `\examtitle` renamed as `\examhd`.
+- Macro `\finalexamtitle` renamed as `\finalexamhd`.
+- Macro `\schl@schldate` renamed as `\schl@date`.
+- Macro `\schldate` renamed as `\setdate`.
+- Macro `\signatures`. A comma seperated list of values can be given as second argument.
 ### Removed
-- Macros ```\examdetails``` and ```\examdetailsii```.
-- Macros ```\authorityi```, ```\authorityii``` and ```\authorityiii```.
+- Macros `\examdetails` and `\examdetailsii`.
+- Macros `\authorityi`, `\authorityii` and `\authorityiii`.
 
 
 ## [0.1.2] - 2019-12-30
 ### Added
-- Macro ```\duration@term```.
+- Macro `\duration@term`.
 ### Removed
-- Option ```grmath```.
+- Option `grmath`.
 
 ## [0.1.1] - 2019-11-07
 ### Added
-- New option ```grmath```.
-- File ```grmath.def```.
+- New option `grmath`.
+- File `grmath.def`.
 ### Removed
-- Greek mathematics operators removed from ```languages/schl-greek.def```.
+- Greek mathematics operators removed from `languages/schl-greek.def`.
 
 ## [0.1.0] - 2019-09-07
 ### Added
