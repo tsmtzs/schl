@@ -6,8 +6,8 @@
 # ######################################################################
 
 * *Generate schl.sty and schl.pdf*
-Run the next script if you make changes in /schl.dtx/. It will generate
-the file /schl.sty/ and copy all the necessary /schl/ files to ~/texmf/tex/xelatex/schl.
+Run the next script if you make changes in ~schl.dtx~. It will generate
+the file ~schl.sty~ and copy all the necessary ~schl~ files to ~/texmf/tex/xelatex/schl.
   #+begin_src sh
    rm schl.sty && xelatex schl.ins && xelatex schl.dtx && xelatex schl.dtx;
    cp schl.sty ~/texmf/tex/xelatex/schl/;
@@ -17,7 +17,7 @@ the file /schl.sty/ and copy all the necessary /schl/ files to ~/texmf/tex/xelat
   #+end_src
 
 * *Make changes in all files*
-Run this script if you change the name of a /schl/ macro or environment. It will use 
+Run this script if you change the name of a ~schl~ macro or environment. It will use 
 sed to change the old name with the new one in all files under the directory schl. 
   #+begin_src bash
    # working directory

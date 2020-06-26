@@ -14,6 +14,13 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Removed
 ### Fixed
 
+## [1.0.0] - 2020-06-26
+### Added
+- `CHANGELOG.md` file.
+### Changed
+- File `README.md`.
+- File `schlNOTES.org`.
+
 ## [0.3.1] - 2020-06-23
 ### Added
 - Files `schl-overview/example*.tex`. Each code example  of 
