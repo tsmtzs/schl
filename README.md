@@ -16,7 +16,7 @@ Basic macros of the package are:
   * `truefalse` and `truefalse*`: Environments for typesetting true-false type questions.
   * `matchingque`: A macro for typesseting matching questions.
 * Answers, solutions, hints...
-  * `\answer`: For typesetting  the answer of an exercise.
+  * `\answer`: A macro for typesetting  the answer of an exercise.
   * `\solution`: For typesetting the solution of an exercise.
   * `\hint`: Typeset a hint for an exercise.
   * `\deadline`: Set the deadline date.
