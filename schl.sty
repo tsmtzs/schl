@@ -6,24 +6,18 @@
 %%
 %% schl.dtx  (with options: `package')
 %% 
-%% This is a generated file.
-%% 
-%% Copyright (C) 2019 by Tassos Tsesmetzis
+%% Copyright (C) 2019 - 2021 by Tassos Tsesmetzis
 %% 
 %% This file may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either
-%% version 1.3 of this license or any later
-%% version.  The latest version of this license is in:
+%% conditions of the MIT License.
+%% The latest version of this license can be found in
 %% 
-%% http://www.latex-project.org/lppl.txt
-%% 
-%% and version 1.3 or later is part of all distributions of
-%% LaTeX version 2005/12/01 or later.
+%% https://opensource.org/licenses/MIT
 %% 
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{schl}
-[2019/11/07 v1.0 Custom package]
+[2020/06/26 v1.0 Custom package]
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% REQUIRED PACKAGES
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -123,10 +117,6 @@
 %% \signatures uses a \parbox with length \signatureslength.
 %% Each new name is written in a new line. The length between lines is
 %% \signaturelineskip.
-\newlength{\signatureslength}
-\setlength{\signatureslength}{13em}
-\newlength{\signaturelineskip}
-\setlength{\signaturelineskip}{7ex}
 %%
 %% Lengths \leftmatchwidth and \rightmatchwidth are used in macro \matchingque.
 %% Both specify the length of a \parbox. \leftmatchwidth is the length of the left
@@ -150,14 +140,14 @@
 %% This behaviour is heavily dependend on the font used and font size (\large here).
 %%
 %% \trueabbr@term and \falseabbr@term are the first letters of the words True, False.
-\def\truefalselabel{\parbox[t][0pt][c]{\truefalselength}{\large\trueabbr@term\hfill\falseabbr@term}}
+\def\truefalselabel{\makebox[0.97\truefalselength][c]{\large\trueabbr@term\hfill\falseabbr@term}}
 %%
 %% Macro \truefalsesquares prints two squares inside a \parbox.
 %% \parbox's argument height is given the value 0pt.
 %% This is done so that the top of the squares align
 %% with the line of the true-false question.
 %% This behaviour is heavily dependend on the font used and font size (\large here).
-\def\truefalsesquares{\parbox[t][0pt][c]{\truefalselength}{\large$\square$\hfill$\square$}}
+\def\truefalsesquares{\parbox[b][\height][c]{\truefalselength}{\large$\square$\hfill$\square$}}
 %%
 %% Define a new true-false toggle named \first. This is used inside the environment truefalse.
 %% It is used to discriminate the first item from the rest.
@@ -261,7 +251,7 @@
     \def\item{%
       \iftoggle{first}{%
         \togglefalse{first}%              Set the first toggle to take the value false.
-        \defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
+        \defaultitem \begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
         }{%
         \end{minipage}\hfill\truefalselabel\defaultitem%
         \begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
@@ -284,7 +274,7 @@
 \newlist{truefalse*}{enumerate}{1}
 \setlist[truefalse*]{label={\bf \arabic*.},%
   before*={%
-    \strut\hfill\truefalselabel%      Print first line only with the terms True - False
+    \strut\hspace{\leftmargin}\hfill\truefalselabel\hspace{\rightmargin}\strut\vspace{-1ex}% Print first line only with the labels True - False
     \let\defaultitem\item%      Save the standard definition of \item in a macro.
     \toggletrue{first}%                 Set the first toggle with initial value true.
     \def\item{%
