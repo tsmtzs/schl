@@ -142,10 +142,10 @@
 %% Each new name is written in a new line. The length between lines is
 %% \signaturelineskip.
 % \fi
-% <package>\newlength{\signatureslength}
-% <package>\setlength{\signatureslength}{13em}
-% <package>\newlength{\signaturelineskip}
-% <package>\setlength{\signaturelineskip}{7ex}
+%<package>\newlength{\signatureslength}
+%<package>\setlength{\signatureslength}{13em}
+%<package>\newlength{\signaturelineskip}
+%<package>\setlength{\signaturelineskip}{7ex}
 %
 % \iffalse meta-comment
 %%
@@ -495,7 +495,8 @@
           \item \tmp
           }
         \end{leftmatching}
-      }\hfill%
+      }
+      \hfill%
       \parbox[c]{\rightmatchwidth}{%
         \begin{rightmatching}
           \@for\tmp:=#3%

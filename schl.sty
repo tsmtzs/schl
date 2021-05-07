@@ -117,6 +117,10 @@
 %% \signatures uses a \parbox with length \signatureslength.
 %% Each new name is written in a new line. The length between lines is
 %% \signaturelineskip.
+\newlength{\signatureslength}
+\setlength{\signatureslength}{13em}
+\newlength{\signaturelineskip}
+\setlength{\signaturelineskip}{7ex}
 %%
 %% Lengths \leftmatchwidth and \rightmatchwidth are used in macro \matchingque.
 %% Both specify the length of a \parbox. \leftmatchwidth is the length of the left
@@ -304,7 +308,8 @@
           \item \tmp
           }
         \end{leftmatching}
-      }\hfill%
+      }
+      \hfill%
       \parbox[c]{\rightmatchwidth}{%
         \begin{rightmatching}
           \@for\tmp:=#3%
