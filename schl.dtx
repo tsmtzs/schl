@@ -1,9 +1,12 @@
 % \iffalse meta-comment
 %
-% Copyright (C) 2019 by Tasos Tsesmetzis
+% Copyright (C) 2019 by Tassos Tsesmetzis
 %
 % This file may be distributed and/or modified under the
-% conditions of the MIT License. 
+% conditions of the MIT License.
+% The latest version of this license can be found in
+%
+% https://opensource.org/licenses/MIT
 %
 % \fi
 
@@ -25,7 +28,7 @@
 %<package>\RequirePackage{etoolbox}
 %
 % \iffalse meta-comment
-%% 
+%%
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PACKAGE OPTIONS
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,7 +55,7 @@
 %%  Execute default options.
 %  \fi
 %<package>\ExecuteOptions{default}
-%  
+%
 %<package>\ProcessOptions\relax
 %%
 % \iffalse meta-comment
@@ -63,16 +66,16 @@
 %% To localize the package schl, define the following macros
 %% with each term in your language. Put these definitions in
 %% a file schl-<your-language>.def.
-%% \grade@term             : 
-%% \subject@term           : 
-%% \testwriter@term        : 
-%% \testsupervisor@term    : 
+%% \grade@term             :
+%% \subject@term           :
+%% \testwriter@term        :
+%% \testsupervisor@term    :
 %% \date@term              : Used by \datefield.
-%% \schoolyear@term        : 
+%% \schoolyear@term        :
 %% \schoolyearabbr@term    : An abbreviation for the word 'schoolyear'.
-%% \examperiod@term        : 
-%% \time@term              : 
-%% \duration@term          : 
+%% \examperiod@term        :
+%% \time@term              :
+%% \duration@term          :
 %% \examnoabbr@term        : An abbreviation for the exam number of a student.
 %% \fullname@term          : Used by \fullname.
 %% \deadline@term          : Used by \deadline.
@@ -97,7 +100,7 @@
 %% \trueabbr@term          : Used by \truefalselabel. The first letter of True.
 %% \falseabbr@term         : Used by \truefalselabel. The first letter of False.
 %%
-%% Other internal macros that are used are 
+%% Other internal macros that are used are
 %% \schl@wish             : A wish for good luck, usually printed in tests. Used by \wish.
 %% \schl@headmaster       : The name of the headmaster. It is set with \headmaster.
 %% \schl@teacher          : Teacher's name. It is set with \teacher.
@@ -122,6 +125,7 @@
 %%
 %% Default line thickness for macro \blankspace.
 % \fi
+%
 %<package>\def\schl@rulethickness{0.3pt}
 % \iffalse meta-comment
 %% Set \schl@rulethickness
@@ -130,18 +134,18 @@
 %<package>  \def\schl@rulethickness{#1}
 %<package> }
 %
-%   \iffalse meta-comment
+% \iffalse meta-comment
 %%
-%% Macro \signatures is used to write the names of the teacher(s) and the headmaster. 
+%% Macro \signatures is used to write the names of the teacher(s) and the headmaster.
 %% A handwritten signature is written in the right or above of those names.
 %% \signatures uses a \parbox with length \signatureslength.
 %% Each new name is written in a new line. The length between lines is
 %% \signaturelineskip.
 % \fi
-%<package>\newlength{\signatureslength}
-%<package>\setlength{\signatureslength}{13em}
-%<package>\newlength{\signaturelineskip}
-%<package>\setlength{\signaturelineskip}{7ex}
+% <package>\newlength{\signatureslength}
+% <package>\setlength{\signatureslength}{13em}
+% <package>\newlength{\signaturelineskip}
+% <package>\setlength{\signaturelineskip}{7ex}
 %
 % \iffalse meta-comment
 %%
@@ -154,7 +158,7 @@
 %<package>\newlength{\rightmatchwidth}
 %<package>\setlength{\leftmatchwidth}{150pt}
 %<package>\setlength{\rightmatchwidth}{150pt}
-% 
+%
 % \iffalse meta-comment
 %%
 %% The following length is used inside the truefalse environment.
@@ -175,7 +179,7 @@
 %%
 %% \trueabbr@term and \falseabbr@term are the first letters of the words True, False.
 % \fi
-%<package>\def\truefalselabel{\parbox[t][0pt][c]{\truefalselength}{\large\trueabbr@term\hfill\falseabbr@term}}
+%<package>\def\truefalselabel{\makebox[0.97\truefalselength][c]{\large\trueabbr@term\hfill\falseabbr@term}}
 %
 % \iffalse meta-comment
 %%
@@ -185,7 +189,7 @@
 %% with the line of the true-false question.
 %% This behaviour is heavily dependend on the font used and font size (\large here).
 % \fi
-%<package>\def\truefalsesquares{\parbox[t][0pt][c]{\truefalselength}{\large$\square$\hfill$\square$}}
+%<package>\def\truefalsesquares{\parbox[b][\height][c]{\truefalselength}{\large$\square$\hfill$\square$}}
 %
 % \iffalse meta-comment
 %%
@@ -193,7 +197,7 @@
 %% It is used to discriminate the first item from the rest.
 % \fi
 %<package>\newtoggle{first}
-% 
+%
 % \iffalse meta-comment
 %%
 %% Macro \examdetailsii uses a 'tabular' environment. The space between rows is
@@ -305,7 +309,7 @@
 % \subsection{Lists}
 % |schl| package defines seven types of lists. These are |question|, |exercise|, |schltask|, |multichoice|, |tickchoice|, |truefalse| and |matchique|. |tickchoice|  comes also with a stared version |tickchoice*|. All of them depend on the package |enumitem|.
 %
-% \DescribeEnv{question}\DescribeEnv{exercise}\DescribeEnv{schltask}  These environments are  |enumerate|-like lists. List's |\item| is of the form \meta{type} \meta{counter}, where |type| is |\question@term| for |question|, |\exercise@term| for |exercise| and |\task@term| for |schltask|. \meta{counter} is the internal counter of the environment. 
+% \DescribeEnv{question}\DescribeEnv{exercise}\DescribeEnv{schltask}  These environments are  |enumerate|-like lists. List's |\item| is of the form \meta{type} \meta{counter}, where |type| is |\question@term| for |question|, |\exercise@term| for |exercise| and |\task@term| for |schltask|. \meta{counter} is the internal counter of the environment.
 % \iffalse meta-comment
 %%
 %% A list for questions
@@ -409,7 +413,7 @@
 %% An environment to typeset true-false questions. It is defined with the enumitem package.
 %% Each question is followed by the letters \trueabbr@term and \falseabbr@term.
 %% It uses the calc package
-%% 
+%%
 %% Adapted from cfr's answer on
 %% https://tex.stackexchange.com/questions/164613/adding-code-at-the-end-of-each-list-item
 %% accessed 11/07/2019
@@ -420,10 +424,10 @@
   before*={%
     \let\defaultitem\item%      Save the standard definition of \item in a macro.
     \toggletrue{first}%                 Set the first toggle with initial value true.
-    \def\item{%                 
+    \def\item{%
       \iftoggle{first}{%
         \togglefalse{first}%              Set the first toggle to take the value false.
-        \defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
+        \defaultitem \begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
         }{%
         \end{minipage}\hfill\truefalselabel\defaultitem%
         \begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
@@ -437,7 +441,7 @@
   }%
 }
 %    \end{macrocode}
-% 
+%
 % \DescribeEnv{truefalse*} |truefalse*| is based on the |truefalse| environment. A line with
 % |\trueabbr@term| and |\falseabbr@term| at the end prepends the list of items.
 % In contrast with the |truefalse| environment, each |\item| ends with a pair of squares.
@@ -445,7 +449,7 @@
 %% An environment to typeset true-false questions. It is defined with the enumitem package.
 %% Each question is followed by two squares.
 %% It uses the calc package
-%% 
+%%
 %% Adapted from cfr's answer on
 %% https://tex.stackexchange.com/questions/164613/adding-code-at-the-end-of-each-list-item
 %% accessed 11/07/2019
@@ -454,10 +458,10 @@
 \newlist{truefalse*}{enumerate}{1}
 \setlist[truefalse*]{label={\bf \arabic*.},%
   before*={%
-    \strut\hfill\truefalselabel%      Print first line only with the terms True - False
+    \strut\hspace{\leftmargin}\hfill\truefalselabel\hspace{\rightmargin}\strut\vspace{-1ex}% Print first line only with the labels True - False
     \let\defaultitem\item%      Save the standard definition of \item in a macro.
     \toggletrue{first}%                 Set the first toggle with initial value true.
-    \def\item{%                 
+    \def\item{%
       \iftoggle{first}{%
         \togglefalse{first}%              Set the first toggle to take the value false.
         \defaultitem\begin{minipage}[t]{0.8\linewidth minus \truefalselength}%
@@ -477,7 +481,7 @@
 %    \end{macrocode}
 %
 % \DescribeMacro{matchingque} The macro |\matchingque|\marg{CSV}\marg{CSV} is used to typeset matching questions. \meta{CSV}
-% are comma separated values. The \meta{CSV}s of the first argument are the parts of the matching questions that will 
+% are comma separated values. The \meta{CSV}s of the first argument are the parts of the matching questions that will
 % be print in the left column. Similarly, the \meta{CSV} of the second argument are going to be printed on the right
 % column of the matching questions.
 %    \begin{macrocode}
@@ -525,7 +529,7 @@
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\solution} Macro |\solution|\marg{text} is used to typeset the solution of an exercise. 
+% \DescribeMacro{\solution} Macro |\solution|\marg{text} is used to typeset the solution of an exercise.
 % \iffalse meta-comment
 %%
 %% With this command you write the solution of an exercise.
@@ -558,7 +562,7 @@
   {#1\deadline@term}: #2%
 }
 %    \end{macrocode}
-% 
+%
 % \DescribeMacro{\remark} Add a remark in a document. |\remark|\marg{text} prints |\remark@term| followed by argument \meta{text}.
 % \iffalse meta-comment
 %%
@@ -607,7 +611,7 @@
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\examhd} |\examhd|\oarg{text}\marg{text} is used to set the title of tests. The optional argument has the default value |\termtest@term|. 
+% \DescribeMacro{\examhd} |\examhd|\oarg{text}\marg{text} is used to set the title of tests. The optional argument has the default value |\termtest@term|.
 % \iffalse
 %%
 %% Exam and term test title.
@@ -656,7 +660,7 @@
   \schl@framedbox{\exerciseheader@term\!}
 }
 %    \end{macrocode}
-% 
+%
 % \subsection{School information}
 % \DescribeMacro{\school}\DescribeMacro{\headmaster}\DescribeMacro{\teacher}\DescribeMacro{\subject}\DescribeMacro{\grade}\DescribeMacro{\schoolyear}\DescribeMacro{\setdate}\DescribeMacro{\examtime} The macros |\school|\marg{text}, |\headmaster|\marg{name}, |\teacher|\marg{name}, |\subject|\marg{text}, |\grade|\marg{text}, |\schoolyear|\marg{year}, |\setdate|\marg{date}, |\examtime|\marg{time} define and set the value of internal macros.
 % \iffalse meta-comment
@@ -691,7 +695,7 @@
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\fullname} |\fullname|\marg{text} prints |\fullname@term| followed by \meta{text}. 
+% \DescribeMacro{\fullname} |\fullname|\marg{text} prints |\fullname@term| followed by \meta{text}.
 % \iffalse meta-comment
 %%
 %% A field for writing the full name.
@@ -716,7 +720,7 @@
 % \DescribeMacro{\getdate} |\getdate| prints |\schl@date|. The last macro can be set with |\setdate|.
 % \iffalse meta-comment
 %%
-%% Get \schl@date. 
+%% Get \schl@date.
 %% \schl@date is set with \setdate.
 % \fi
 %    \begin{macrocode}
