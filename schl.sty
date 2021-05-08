@@ -17,7 +17,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{schl}
-[2020/06/26 v1.0 Custom package]
+[2021/05/08 1.0.1 Custom package]
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% REQUIRED PACKAGES
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -60,7 +60,7 @@
 %% \schoolyearabbr@term    : An abbreviation for the word 'schoolyear'.
 %% \examperiod@term        :
 %% \time@term              :
-%% \duration@term          :
+%% \duration@term          : Used by \duration.
 %% \examnoabbr@term        : An abbreviation for the exam number of a student.
 %% \fullname@term          : Used by \fullname.
 %% \deadline@term          : Used by \deadline.
@@ -81,7 +81,7 @@
 %% \solution@term          : Used by \solution.
 %% \hint@term              : Used by \hint.
 %% \points@term            : Used by \points. You might need to use an 'if' to distinguise
-%%                           the cases for one or many points.
+%%                           between one and many points.
 %% \trueabbr@term          : Used by \truefalselabel. The first letter of True.
 %% \falseabbr@term         : Used by \truefalselabel. The first letter of False.
 %%
@@ -125,42 +125,29 @@
 %% Lengths \leftmatchwidth and \rightmatchwidth are used in macro \matchingque.
 %% Both specify the length of a \parbox. \leftmatchwidth is the length of the left
 %% column of the matching question, and \rightmatchwidth, is the length of the
-%% right. The default length is 150pt.
+%% right column. The default length is 150pt.
 \newlength{\leftmatchwidth}
 \newlength{\rightmatchwidth}
 \setlength{\leftmatchwidth}{150pt}
 \setlength{\rightmatchwidth}{150pt}
 %%
 %% The following length is used inside the truefalse environment.
-%% It specifies the length of a \parbox. The letters T (true) and F
-%% are the text of this \parbox.
+%% It specifies the length of a box. This box holds the letters T (true) and F.
 \newlength{\truefalselength}
 \setlength{\truefalselength}{50pt}
 %%
-%% Macro \truefalselabel prints T - F inside a \parbox.
-%% \parbox's argument height is given the value 0pt.
-%% This is done so that the top of the letters T - F allign
-%% with the line of the true-false question.
-%% This behaviour is heavily dependend on the font used and font size (\large here).
-%%
+%% Macro \truefalselabel prints T - F inside a box.
 %% \trueabbr@term and \falseabbr@term are the first letters of the words True, False.
-\def\truefalselabel{\makebox[0.97\truefalselength][c]{\large\trueabbr@term\hfill\falseabbr@term}}
+\newcommand{\truefalselabel}{\makebox[0.97\truefalselength][c]{\large\trueabbr@term\hfill\falseabbr@term}}
 %%
 %% Macro \truefalsesquares prints two squares inside a \parbox.
-%% \parbox's argument height is given the value 0pt.
-%% This is done so that the top of the squares align
-%% with the line of the true-false question.
-%% This behaviour is heavily dependend on the font used and font size (\large here).
-\def\truefalsesquares{\parbox[b][\height][c]{\truefalselength}{\large$\square$\hfill$\square$}}
+\newcommand{\truefalsesquares}{\parbox[b][\height][c]{\truefalselength}{\large$\square$\hfill$\square$}}
 %%
 %% Define a new true-false toggle named \first. This is used inside the environment truefalse.
 %% It is used to discriminate the first item from the rest.
 \newtoggle{first}
 %%
-%% Macro \examdetailsii uses a 'tabular' environment. The space between rows is
-\renewcommand{\arraystretch}{1.5}
-%%
-%% \defaultletterspace is the default letter space percentage for macro \letterspace
+%% \defaultletterspace is a PERCENTAGE. It is used to set the letter space in \letterspace.
 \def\defaultletterspace{10.0}
 %% This command prints dots that represent a blank space.
 %% The first argument accepts a length. The deviation from the baseline.
@@ -213,7 +200,7 @@
 }
 %%
 %%  Space of capital word letters
-%% \addfontfeature is from fontspec package.
+%% \addfontfeature is from the fontspec package.
 \def\letterspace#1{\addfontfeature{LetterSpace=#1}}
 %%
 %% Insert multiple choice anwers.
