@@ -19,9 +19,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - File `schl.ins`.
 ### Changed
 - Macro `truefalselabel` uses a `\makebox` (`schl.dtx` line 182).
-- Environment `truefalse*`. Lengths `leftmargin` and `rightmargin` are used to produce	the first line of the output (`schl.dtx' l. 461).
-### Removed
-### Fixed
+- Environment `truefalse*`. Lengths `leftmargin` and `rightmargin` are used to produce	the first line of the output (`schl.dtx` l. 461).
+- A `\newcommand` is used to define `\truefalselabel` and `\truefalsesquares`.
 
 ## [1.0.0] - 2020-06-26
 ### Added

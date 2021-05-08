@@ -1,6 +1,6 @@
 % \iffalse meta-comment
 %
-% Copyright (C) 2019 by Tassos Tsesmetzis
+% Copyright (C) 2019 - 2021 by Tassos Tsesmetzis
 %
 % This file may be distributed and/or modified under the
 % conditions of the MIT License.
@@ -13,7 +13,7 @@
 % \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}
 %<package>\ProvidesPackage{schl}
-%<package>[2020/06/26 v1.0 Custom package]
+%<package>[2021/05/08 1.0.1 Custom package]
 %
 % \iffalse meta-comment
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -75,7 +75,7 @@
 %% \schoolyearabbr@term    : An abbreviation for the word 'schoolyear'.
 %% \examperiod@term        :
 %% \time@term              :
-%% \duration@term          :
+%% \duration@term          : Used by \duration.
 %% \examnoabbr@term        : An abbreviation for the exam number of a student.
 %% \fullname@term          : Used by \fullname.
 %% \deadline@term          : Used by \deadline.
@@ -96,7 +96,7 @@
 %% \solution@term          : Used by \solution.
 %% \hint@term              : Used by \hint.
 %% \points@term            : Used by \points. You might need to use an 'if' to distinguise
-%%                           the cases for one or many points.
+%%                           between one and many points.
 %% \trueabbr@term          : Used by \truefalselabel. The first letter of True.
 %% \falseabbr@term         : Used by \truefalselabel. The first letter of False.
 %%
@@ -152,7 +152,7 @@
 %% Lengths \leftmatchwidth and \rightmatchwidth are used in macro \matchingque.
 %% Both specify the length of a \parbox. \leftmatchwidth is the length of the left
 %% column of the matching question, and \rightmatchwidth, is the length of the
-%% right. The default length is 150pt.
+%% right column. The default length is 150pt.
 % \fi
 %<package>\newlength{\leftmatchwidth}
 %<package>\newlength{\rightmatchwidth}
@@ -162,8 +162,7 @@
 % \iffalse meta-comment
 %%
 %% The following length is used inside the truefalse environment.
-%% It specifies the length of a \parbox. The letters T (true) and F
-%% are the text of this \parbox.
+%% It specifies the length of a box. This box holds the letters T (true) and F.
 % \fi
 %<package>\newlength{\truefalselength}
 %<package>\setlength{\truefalselength}{50pt}
@@ -171,25 +170,16 @@
 %
 % \iffalse meta-comment
 %%
-%% Macro \truefalselabel prints T - F inside a \parbox.
-%% \parbox's argument height is given the value 0pt.
-%% This is done so that the top of the letters T - F allign
-%% with the line of the true-false question.
-%% This behaviour is heavily dependend on the font used and font size (\large here).
-%%
+%% Macro \truefalselabel prints T - F inside a box.
 %% \trueabbr@term and \falseabbr@term are the first letters of the words True, False.
 % \fi
-%<package>\def\truefalselabel{\makebox[0.97\truefalselength][c]{\large\trueabbr@term\hfill\falseabbr@term}}
+%<package>\newcommand{\truefalselabel}{\makebox[0.97\truefalselength][c]{\large\trueabbr@term\hfill\falseabbr@term}}
 %
 % \iffalse meta-comment
 %%
 %% Macro \truefalsesquares prints two squares inside a \parbox.
-%% \parbox's argument height is given the value 0pt.
-%% This is done so that the top of the squares align
-%% with the line of the true-false question.
-%% This behaviour is heavily dependend on the font used and font size (\large here).
 % \fi
-%<package>\def\truefalsesquares{\parbox[b][\height][c]{\truefalselength}{\large$\square$\hfill$\square$}}
+%<package>\newcommand{\truefalsesquares}{\parbox[b][\height][c]{\truefalselength}{\large$\square$\hfill$\square$}}
 %
 % \iffalse meta-comment
 %%
@@ -200,14 +190,7 @@
 %
 % \iffalse meta-comment
 %%
-%% Macro \examdetailsii uses a 'tabular' environment. The space between rows is
-% \fi
-%<package>\renewcommand{\arraystretch}{1.5}
-%
-%
-% \iffalse meta-comment
-%%
-%% \defaultletterspace is the default letter space percentage for macro \letterspace
+%% \defaultletterspace is a PERCENTAGE. It is used to set the letter space in \letterspace.
 % \fi
 %<package>\def\defaultletterspace{10.0}
 %<*driver>
@@ -219,7 +202,7 @@
 \setmainfont[Mapping=tex-text]{Linux Biolinum O}
 \usepackage{schl}
 \renewcommand{\abstractname}{Abstract}
-\date{November, 2019}
+\date{May, 2021}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
@@ -230,9 +213,10 @@
 % \fi
 %
 %
-% \changes{v0.1}{2019/06/22}{Initial version}
-% \changes{v0.5}{2019/11/07}{2nd version}
-% \changes{v1.0}{2019/11/07}{3rd version}
+% \changes{0.1}{2019/06/22}{Initial version}
+% \changes{0.5}{2019/11/07}{2nd version}
+% \changes{1.0}{2019/11/07}{3rd version}
+% \changes{1.0.1}{2021/05/10}{Patch version}
 %
 % \GetFileInfo{schl.sty}
 %
@@ -241,10 +225,8 @@
 % \DoNotIndex{\advance,\begingroup,\catcode,\closein}
 % \DoNotIndex{\closeout,\day,\def,\edef,\else,\empty,\endgroup}
 %
-% \title{The \textsf{schl} package\thanks{This document
-%   corresponds to \textsf{schl}~\fileversion,
-%   dated~\filedate.}}
-% \author{Tassos Tsesmetzis\\ \texttt{ttsesmetzis@gmail.com}}
+% \title{\verb|schl|}
+% \author{Tassos Tsesmetzis\\ \verb|ttsesmetzis@gmail.com|}
 %
 % \maketitle
 %
@@ -252,11 +234,11 @@
 %   |schl| is a \XeLaTeX\  package that provides commands and environments suitable for
 % document types that appear
 %   in a classroom enviromnent. It's development is based on the Greek
-%   school practice, but it may be usefull in other contexts also.
+%   school practice but it may be usefull in other contexts also.
 % \end{abstract}
 %
 % \section{Introduction}
-% Worksheets and tests are common document types in a classroom. |schl| package comes with
+% Worksheets and tests are common document types in a classroom. |schl| comes with
 % macros that facilitate the creation of these documents. It has list environments for
 % questions, exercises and tasks. Other environments of the package can be used for tickable or
 % multiple choice answers. There are also commands for typesetting solutions, hints
@@ -264,18 +246,18 @@
 %
 % Furthermore, you can set the name of the teacher,  subject, grade, headmaster, school, date, school year
 % and use these to print school's logo or information about an exam. |schl| has commands
-% to typeset headers for each document type, a macro for typing the points of an exercise and two
+% to typeset headers for each document type, a macro for typing the points of an exercise and two (?)
 % commands for blank space. There is also a macro for typesetting a wish for good luck!
 %
 % By default, |schl| prints all macros that accept text as |undefined|. As of this version (\fileversion), Greek
-% is the only supported language. You can set it with the option |greek|. Other languages can be supported
+% is the only full supported language. You can set it with the option |greek|. Other languages can be supported
 % by redefining package's internal macros.
 %
-% |schl| loads the packages |fontspec, enumitem, mdframed| and |amsmath|. It is written for \XeLaTeX, but
+% |schl| loads the packages |fontspec|, |enumitem|, |mdframed| and |amsmath|. It is written for \XeLaTeX, but
 % can be used by any system that supports |fontspec|.
 % \section{Macros}
 % \subsection{Blank space}
-% \DescribeMacro{\lowerdots}\DescribeMacro{\blankspace} Usually, we  need to designate blank space in a document. |schl| package has two commands for this. The first one |\lowerdots| \oarg{length}\marg{number}, prints \meta{number} dots. Optional argument \meta{length} sets the deviation from base line. It's  default value is |-0.3ex|.
+% \DescribeMacro{\lowerdots}\DescribeMacro{\blankspace} Usually, we  need to designate blank space in a document. |schl| has two commands for this. The first one |\lowerdots| \oarg{length}\marg{number}, prints \meta{number} dots. Optional argument \meta{length} sets the deviation from base line. It's  default value is |-0.3ex|.
 % \iffalse meta-comment
 %% This command prints dots that represent a blank space.
 %% The first argument accepts a length. The deviation from the baseline.
@@ -361,7 +343,7 @@
 %  \iffalse meta-comment
 %%
 %%  Space of capital word letters
-%% \addfontfeature is from fontspec package.
+%% \addfontfeature is from the fontspec package.
 %  \fi
 %    \begin{macrocode}
 \def\letterspace#1{\addfontfeature{LetterSpace=#1}}
@@ -407,8 +389,8 @@
 }
 %    \end{macrocode}
 % \DescribeEnv{truefalse} |truefalse| is a variant of the |enumerate| environment. Each |\item| is divided in two parts. The
-% first part is the text that follows the |\item| macro. The second part is a |\parbox| that prints |\trueabbr@term| and
-% |\falseabbr@term|.
+% first part is the text that follows the |\item| macro. The second part is a TeX box
+% which contains |\trueabbr@term| and |\falseabbr@term|.
 % \iffalse meta-comment
 %% An environment to typeset true-false questions. It is defined with the enumitem package.
 %% Each question is followed by the letters \trueabbr@term and \falseabbr@term.
@@ -587,7 +569,7 @@
 %    \end{macrocode}
 %
 % \subsection{Titles and headers}
-% \DescribeMacro{\heading} Common document types  in a school environment are the worksheet, various tests and final written exams. The macro |\heading|\marg{text} gives a generic header for all these documents.
+% \DescribeMacro{\heading} Common school document types are the worksheet, various tests and final written exams. The macro |\heading|\marg{text} gives a generic header for all these documents.
 % \iffalse meta-comment
 %%
 %% Large centered text in bold face.
@@ -648,8 +630,8 @@
 }
 %    \end{macrocode}
 %
-% \DescribeMacro{\theorypart}\DescribeMacro{\exercisepart} Sometimes theory and exercise sections constitute
-% a written test. Macros |\theorypart| and |\exercisepart| print headers for those parts.
+% \DescribeMacro{\theorypart}\DescribeMacro{\exercisepart} Sometimes a test is devided in theory and exercise sections.
+% Macros |\theorypart| and |\exercisepart| print headers for those parts.
 %    \begin{macrocode}
 \newcommand\theorypart{%
   \schl@framedbox{\theoryheader@term\!}
@@ -685,7 +667,7 @@
 %    \end{macrocode}
 %
 % \subsection{Other macros for tests}
-% \DescribeMacro{\points} |\points|\oarg{macro}\marg{number} is used to designate the points of an exercise. \marg{number} is the number of points for the current exercise, while \oarg{macro} can be used to control the space just before the points.
+% \DescribeMacro{\points} |\points|\oarg{macro}\marg{number} is used to designate the points of an exercise. \marg{number} is the number of points for the current exercise. \oarg{macro} can be used to control the space before the points.
 % \iffalse meta-comment
 %%
 %% Print the points of an exescise.
