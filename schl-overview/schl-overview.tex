@@ -34,13 +34,11 @@
 % Change the space between adjacent rows in a tabular environment.
 \renewcommand{\arraystretch}{2.5}
 
-\author{\small Tassos Tsesmetzis}
+\author{Tassos Tsesmetzis\\[-4ex] \texttt{ttsesmetzis@gmail.com}}
 \title{%
-  \vspace{-5ex}
   An overview of the  package \texttt{schl}%
-  \vspace{-4ex}
 }
-\date{}
+\date{May, 2021}
 
 \def\cellwidth{0.4\textwidth}
 % Insert code and text examples in tables:
@@ -66,7 +64,7 @@
 \begin{document}
 \maketitle
 
-\verb|schl| is a \XeLaTeX\, package that provides commands and environments suitable for document types that appear in a classroom enviromnent. It's development is based on the Greek school educational practice, but it may be usefull in other contexts also. This document offers a quick view of working examples for \verb|schl|'s marcos.
+\verb|schl| is a \XeLaTeX\, package that provides commands and environments suitable for document types that appear in a classroom. It's development is based on the Greek school educational practice, but it may be usefull in other contexts also. This document offers a quick view of working examples for \verb|schl|'s marcos.
 
 We load the package with the option \verb|english|:
 
@@ -163,8 +161,6 @@ The following list provides some basic example use cases.
   Add a header for the exercise part of a document with \verb|\exercisepart|
   \examplerow{exampleMacroExercisepart.tex}{\exheight}
 
-  \newpage
-
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro '\matchingque'
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -196,8 +192,6 @@ The following list provides some basic example use cases.
   %
   \setlength{\exheight}{169pt}
   \examplerow{exampleMacroPoints.tex}{\exheight}
-
-  \newpage
 
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro \hint
@@ -275,7 +269,7 @@ The following list provides some basic example use cases.
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Environment schltask'
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item The environment \texttt{schltask} can be used for summative tests.
+\item The environment \texttt{schltask} can be used in a summative test.
   %
   \setlength{\exheight}{86pt}
   \examplerow{exampleEnvirSchltask.tex}{\exheight}
