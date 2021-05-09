@@ -44,7 +44,7 @@ Basic macros of the package are:
  is the only full supported language. You can set it with the option `greek`. A partial support for English is provided.  Other languages can be supported by redefining package's internal macros.
 
 ## Requirements
- *schl* loads the packages *fontspec, enumitem, mdframed* and *amsmath*. It is written for XeLaTeX, but
+ *schl* loads the packages *fontspec, enumitem, calc* and *amsmath*. It is written for XeLaTeX, but
  can be used by any system that supports *fontspec*.
 
 ## Installation

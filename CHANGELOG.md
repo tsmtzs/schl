@@ -14,13 +14,15 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Removed
 ### Fixed
 
-## [1.0.1] - yyyy-mm-dd
+## [1.1.0] - 2021-05-09
 ### Added
 - File `schl.ins`.
 ### Changed
 - Macro `truefalselabel` uses a `\makebox` (`schl.dtx` line 182).
 - Environment `truefalse*`. Lengths `leftmargin` and `rightmargin` are used to produce	the first line of the output (`schl.dtx` l. 461).
 - A `\newcommand` is used to define `\truefalselabel` and `\truefalsesquares`.
+### Removed
+- The package `mdframed` removed from the dependencies of `schl`.
 
 ## [1.0.0] - 2020-06-26
 ### Added
