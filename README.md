@@ -1,7 +1,7 @@
 # *schl*
 ## Overview
 *schl* is a XeLaTeX  package that provides commands and environments suitable for
-document types that appear in a classroom enviromnent. It's development is based on 
+document types that appear in a classroom enviromnent. It's development is based on
 the Greek educational practice, but it may be usefull in other contexts also.
 
 Basic macros of the package are:
@@ -37,7 +37,7 @@ Basic macros of the package are:
   * `\datefield`: A field for writing the date.
   * `\schoollogo` Prints school, teacher, grade and subject.
   * `\authoritylogo`: Prints a hierarchy of authorities starting from the Ministry of Education.
-  * `\signatures`: A field that prints the name of the teacher or the headmaster. 
+  * `\signatures`: A field that prints the name of the teacher or the headmaster.
   * `\wish`: Prints a wish for good luck.
 
  By default, *schl* prints all macros that accept text as *undefined*. As of this version, Greek
@@ -49,38 +49,43 @@ Basic macros of the package are:
 
 ## Installation
 ### Linux
-Save the directory `schl` under `~/texmf/tex/xelatex/`.
+Clone repository  under `~/texmf/tex/xelatex/`.
 
 ## Usage
-Load the package in the preable of your document
-
-    \usepackage[greek]{schl}
-
-and use the macros in the `document` environment. 
+The `master` `git` holds the latest release of the package.
+First checkout the `master`
+```bash
+git checkout master
+```
+Then, load the package in the preable of your document
+```latex
+\usepackage[greek]{schl}
+```
+and use the macros in the `document` environment.
 
 For a quick overview of the macros see [schl-overview.pdf](schl-overview/schl-overview.pdf). Further examples can be found under the directory [`examples`](examples/).
 
 ## Contribute
 This project is open to contribution. Some of the things you could do are:
 
-- **Use schl**  
+- **Use schl**
     You could email the maintainer some remarks about it's use.
 
-- **Report issues, errors and bugs.**  
+- **Report issues, errors and bugs.**
     If you have a github account, create an *issue*. Otherwise, send an email to the maintainer.
 
-- **Localize the package**  
-    If you 're using `schl` in a language different than Greek, you could create a file `schl-<your-language>.def` and open a pull request. Follow the 
+- **Localize the package**
+    If you 're using `schl` in a language different than Greek, you could create a file `schl-<your-language>.def` and open a pull request. Follow the
 	template file [schl-template.def](languages/schl-template.def).
 
-- **Write example documents**  
+- **Write example documents**
 	If you have used `schl` in cases that are not similar with those under the directory `examples`, you could write a `tex` document and open a pull request.
 
-- **Help improve the code**  
-  We use the `master` `git` branch for development. Each contribution should be done under a new branch. For code improvements and refinements name 
-  branches following the scheme `topic/<someTopic>`. E.x. `topic/refactorSignatures`, `topic/addOverviewDir` etc. For bug fixes name branches as 
-  `fix/<whatToFix>`. E.x. `fix/macroAnswer`. Open a pull request with your contribution. 
-  
+- **Help improve the code**
+  We use the `develop` `git` branch for development. Each contribution should be done under a new branch. For code improvements and refinements name
+  branches following the scheme `topic/<someTopic>`. E.x. `topic/refactorSignatures`, `topic/addOverviewDir` etc. For bug fixes name branches as
+  `fix/<whatToFix>`. E.x. `fix/macroAnswer`. Open a pull request with your contribution.
+
 
 ## License
 [MIT License](LICENSE)
