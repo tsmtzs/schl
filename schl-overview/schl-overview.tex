@@ -34,13 +34,11 @@
 % Change the space between adjacent rows in a tabular environment.
 \renewcommand{\arraystretch}{2.5}
 
-\author{\small Tassos Tsesmetzis}
+\author{Tassos Tsesmetzis\\[-4ex] \texttt{ttsesmetzis@gmail.com}}
 \title{%
-  \vspace{-5ex}
   An overview of the  package \texttt{schl}%
-  \vspace{-4ex}
 }
-\date{}
+\date{May, 2021}
 
 \def\cellwidth{0.4\textwidth}
 % Insert code and text examples in tables:
@@ -66,7 +64,7 @@
 \begin{document}
 \maketitle
 
-\verb|schl| is a \XeLaTeX\, package that provides commands and environments suitable for document types that appear in a classroom enviromnent. It's development is based on the Greek school educational practice, but it may be usefull in other contexts also. This document offers a quick view of working examples for \verb|schl|'s marcos. 
+\verb|schl| is a \XeLaTeX\, package that provides commands and environments suitable for document types that appear in a classroom. It's development is based on the Greek school educational practice, but it may be usefull in other contexts also. This document offers a quick view of working examples for \verb|schl|'s marcos.
 
 We load the package with the option \verb|english|:
 
@@ -83,39 +81,39 @@ To set the macros of the package in a different language, start by copying the f
 The following list provides some basic example use cases.
 
 \begin{enumerate}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macros 'lowerdots' and '\blankspace'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Blank space is designated with the macros \verb|\lowerdots| and \verb|\blankspace|.
-  % 
+  %
   \setlength{\exheight}{24pt}
   \examplerow{exampleMacroBlankspace01.tex}{\exheight}
-  % 
+  %
   \setlength{\exheight}{24pt}
   \examplerow{exampleMacroBlankspace02.tex}{\exheight}
-  % 
+  %
   \setlength{\exheight}{36pt}
   \examplerow{exampleMacroBlankspace03.tex}{\exheight}
-  % 
+  %
   \setlength{\exheight}{38pt}
   \examplerow{exampleMacroBlankspace04.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro '\wish'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Type a wish for good luck with the macro \verb|\wish|:
-  % 
+  %
   \setlength{\exheight}{30pt}
   \examplerow{exampleMacroWish01.tex}{\exheight}
 
   We can change the text by redefining \verb|\wish|. The macro \verb/\letterspace/ sets the space between adjucent letters.
-  % 
+  %
   \setlength{\exheight}{60pt}
   \examplerow{exampleMacroWish02.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macros '\fullname' and '\datefield'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item With the macros \verb|\fullname| and \verb|\datefield| we write the name and date:
-  % 
+  %
   \setlength{\exheight}{24pt}
   \examplerow{exampleMacroNameDate01.tex}{\exheight}
 
@@ -124,190 +122,187 @@ The following list provides some basic example use cases.
 
   We can pass a date using the macros \verb|\setdate| and \verb|\getdate|.
   \examplerow{exampleMacroNameDate03.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro '\deadline'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Write a deadline with the macro \verb|\deadline|
-  % 
+  %
   \setlength{\exheight}{12pt}
   \examplerow{exampleMacroDeadline.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro '\duration'
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Set the duration of a test with \verb|\duration|
-  % 
+  %
   \setlength{\exheight}{36pt}
   \examplerow{exampleMacroDuration.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro '\remark'
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Add a remark in a document with \verb|\remark|
-  % 
+  %
   \setlength{\exheight}{36pt}
   \examplerow{exampleMacroRemark.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro '\remark'
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Add a reminder with \verb|\reminder|:
-  % 
+  %
   \setlength{\exheight}{24pt}
   \examplerow{exampleMacroReminder.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macros '\theorypart' and '\exercise' part
   % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Add a header for the theory part of a document with \verb|\theorypart|
-  % 
+  %
   \setlength{\exheight}{32pt}
   \examplerow{exampleMacroTheorypart.tex}{\exheight}
 
   Add a header for the exercise part of a document with \verb|\exercisepart|
   \examplerow{exampleMacroExercisepart.tex}{\exheight}
 
-  \newpage
-
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro '\matchingque'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\item The macro \verb|\matchingque| can be used for matching questions
-  % 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item The macro \verb|\matchingque| can be used for matching questions. Note that items must be
+  separated by a \verb|,| character.
+  %
   \setlength{\exheight}{117pt}
   \setlength{\leftmatchwidth}{10em}
   \setlength{\rightmatchwidth}{10em}
   \examplerow{exampleMacroMatchingque.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro \asnswer
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item The macro \verb/\answer/ is used to typeset the answer of an exercise.
-  % 
+  %
   \setlength{\exheight}{49pt}
   \examplerow{exampleMacroAnswer.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro \solution
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item With the macro \verb|\solution|, we write the solution of an exercise.
-  % 
+  %
   \setlength{\exheight}{98pt}
   \examplerow{exampleMacroSolution.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro \points
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Set points to exercises with the macro \verb|\points|:
-  % 
+  %
   \setlength{\exheight}{169pt}
   \examplerow{exampleMacroPoints.tex}{\exheight}
 
-  \newpage
-
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro \hint
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Write hints with the macro \verb|\hint|:
-  % 
+  %
   \setlength{\exheight}{180pt}
   \examplerow{exampleMacroHint.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macros '\worksheethd'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Set the title of a worksheet with \verb|\worksheethd|
-  % 
+  %
   \setlength{\exheight}{70pt}
   \examplerow{exampleMacroWorksheethd.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro '\signatures'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Designate space for teacher(s)/headmaster signatures with the macro
   \verb|\signatures|
-  % 
+  %
   \setlength{\exheight}{72pt}
   \setlength{\signatureslength}{80pt}
   \setlength{\signaturelineskip}{25pt}
   \examplerow{exampleMacroSignatures.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro '\examhd'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Headers for tests can be set with the macro \verb|\examhd|
   \setlength{\exheight}{67pt}
   \examplerow{exampleMacroExamhd.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro '\finalexamhd'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item With \verb|\finalexamhd| we can set a header for end year summative tests.
-  % 
+  %
   \setlength{\exheight}{39pt}
   \examplerow{exampleMacroFinalExamhd.tex}{\exheight}
 
   \newpage
 
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Macro '\schoollogo'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item A school logo can be set with \verb|\schoollogo|.
-  % 
+  %
   \setlength{\exheight}{62pt}
   \examplerow{exampleMacroSchoollogo.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Environment 'truefalse'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item True-false type questions can be set with the environment \verb|truefalse|\\
-  % 
+  %
   \setlength{\exheight}{85pt}
   \setlength{\truefalselength}{20pt}
   \examplerow{exampleEnvirTruefalse01.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Environment 'truefalse*'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent \verb|truefalse*| is a variant of \verb|truefalse|:
-  % 
+  %
 \setlength{\exheight}{95pt}
-\setlength{\truefalselength}{30pt} 
+\setlength{\truefalselength}{30pt}
 \examplerow{exampleEnvirTruefalse02.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Environment 'exercise'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item With the environment \texttt{exercise} you can typeset exercises.
-  % 
+  %
   \setlength{\exheight}{193pt}
   \examplerow{exampleEnvirExercise.tex}{\exheight}
 
   \newpage
 
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Environment schltask'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\item The environment \texttt{schltask} can be used for summative tests.
-  % 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item The environment \texttt{schltask} can be used in a summative test.
+  %
   \setlength{\exheight}{86pt}
   \examplerow{exampleEnvirSchltask.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Environment 'question'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item The environment \verb|question| can be used to typeset a list of questions.
-  % 
+  %
   \setlength{\exheight}{61pt}
   \examplerow{exampleEnvirQuestion.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Environment 'multichoice'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item The environment \verb|multichoice| is for multiple choice questions:
-  % 
+  %
   \setlength{\exheight}{72pt}
   \examplerow{exampleEnvirMultichoice01.tex}{\exheight}
 
   Another example
-  % 
+  %
   \setlength{\exheight}{85pt}
   \examplerow{exampleEnvirMultichoice02.tex}{\exheight}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Environment 'tickchoice'
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Environment \texttt{tickchoice}. Horizontal alignment
-  % 
+  %
   \setlength{\exheight}{60pt}
   \examplerow{exampleEnvirTickchoice01.tex}{\exheight}
 
   and vertical
 
-  % 
+  %
   \setlength{\exheight}{60pt}
   \examplerow{exampleEnvirTickchoice02.tex}{\exheight}
 \end{enumerate}

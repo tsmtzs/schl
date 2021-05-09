@@ -14,6 +14,16 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Removed
 ### Fixed
 
+## [1.1.0] - 2021-05-09
+### Added
+- File `schl.ins`.
+### Changed
+- Macro `truefalselabel` uses a `\makebox` (`schl.dtx` line 182).
+- Environment `truefalse*`. Lengths `leftmargin` and `rightmargin` are used to produce	the first line of the output (`schl.dtx` l. 461).
+- A `\newcommand` is used to define `\truefalselabel` and `\truefalsesquares`.
+### Removed
+- The package `mdframed` removed from the dependencies of `schl`.
+
 ## [1.0.0] - 2020-06-26
 ### Added
 - `CHANGELOG.md` file.
@@ -23,7 +33,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [0.3.1] - 2020-06-23
 ### Added
-- Files `schl-overview/example*.tex`. Each code example  of 
+- Files `schl-overview/example*.tex`. Each code example  of
 `schl-overview/schl-overview.tex` corresponds in an example file.
 ### Changed
 - File `README.md`.
@@ -31,13 +41,13 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [0.3.0] - 2020-06-04
 ### Added
-- File `languages/schl-english.def`. 
+- File `languages/schl-english.def`.
 ### Changed
 - File `schl-tests.tex` renamed as `schl-overview.tex`.
 
 ## [0.2.1] - 2020-06-01
 ### Changed
-- Macros refactored: `\answer`, `\points`, `\deadline`, `\duration`, 
+- Macros refactored: `\answer`, `\points`, `\deadline`, `\duration`,
 `\remark` and `\datefield`.
 
 ## [0.2.0] - 2020-06-01
@@ -46,7 +56,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Macro `\remark`.
 - Macro `\reminder`.
 - Macro `\getdate`.
-- Macro `\authority`. Can be used in place of `\authorityi`, `\authorityii` 
+- Macro `\authority`. Can be used in place of `\authorityi`, `\authorityii`
 and `\authorityiii`
 - Environment `truefalse*`.
 ### Changed
@@ -96,4 +106,3 @@ and `\authorityiii`
 - File schl.pdf.
 - File schl.sty.
 - File schlNOTES.org.
-

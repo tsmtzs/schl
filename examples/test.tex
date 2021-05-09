@@ -1,6 +1,6 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                       Examples for the xelatex package schl
-%                               Tassos Tsesmetzis
+% Examples for the xelatex package schl
+% Tassos Tsesmetzis
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[12pt,a4page]{article}
@@ -15,7 +15,7 @@
 \usepackage[width=0.9\paperwidth,height=0.95\paperheight,centering]{geometry}
 % Package amsfonts. We need it for the macro \mathbb.
 \usepackage{amsfonts}
-% Package enumerate. 
+% Package enumerate.
 \usepackage{enumerate}
 % Package tikz for graphics.
 \usepackage{tikz}
@@ -28,18 +28,16 @@
 % Don't print page number
 \pagestyle{empty}
 
-% Macros for this document 
+% Macros for this document
 % \lowerdots deviation from the base line.
 \def\dotDeviation{-0.5ex}
 % \lowerdots: Number of dots for filling in a word
 \def\dotNoForWord{35}
-% A macro that adds vertical space between adjucent multiple choice questions.
-\def\multichoiceskip{\vspace{2ex}}
 
 % Set \school.
 \school{Γυμνάσιο Ξάνθης}
 % Set name of the teacher.
-\teacher{Όνομα εκπαιδευτικού}
+\teacher{Γεώργιος Ατελής}
 % Set suject.
 \subject{Μαθηματικά}
 % Set grade.
@@ -84,14 +82,14 @@
 \setlength\baselineskip{3.55ex}
 
 \begin{exercise}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % First exercise
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Να συμπληρώσετε τα κενά επιλέγοντας μία από τις απαντήσεις που δίνονται:\points{6}
 
   \vspace{-1.5ex}
 
-  \begin{enumerate}[label=\arabic*.,leftmargin=14pt]
+  \begin{enumerate}[label=\arabic*.,leftmargin=14pt,itemsep=2ex]
   \item Από δύο σημεία \blank
 
     % One could also use the more powerfull package tasks for
@@ -105,63 +103,52 @@
       % This space is determined with trial and error. Any other idea?
     \item μπορούν να περάσουν μόνο δύο ευθείες
     \end{multichoice}
-
-    \multichoiceskip
   \item Αν οι πλευρές μίας γωνίας είναι ημιευθείες κάθετες μεταξύ τους, τότε η γωνία λέγεται \blank
-    
+
     \begin{multichoice}
     \item οξεία
     \item ορθή
     \item αμβλεία
     \end{multichoice}
-
-    \multichoiceskip
   \item Δύο ευθείες που βρίσκονται στο ίδιο επίπεδο και δεν έχουν κανένα κοινό σημείο, λέγονται \blank
-    
+
     \begin{multichoice}
     \item παράλληλες
     \item τεμνόμενες
     \item κάθετες
     \end{multichoice}
-
-    \multichoiceskip
   \item Δύο γωνίες που έχουν άθροισμα $180^\circ$ ονομάζονται \blank\ γωνίες.
-    
-    \begin{multichoice}
-    \item κατακορυφήν
-    \item συμπληρωματικές
-    \item παραπληρωματικές
-    \end{multichoice}
-    
-    \multichoiceskip
-  \item Δύο γωνίες που έχουν άθροισμα $90^\circ$ ονομάζονται \blank\ γωνίες.
-    
-    \begin{multichoice}
-    \item κατακορυφήν
-    \item συμπληρωματικές
-    \item παραπληρωματικές
-    \end{multichoice}
-    
-    \multichoiceskip
-  \item Δύο γωνίες που έχουν την κορυφή τους κοινή και τις πλευρές τους αντικείμενες ημιευθείες ονομάζονται \blank\ γωνίες.
-    
-    \begin{multichoice}
-    \item κατακορυφήν
-    \item συμπληρωματικές
-    \item παραπληρωματικές
-    \end{multichoice}
 
+    \begin{multichoice}
+    \item κατακορυφήν
+    \item συμπληρωματικές
+    \item παραπληρωματικές
+    \end{multichoice}
+  \item Δύο γωνίες που έχουν άθροισμα $90^\circ$ ονομάζονται \blank\ γωνίες.
+
+    \begin{multichoice}
+    \item κατακορυφήν
+    \item συμπληρωματικές
+    \item παραπληρωματικές
+    \end{multichoice}
+  \item Δύο γωνίες που έχουν την κορυφή τους κοινή και τις πλευρές τους αντικείμενες ημιευθείες ονομάζονται \blank\ γωνίες.
+
+    \begin{multichoice}
+    \item κατακορυφήν
+    \item συμπληρωματικές
+    \item παραπληρωματικές
+    \end{multichoice}
   \end{enumerate}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Second exercise
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Να χαρακτηρίσετε κάθε μία από τις πιο κάτω προτάσεις ως σωστή ή λάθος:\points{3}
 
   \vspace{-1.5ex}
 
   \begin{truefalse}
   \item Το μήκος της τεθλασμένης γραμμής $AB\Gamma\Delta$ είναι $5\,cm$.\\
-    
+
     \hspace{12em}
     % One would prefer to enclose the next tikzpicture inside a
     % \begin{center} ... \end{center}
@@ -180,7 +167,7 @@
       \node [below right] at ($0.5*(C) + 0.5*(D)$) {\small$3\ cm$};
     \end{tikzpicture}
   \item Το σημείο $M$ είναι το μέσο του τμήματος $AB$.\\
-    
+
     \hspace{15em}
     \begin{tikzpicture}
       \coordinate (A) at (0,0);
@@ -192,7 +179,7 @@
       \node [above] at ($0.5*(B) + 0.5*(M)$) {\small$2,\!5\ cm$};
     \end{tikzpicture}
   \item  Οι ευθείες $\varepsilon_1$ και $\varepsilon_2$ είναι κάθετες.
-    
+
     \hspace{16.3em}
     \begin{tikzpicture}
       \coordinate (A) at (1,1);
@@ -202,9 +189,9 @@
       \fill [black] (45:0.2) -- (0,0) --(-45:0.2) -- (0.2 * sqrt 2,0) -- cycle;
     \end{tikzpicture}
   \end{truefalse}
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Third exercise
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Ενώστε κάθε γωνία με το είδος της.\points{6}
 
   \matchingque[350pt]{%
@@ -229,9 +216,9 @@
     Η γωνία $\varphi$ είναι ορθή γωνία.,%
     Η γωνία $\varphi$ είναι οξεία γωνία.%
   }
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Forth exercise
-  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Δίνεται ο κύκλος $(K\,,\, 2 cm)$.
   \begin{enumerate}[leftmargin=14pt]
   \item Σχεδιάστε μια διάμετρο $AB$.\points{1}
@@ -240,7 +227,7 @@
   \end{enumerate}
 
   \vspace{4ex}
-  
+
   \begin{center}
     \begin{tikzpicture}
       \coordinate (K) at (0,);
